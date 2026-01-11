@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity New England</title>
+
+    <meta name="description" content="The hub for Infinity the Game events, communities, and shop locations in New England.">
+    <meta property="og:title" content="Infinity New England">
+    <meta property="og:description" content="Events, tournament calendar, and where to play Infinity in New England.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.infinitynewengland.com">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Core Theme (Matches InfinityTheLinks) --- */
+        :root {
+            --color-bg: #0c101d;
+            --color-text-main: #e5e7eb;
+            --color-text-muted: #9ca3af;
+            --color-cyan: #22d3ee;
+            --color-cyan-hover: #67e8f9;
+            --color-cyan-glow: rgba(34, 211, 238, 0.4);
+            --color-border: #374151;
+            --section-header-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--color-bg);
+            /* Sci-fi grid background */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--color-text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, p { margin: 0; }
+        
+        a {
+            color: var(--color-cyan);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        a:hover {
+            color: var(--color-cyan-hover);
+            text-shadow: 0 0 8px var(--color-cyan-glow);
+        }
+
+        /* --- Components --- */
+        .header-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .header-title h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+            line-height: 1.1;
+        }
+        .header-title p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .section { margin-bottom: 3.5rem; }
+        
+        .section-header {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--section-header-color);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Event Cards --- */
+        .event-card {
+            border: 1px solid var(--color-border);
+            background: rgba(31, 41, 55, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        .event-meta {
+            font-size: 0.9rem;
+            color: var(--color-cyan);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Location List --- */
+        .location-group { margin-bottom: 1.5rem; }
+        .location-state {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .location-item {
+            margin-left: 1rem;
+            margin-bottom: 0.5rem;
+            border-left: 2px solid var(--color-border);
+            padding-left: 1rem;
+        }
+        .shop-name {
+            font-weight: 600;
+            color: white;
+            display: block;
+        }
+        .shop-details {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- Responsive Calendar Wrapper --- */
+        .calendar-container {
+            position: relative;
+            padding-bottom: 75%; /* Aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+        .calendar-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Buttons --- */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            border: 1px solid var(--color-cyan);
+            color: var(--color-cyan);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 140px;
+        }
+        .btn:hover {
+            background-color: var(--color-cyan);
+            color: var(--color-bg);
+            text-shadow: none;
+            box-shadow: 0 0 15px var(--color-cyan-glow);
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+            padding-top: 2rem;
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="header-title">
+            <h1>INFINITY NEW ENGLAND</h1>
+            <p>The home of the Human Sphere in the Northeast.</p>
+        </header>
+
+        <section class="section">
+            <div class="btn-group">
+                <a href="https://discord.gg/hMdKRFw6mV" class="btn">Join our Discord</a>
+                <a href="https://www.facebook.com/groups/infinityne" class="btn">Facebook Group</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Major Events</h2>
+            
+            <div class="event-card">
+                <div class="event-title">Beantown Beatdown</div>
+                <div class="event-meta">Annual Satellite Tournament • Dec 12 - 13 • Danvers, MA</div>
+                <p class="mb-4">
+                    New England's premier competitive event. A Corvus Belli Satellite tournament drawing players from across the seaboard.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="beantown.html">Event Info Page &rarr;</a>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-title">Bay State Showdown</div>
+                <div class="event-meta">New 2-Day Event • July 11 - 12 • Wakefield, MA</div>
+                <p>
+                    Our newest major 2-day event. More games, more hobby, and more time to hang out with the community.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="baystate.html">Event Info Page &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Event Calendar</h2>
+            <p style="color:var(--color-text-muted); margin-bottom: 1rem;">
+                Includes local game nights, RTTs, and major events.
+            </p>
+            <div class="calendar-container">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&src=NjM2YmU5ZDg4NjdlMDVjZTM2OGNlZGU3NjY0YzU3ZjQzNmFiYmJlZTA4MzEzY2Q2MWRjN2Q5MWI3NGViNWRkOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5" style="border:solid 1px #777" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Where to Play</h2>
+            <p style="margin-bottom: 1rem; color: var(--color-text-muted);">
+                Looking for a game? Here are the active shops and game nights.
+            </p>
+            <p style="margin-bottom: 1.5rem; color: var(--color-text-muted); font-size: 0.95rem;">
+                <span style="color:var(--color-cyan); font-weight:600;">We play other skirmish games, too!</span> 
+                Warcrow, Cyberpunk Red: Combat Zone, Bushido, Blood & Plunder, and more!
+            </p>
+
+            <div class="location-group">
+                <div class="location-state">Massachusetts</div>
+                
+                <div class="location-item">
+                    <span class="shop-name">Webway Games</span>
+                    <span class="shop-details">Marlborough, MA • <strong style="color:#fff;">Tuesday Nights</strong></span>
+                </div>
+                
+                <div class="location-item">
+                    <span class="shop-name">Alpha Omega Hobby</span>
+                    <span class="shop-details">Quincy, MA • No set night</span>
+                </div>
+
+                <div class="location-item">
+                    <span class="shop-name">The Squabblin' Goblin</span>
+                    <span class="shop-details">Belmont, MA</span>
+                </div>
+            </div>
+
+            <div class="location-group">
+                <div class="location-state">New Hampshire</div>
+                
+                <div class="location-item">
+                    <span class="shop-name">Midgard Games & Hobbies</span>
+                    <span class="shop-details">Derry, NH • <strong style="color:#fff;">Wednesday Nights</strong></span>
+                </div>
+
+                <div class="location-item">
+                    <span class="shop-name">Table Top Nexus</span>
+                    <span class="shop-details">Plaistow, NH</span>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>Maintained by the Infinity New England Community.</p>
+            <p style="font-size: 0.8em; margin-top: 0.5rem; opacity: 0.6;">&copy; 2025 Infinity New England</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

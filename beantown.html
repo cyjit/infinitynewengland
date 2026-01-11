@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beantown Beatdown | Infinity New England</title>
+
+    <meta name="description" content="Beantown Beatdown: New England's Premier Infinity Tournament. Dec 12-13 in Danvers, MA.">
+    <meta property="og:title" content="Beantown Beatdown">
+    <meta property="og:description" content="New Location. More Space. Same Great Event. Dec 12-13.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.infinitynewengland.com/beantown.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Core Theme (Matches Main Site) --- */
+        :root {
+            --color-bg: #0c101d;
+            --color-text-main: #e5e7eb;
+            --color-text-muted: #9ca3af;
+            --color-cyan: #22d3ee;
+            --color-cyan-hover: #67e8f9;
+            --color-cyan-glow: rgba(34, 211, 238, 0.4);
+            --color-border: #374151;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--color-bg);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--color-text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, p { margin: 0; }
+        
+        a {
+            color: var(--color-cyan);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        a:hover {
+            color: var(--color-cyan-hover);
+            text-shadow: 0 0 8px var(--color-cyan-glow);
+        }
+
+        /* --- Navigation --- */
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem; /* Large Impact Title */
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .hero .dates {
+            font-size: 2rem;
+            color: var(--color-cyan);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- CAROUSEL STYLES --- */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 3rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            background: #000; /* Dark background to prevent flicker */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0c101d;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 600px; /* Cap height for large screens */
+            display: block;
+            object-fit: contain; /* Ensures full image is visible */
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(12, 16, 29, 0.7);
+            color: var(--color-cyan);
+            border: 1px solid var(--color-cyan);
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        .carousel-btn:hover {
+            background-color: var(--color-cyan);
+            color: var(--color-bg);
+        }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        /* --- Info Cards --- */
+        .info-card {
+            background: rgba(31, 41, 55, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .info-label {
+            color: var(--color-cyan);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .info-main {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-sub {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- Schedule List --- */
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 500px;
+            text-align: left;
+        }
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        .schedule-item:last-child { border-bottom: none; }
+        .schedule-day { font-weight: 600; color: white; }
+        .schedule-event { color: var(--color-cyan); text-align: right; }
+
+        /* --- Button --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--color-cyan);
+            color: var(--color-bg);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--color-cyan-hover);
+            box-shadow: 0 0 20px var(--color-cyan-glow);
+            color: var(--color-bg); /* Keep text dark */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+
+        <header class="hero">
+            <h1>Beantown Beatdown</h1>
+            <div class="dates">Dec 12 - 13</div>
+            <p style="margin-top: 1rem; color: var(--color-text-muted); font-style: italic;">
+                Mark your calendars for our 5th year!
+            </p>
+        </header>
+
+        <div class="carousel-container">
+            <div class="carousel-track" id="track">
+                
+                <div class="carousel-slide"><img src="images/1.jpg" alt="Beantown Gallery 1"></div>
+                <div class="carousel-slide"><img src="images/2.jpg" loading="lazy" alt="Beantown Gallery 2"></div>
+                <div class="carousel-slide"><img src="images/3.jpg" loading="lazy" alt="Beantown Gallery 3"></div>
+                <div class="carousel-slide"><img src="images/4.jpg" loading="lazy" alt="Beantown Gallery 4"></div>
+                <div class="carousel-slide"><img src="images/5.jpg" loading="lazy" alt="Beantown Gallery 5"></div>
+                <div class="carousel-slide"><img src="images/6.jpg" loading="lazy" alt="Beantown Gallery 6"></div>
+                <div class="carousel-slide"><img src="images/7.jpg" loading="lazy" alt="Beantown Gallery 7"></div>
+                <div class="carousel-slide"><img src="images/8.jpg" loading="lazy" alt="Beantown Gallery 8"></div>
+                <div class="carousel-slide"><img src="images/9.jpg" loading="lazy" alt="Beantown Gallery 9"></div>
+                <div class="carousel-slide"><img src="images/10.jpg" loading="lazy" alt="Beantown Gallery 10"></div>
+                <div class="carousel-slide"><img src="images/11.jpg" loading="lazy" alt="Beantown Gallery 11"></div>
+                <div class="carousel-slide"><img src="images/12.jpg" loading="lazy" alt="Beantown Gallery 12"></div>
+                <div class="carousel-slide"><img src="images/13.jpg" loading="lazy" alt="Beantown Gallery 13"></div>
+                <div class="carousel-slide"><img src="images/14.jpg" loading="lazy" alt="Beantown Gallery 14"></div>
+                <div class="carousel-slide"><img src="images/15.jpg" loading="lazy" alt="Beantown Gallery 15"></div>
+                <div class="carousel-slide"><img src="images/16.png" loading="lazy" alt="Beantown Gallery 16"></div>
+
+            </div>
+            <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+            <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+        </div>
+
+        <div class="info-card">
+            <span class="info-label">New Location</span>
+            <div class="info-main">DoubleTree by Hilton</div>
+            <div class="info-sub">Danvers, MA</div>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: #e5e7eb;">We're moving up.</p>
+                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+                    More spacious gaming hall &bull; Free Parking
+                </p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <span class="info-label">The Format</span>
+            <ul class="schedule-list">
+                <li class="schedule-item">
+                    <span class="schedule-day">Friday Night</span>
+                    <span class="schedule-event">Beerfinity</span>
+                </li>
+                <li class="schedule-item">
+                    <span class="schedule-day">Saturday & Sunday</span>
+                    <span class="schedule-event">5 Round ITS</span>
+                </li>
+            </ul>
+        </div>
+
+        <div style="text-align: center;">
+            <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
+                Full event pack and registration details coming soon.
+            </p>
+            <a href="https://www.facebook.com/profile.php?id=61572788194223" class="btn">
+                Follow Updates on Facebook
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Infinity New England</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const track = document.getElementById('track');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slides = Array.from(track.children);
+        let currentIndex = 0;
+
+        function updateSlidePosition() {
+            const width = slides[0].getBoundingClientRect().width;
+            track.style.transform = 'translateX(' + (-width * currentIndex) + 'px)';
+        }
+
+        // Button Listeners
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlidePosition();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlidePosition();
+        });
+
+        // Auto-play (Optional: changes slide every 5 seconds)
+        // setInterval(() => {
+        //     currentIndex = (currentIndex + 1) % slides.length;
+        //     updateSlidePosition();
+        // }, 5000);
+
+        // Handle Window Resize (recalculate width)
+        window.addEventListener('resize', updateSlidePosition);
+        
+        // Ensure first calculation is correct after load
+        window.onload = updateSlidePosition;
+    </script>
+
+</body>
+</html>

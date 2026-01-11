@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bay State Showdown | Infinity New England</title>
+
+    <meta name="description" content="Bay State Showdown: A 5-Round Infinity Tournament at Ironweld. July 11-12, Danvers MA.">
+    <meta property="og:title" content="Bay State Showdown">
+    <meta property="og:description" content="Part of the Ironweld Gaming Convention. 5 Rounds. 2 Days.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.infinitynewengland.com/baystate.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Core Theme --- */
+        :root {
+            --color-bg: #0c101d;
+            --color-text-main: #e5e7eb;
+            --color-text-muted: #9ca3af;
+            --color-cyan: #22d3ee;
+            --color-cyan-hover: #67e8f9;
+            --color-cyan-glow: rgba(34, 211, 238, 0.4);
+            --color-border: #374151;
+            --section-header: #ffffff;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--color-bg);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--color-text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* --- Typography & Links --- */
+        h1, h2, h3, p { margin: 0; }
+        a {
+            color: var(--color-cyan);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        a:hover {
+            color: var(--color-cyan-hover);
+            text-shadow: 0 0 8px var(--color-cyan-glow);
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: white;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        .hero .dates {
+            font-size: 1.5rem;
+            color: var(--color-cyan);
+            margin-top: 0.5rem;
+        }
+        .hero .con-tag {
+            margin-top: 0.5rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        /* --- Action Buttons --- */
+        .cta-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-align: center;
+            min-width: 160px;
+            border: 2px solid var(--color-cyan);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--color-cyan);
+            color: var(--color-bg);
+        }
+        .btn-primary:hover {
+            background-color: var(--color-cyan-hover);
+            box-shadow: 0 0 20px var(--color-cyan-glow);
+            color: var(--color-bg);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-cyan);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(34, 211, 238, 0.1);
+            color: var(--color-cyan-hover);
+        }
+
+        /* --- Venue Card --- */
+        .venue-card {
+            background: rgba(31, 41, 55, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .venue-name { font-size: 1.25rem; font-weight: 600; color: white; }
+        .venue-detail { color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; }
+        .highlight { color: var(--color-cyan); font-weight: 600; }
+
+        /* --- Schedule Table --- */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: rgba(31, 41, 55, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .schedule-table th, .schedule-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        .schedule-table th {
+            background-color: rgba(34, 211, 238, 0.1);
+            color: var(--color-cyan);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+        .schedule-table tr:last-child td { border-bottom: none; }
+        .time-col { width: 140px; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+        .event-col { color: white; font-weight: 500; }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--color-border);
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+
+        <header class="hero">
+            <h1>Bay State Showdown</h1>
+            <div class="dates">July 11 - 12</div>
+            <div class="con-tag">
+                Hosted at the <a href="https://wickeddicey.com/events/ironweld/">Ironweld Gaming Convention</a>
+            </div>
+        </header>
+
+        <div class="cta-container">
+            <a href="https://wickeddicey.com/product/ironweld-infinity-the-universe/" class="btn btn-primary">
+                Buy Tickets
+            </a>
+            <a href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1757703226746&key=GRP&app=resvlink&inventoryMissing=true" class="btn btn-secondary">
+                Book Hotel Block
+            </a>
+        </div>
+
+        <h2 class="section-title">The Venue</h2>
+        <div class="venue-card">
+            <div class="venue-name">DoubleTree by Hilton Hotel Boston North Shore</div>
+            <div class="venue-detail">50 Ferncroft Rd, Danvers, MA 01923</div>
+            <div class="venue-detail" style="margin-top: 0.5rem;">
+                <span>&bull; <span class="highlight">Free Parking</span></span>
+                <span>&bull; 35 mins from Logan Airport</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">The Schedule</h2>
+        
+        <h3 style="color:white; margin-bottom:0.5rem; margin-top:1.5rem;">Saturday, July 11</h3>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th class="time-col">Time</th>
+                    <th class="event-col">Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-col">09:00 - 10:00</td>
+                    <td class="event-col">Check-In & Setup</td>
+                </tr>
+                <tr>
+                    <td class="time-col">10:00 - 12:30</td>
+                    <td class="event-col">Round 1</td>
+                </tr>
+                <tr>
+                    <td class="time-col">12:30 - 01:30</td>
+                    <td class="event-col">Lunch Break</td>
+                </tr>
+                <tr>
+                    <td class="time-col">01:30 - 04:00</td>
+                    <td class="event-col">Round 2</td>
+                </tr>
+                <tr>
+                    <td class="time-col">04:00 - 06:30</td>
+                    <td class="event-col">Round 3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="color:white; margin-bottom:0.5rem; margin-top:2rem;">Sunday, July 12</h3>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th class="time-col">Time</th>
+                    <th class="event-col">Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-col">09:00</td>
+                    <td class="event-col">Check-In</td>
+                </tr>
+                <tr>
+                    <td class="time-col">09:30 - 12:00</td>
+                    <td class="event-col">Round 4</td>
+                </tr>
+                <tr>
+                    <td class="time-col">12:00 - 01:00</td>
+                    <td class="event-col">Lunch Break</td>
+                </tr>
+                <tr>
+                    <td class="time-col">01:00 - 03:30</td>
+                    <td class="event-col">Round 5</td>
+                </tr>
+                <tr>
+                    <td class="time-col">04:00</td>
+                    <td class="event-col">Awards & Wrap-up</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">Missions</h2>
+        <p style="color: var(--color-text-muted);">
+            Mission selection to be announced closer to the event date.
+        </p>
+
+        <footer>
+            <p>&copy; 2025 Infinity New England</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
