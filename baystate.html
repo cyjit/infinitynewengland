@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bay State Showdown | Infinity New England</title>
 
-    <meta name="description" content="Bay State Showdown: A 5-Round Infinity Tournament at Ironweld. July 11-12, Danvers MA.">
+    <meta name="description" content="Bay State Showdown: A 5-Round Infinity Tournament at Ironweld. July 11-12, 2026 in Danvers MA.">
     <meta property="og:title" content="Bay State Showdown">
-    <meta property="og:description" content="Part of the Ironweld Gaming Convention. 5 Rounds. 2 Days.">
+    <meta property="og:description" content="Part of the Ironweld Gaming Convention. 5 Rounds. 2 Days. July 11-12, 2026.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.infinitynewengland.com/baystate.html">
 
@@ -92,7 +92,7 @@
         /* --- Hero Section --- */
         .hero {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
         .hero h1 {
             font-size: 3rem;
@@ -111,6 +111,15 @@
             margin-top: 0.5rem;
             color: var(--color-text-muted);
             font-style: italic;
+        }
+
+        /* --- Intro Block --- */
+        .intro-block {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+            color: var(--color-text-main);
         }
 
         /* --- Action Buttons --- */
@@ -149,8 +158,8 @@
             color: var(--color-cyan-hover);
         }
 
-        /* --- Venue Card --- */
-        .venue-card {
+        /* --- Cards (Venue, Swag, etc) --- */
+        .info-card {
             background: rgba(31, 41, 55, 0.3);
             border: 1px solid var(--color-border);
             border-radius: 8px;
@@ -158,10 +167,18 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            margin-bottom: 2rem;
         }
-        .venue-name { font-size: 1.25rem; font-weight: 600; color: white; }
-        .venue-detail { color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; }
+        .info-title { font-size: 1.25rem; font-weight: 600; color: white; }
+        .info-detail { color: var(--color-text-muted); line-height: 1.6; }
         .highlight { color: var(--color-cyan); font-weight: 600; }
+        
+        .market-street-note {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+        }
 
         /* --- Schedule Table --- */
         .schedule-table {
@@ -206,11 +223,17 @@
 
         <header class="hero">
             <h1>Bay State Showdown</h1>
-            <div class="dates">July 11 - 12</div>
+            <div class="dates">July 11 - 12, 2026</div>
             <div class="con-tag">
                 Hosted at the <a href="https://wickeddicey.com/events/ironweld/">Ironweld Gaming Convention</a>
             </div>
         </header>
+
+        <div class="intro-block">
+            <p>
+                Building upon the success of the Beantown Beatdown, the Bay State Showdown offers another two days of great Infinity. Expect the same high standards: sporting, fun, and competitive play on excellent tables.
+            </p>
+        </div>
 
         <div class="cta-container">
             <a href="https://wickeddicey.com/product/ironweld-infinity-the-universe/" class="btn btn-primary">
@@ -221,13 +244,34 @@
             </a>
         </div>
 
-        <h2 class="section-title">The Venue</h2>
-        <div class="venue-card">
-            <div class="venue-name">Four Points by Sheraton Wakefield Boston Hotel & Conference Center</div>
-            <div class="venue-detail">One Audubon Rd, Wakefield, MA 01880</div>
-            <div class="venue-detail" style="margin-top: 0.5rem;">
-                <span>&bull; <span class="highlight">Free Parking</span></span>
-                <span>&bull; 35 mins from Logan Airport</span>
+        <h2 class="section-title">The Venue & Dining</h2>
+        <div class="info-card">
+            <div class="info-title">Four Points by Sheraton Wakefield Boston Hotel</div>
+            <div class="info-detail">One Audubon Rd, Wakefield, MA 01880</div>
+            
+            <div class="market-street-note">
+                <p style="margin-bottom: 0.5rem;">
+                    We are located within walking distance of <strong class="highlight">Market Street Lynnfield</strong>. 
+                </p>
+                <p style="color: var(--color-text-muted);">
+                    This provides incredible dining options (Yard House, Davio's, Otto Pizza) down the street from the venue. Market Street also offers ample <strong>overflow parking</strong> for all attendees.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Merch & Swag</h2>
+        <div class="info-card" style="text-align: center;">
+            <div class="info-title" style="color: var(--color-cyan); text-transform: uppercase; font-size: 1rem; letter-spacing: 0.1em; margin-bottom:0.5rem;">
+                Official Swag Drop
+            </div>
+            <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                <strong>2026's first Swag Drop happens here.</strong><br>
+                Secure your faction gear, tokens, and templates ahead of time.
+            </p>
+            <div>
+                <a href="https://infinitynewengland.com/store" class="btn btn-primary" style="font-size: 1rem; padding: 0.75rem 1.5rem;">
+                    Pre-Order at our Online Store
+                </a>
             </div>
         </div>
 
@@ -303,7 +347,7 @@
         </p>
 
         <footer>
-            <p>&copy; 2025 Infinity New England</p>
+            <p>&copy; 2026 Infinity New England</p>
         </footer>
 
     </div>
@@ -314,5 +358,3 @@
         async src="//gc.zgo.at/count.js"></script>
 
 </html>
-
-
