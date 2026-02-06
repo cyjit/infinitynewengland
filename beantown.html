@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beantown Beatdown | Infinity New England</title>
 
-    <meta name="description" content="Beantown Beatdown: New England's Premier Infinity Tournament. Dec 12-13 in Danvers, MA.">
+    <meta name="description" content="Beantown Beatdown: New England's Premier Infinity Tournament. Dec 12-13, 2026 in Danvers, MA.">
     <meta property="og:title" content="Beantown Beatdown">
-    <meta property="og:description" content="New Location. More Space. Same Great Event. Dec 12-13.">
+    <meta property="og:description" content="New Location. More Space. Same Great Event. Dec 12-13, 2026.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.infinitynewengland.com/beantown.html">
 
@@ -102,6 +102,23 @@
             color: var(--color-cyan);
             font-weight: 300;
             letter-spacing: 0.1em;
+        }
+        
+        /* --- Intro Block --- */
+        .intro-block {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3rem auto;
+        }
+        .intro-block p {
+            font-size: 1.15rem;
+            color: var(--color-text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .intro-block .highlight {
+            color: var(--color-cyan);
+            font-weight: 600;
         }
 
         /* --- CAROUSEL STYLES --- */
@@ -211,6 +228,58 @@
         .schedule-day { font-weight: 600; color: white; }
         .schedule-event { color: var(--color-cyan); text-align: right; }
 
+        /* --- History Table --- */
+        .history-table-container {
+            overflow-x: auto;
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .history-table th {
+            color: var(--color-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            padding: 0.75rem 0.5rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+        .history-table td {
+            padding: 1rem 0.5rem;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+            vertical-align: top;
+        }
+        .history-table tr:last-child td {
+            border-bottom: none;
+        }
+        .history-event {
+            font-weight: 600;
+            color: #fff;
+            display: block;
+        }
+        .history-date {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+        .winner-name {
+            color: white;
+            font-weight: 500;
+        }
+        .secondary-award {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+        .secondary-award strong {
+            color: var(--color-cyan);
+            font-weight: 400;
+        }
+
         /* --- Button --- */
         .btn {
             display: inline-block;
@@ -246,11 +315,20 @@
 
         <header class="hero">
             <h1>Beantown Beatdown</h1>
-            <div class="dates">Dec 12 - 13</div>
+            <div class="dates">Dec 12 - 13, 2026</div>
             <p style="margin-top: 1rem; color: var(--color-text-muted); font-style: italic;">
                 Mark your calendars for our 5th year!
             </p>
         </header>
+
+        <div class="intro-block">
+            <p>
+                Since 2022, the Beantown Beatdown has stood as the Northeast's premier Infinity Satellite tournament. You can find us at the <a href="https://wickeddicey.com/events/everwinter/">Everwinter Gaming Convention.</a>
+            </p>
+            <p>
+                We are committed to giving you the best 2 days of Infinity possible, prioritizing excellent sportsmanship, fabulous prizes, and some of the best game tables at any event. Whether you are a casual kitchen-table player attending your first event or a top-ranked player in the world, there is a seat for you here.
+            </p>
+        </div>
 
         <div class="carousel-container">
             <div class="carousel-track" id="track">
@@ -301,6 +379,61 @@
                     <span class="schedule-event">5 Round ITS</span>
                 </li>
             </ul>
+        </div>
+
+        <div class="info-card">
+            <span class="info-label">Hall of Champions</span>
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>ITS Champion</th>
+                            <th>Best Painted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="history-event">Beantown I</span>
+                                <span class="history-date">Dec 2022</span>
+                            </td>
+                            <td><span class="winner-name">Khavrion</span></td>
+                            <td><span class="winner-name">Dr. D</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="history-event">Beantown II</span>
+                                <span class="history-date">Dec 2023</span>
+                            </td>
+                            <td><span class="winner-name">Lobo0705</span></td>
+                            <td><span class="winner-name">Sloppy Steak</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="history-event">Beantown III</span>
+                                <span class="history-date">Jan 2025</span>
+                            </td>
+                            <td><span class="winner-name">Brunix</span></td>
+                            <td><span class="winner-name">Dr. D</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="history-event">Beantown IV</span>
+                                <span class="history-date">Dec 2025</span>
+                            </td>
+                            <td>
+                                <span class="winner-name">cobraprime</span>
+                                <span class="secondary-award"><strong>Wicked Player:</strong> Wilmar</span>
+                            </td>
+                            <td>
+                                <span class="winner-name">Sloppy Steak</span>
+                                <span class="secondary-award"><strong>Best Table:</strong> Tewhill</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div style="text-align: center;">
@@ -360,4 +493,3 @@
         async src="//gc.zgo.at/count.js"></script>
     
 </html>
-
