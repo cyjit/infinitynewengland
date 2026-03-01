@@ -16,6 +16,7 @@
     <meta property="og:title" content="Beantown Beatdown">
     <meta property="og:description" content="New Location. More Space. Same Great Event. Dec 12-13, 2026.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.infinitynewengland.com/ogimg.png">
     <meta property="og:url" content="https://www.infinitynewengland.com/beantown.html">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -28,15 +29,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Core Theme (Matches Main Site) --- */
+        /* --- Core Theme --- */
         :root {
-            --color-bg: #0c101d;
-            --color-text-main: #e5e7eb;
-            --color-text-muted: #9ca3af;
-            --color-cyan: #22d3ee;
-            --color-cyan-hover: #67e8f9;
-            --color-cyan-glow: rgba(34, 211, 238, 0.4);
-            --color-border: #374151;
+            --color-bg:          #0c101d;
+            --color-text-main:   #e5e7eb;
+            --color-text-muted:  #9ca3af;
+            --color-amber:       #e8a840;
+            --color-amber-hover: #f0c060;
+            --color-amber-glow:  rgba(232, 168, 64, 0.35);
+            --color-red:         #880000;
+            --color-border:      #374151;
         }
 
         body {
@@ -62,13 +64,13 @@
         h1, h2, h3, p { margin: 0; }
         
         a {
-            color: var(--color-cyan);
+            color: var(--color-amber);
             text-decoration: none;
             transition: all 0.2s ease;
         }
         a:hover {
-            color: var(--color-cyan-hover);
-            text-shadow: 0 0 8px var(--color-cyan-glow);
+            color: var(--color-amber-hover);
+            text-shadow: 0 0 8px var(--color-amber-glow);
         }
 
         /* --- Navigation --- */
@@ -92,14 +94,14 @@
             font-size: 3.5rem; /* Large Impact Title */
             font-weight: 700;
             color: white;
-            text-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+            text-shadow: 0 0 15px rgba(232, 168, 64, 0.2);
             line-height: 1.1;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
         .hero .dates {
             font-size: 2rem;
-            color: var(--color-cyan);
+            color: var(--color-amber);
             font-weight: 300;
             letter-spacing: 0.1em;
         }
@@ -117,7 +119,7 @@
             line-height: 1.6;
         }
         .intro-block .highlight {
-            color: var(--color-cyan);
+            color: var(--color-amber);
             font-weight: 600;
         }
 
@@ -162,8 +164,8 @@
             top: 50%;
             transform: translateY(-50%);
             background-color: rgba(12, 16, 29, 0.7);
-            color: var(--color-cyan);
-            border: 1px solid var(--color-cyan);
+            color: var(--color-amber);
+            border: 1px solid var(--color-amber);
             cursor: pointer;
             padding: 10px 15px;
             font-size: 1.5rem;
@@ -172,7 +174,7 @@
             border-radius: 4px;
         }
         .carousel-btn:hover {
-            background-color: var(--color-cyan);
+            background-color: var(--color-amber);
             color: var(--color-bg);
         }
         .prev-btn { left: 10px; }
@@ -189,7 +191,7 @@
         }
         
         .info-label {
-            color: var(--color-cyan);
+            color: var(--color-amber);
             text-transform: uppercase;
             font-size: 0.85rem;
             font-weight: 700;
@@ -226,7 +228,7 @@
         }
         .schedule-item:last-child { border-bottom: none; }
         .schedule-day { font-weight: 600; color: white; }
-        .schedule-event { color: var(--color-cyan); text-align: right; }
+        .schedule-event { color: var(--color-amber); text-align: right; }
 
         /* --- History Table --- */
         .history-table-container {
@@ -240,7 +242,7 @@
             font-size: 0.95rem;
         }
         .history-table th {
-            color: var(--color-cyan);
+            color: var(--color-amber);
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.75rem;
@@ -276,14 +278,90 @@
             margin-top: 4px;
         }
         .secondary-award strong {
-            color: var(--color-cyan);
+            color: var(--color-amber);
             font-weight: 400;
         }
+
+        /* --- Painted Model Lightbox --- */
+        .painted-trigger {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: white;
+            font-weight: 500;
+            font-size: inherit;
+            font-family: inherit;
+            text-decoration: underline;
+            text-decoration-color: rgba(255,255,255,0.25);
+            text-underline-offset: 3px;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+        .painted-trigger:hover {
+            color: var(--color-amber);
+            text-decoration-color: var(--color-amber-glow);
+        }
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            cursor: pointer;
+        }
+        .lightbox-overlay.open {
+            display: flex;
+        }
+        .lightbox-inner {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            cursor: default;
+        }
+        .lightbox-inner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 0 60px rgba(0,0,0,0.6);
+        }
+        .lightbox-caption {
+            margin-top: 0.75rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+        .lightbox-caption span {
+            color: white;
+            font-weight: 600;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            background: var(--color-border);
+            border: none;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-close:hover { background: #4b5563; }
 
         /* --- Button --- */
         .btn {
             display: inline-block;
-            background-color: var(--color-cyan);
+            background-color: var(--color-amber);
             color: var(--color-bg);
             padding: 1rem 2rem;
             border-radius: 6px;
@@ -294,8 +372,8 @@
             cursor: pointer;
         }
         .btn:hover {
-            background-color: var(--color-cyan-hover);
-            box-shadow: 0 0 20px var(--color-cyan-glow);
+            background-color: var(--color-amber-hover);
+            box-shadow: 0 0 20px var(--color-amber-glow);
             color: var(--color-bg); /* Keep text dark */
         }
 
@@ -314,7 +392,7 @@
         <a href="index.html" class="nav-back">&larr; Back to Home</a>
 
         <header class="hero">
-            <h1>Beantown Beatdown</h1>
+            <h1><img src="images/satellite-logo.png" alt="Satellite Event" style="height:0.8em; width:auto; vertical-align:middle; margin-right:0.3em; position:relative; top:-0.05em; opacity:0.85;">Beantown Beatdown</h1>
             <div class="dates">Dec 12 - 13, 2026</div>
             <p style="margin-top: 1rem; color: var(--color-text-muted); font-style: italic;">
                 Mark your calendars for our 5th year!
@@ -323,10 +401,10 @@
 
         <div class="intro-block">
             <p>
-                Since 2022, the Beantown Beatdown has stood as the Northeast's premier Infinity Satellite tournament. You can find us at the <a href="https://wickeddicey.com/events/everwinter/">Everwinter Gaming Convention.</a>
+                Since 2022, the Beantown Beatdown has stood as the Northeast's premier Infinity Satellite tournament. Join us at the <a href="https://wickeddicey.com/events/everwinter/">Everwinter Gaming Convention.</a>
             </p>
             <p>
-                We are committed to giving you the best 2 days of Infinity possible, prioritizing excellent sportsmanship, fabulous prizes, and some of the best game tables at any event. Whether you are a casual kitchen-table player attending your first event or a top-ranked player in the world, there is a seat for you here.
+                We are committed to giving you the best 2 days of Infinity possible, prioritizing excellent sportsmanship, fabulous prizes, and some of the best game tables at any event. Whether you are a casual kitchen-table player attending your first event or a top-ranked player in the world, there is a seat for you here. <a href="https://corvusbelli.com/en/press-room/blog/event-recap-beantown">See event coverage on the Corvus Belli blog.</a>
             </p>
         </div>
 
@@ -390,6 +468,7 @@
                             <th>Event</th>
                             <th>ITS Champion</th>
                             <th>Best Painted</th>
+                            <th>Best Table</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -400,6 +479,7 @@
                             </td>
                             <td><span class="winner-name">Khavrion</span></td>
                             <td><span class="winner-name">Dr. D</span></td>
+                            <td><span class="winner-name">—</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -408,6 +488,7 @@
                             </td>
                             <td><span class="winner-name">Lobo0705</span></td>
                             <td><span class="winner-name">Sloppy Steak</span></td>
+                            <td><span class="winner-name">—</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -416,6 +497,7 @@
                             </td>
                             <td><span class="winner-name">Brunix</span></td>
                             <td><span class="winner-name">Dr. D</span></td>
+                            <td><span class="winner-name">—</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -427,8 +509,10 @@
                                 <span class="secondary-award"><strong>Wicked Player:</strong> Wilmar</span>
                             </td>
                             <td>
-                                <span class="winner-name">Sloppy Steak</span>
-                                <span class="secondary-award"><strong>Best Table:</strong> Tewhill</span>
+                                <button class="painted-trigger" onclick="document.getElementById('sloppyLightbox').classList.add('open')">Sloppy Steak</button>
+                            </td>
+                            <td>
+                                <button class="painted-trigger" onclick="document.getElementById('tewhillLightbox').classList.add('open')">Tewhill</button>
                             </td>
                         </tr>
                     </tbody>
@@ -446,7 +530,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2025 Infinity New England</p>
+            <p>&copy; 2026 Infinity New England &mdash; <a href="privacy.html">Privacy Notice</a></p>
         </footer>
 
     </div>
@@ -486,6 +570,24 @@
         // Ensure first calculation is correct after load
         window.onload = updateSlidePosition;
     </script>
+
+    <!-- Best Painted Lightbox: Beantown IV -->
+    <div id="sloppyLightbox" class="lightbox-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="document.getElementById('sloppyLightbox').classList.remove('open')" aria-label="Close">&times;</button>
+            <img src="images/sloppyBT4.jpg" alt="Best Painted – Sloppy Steak, Beantown IV">
+            <div class="lightbox-caption">Best Painted &mdash; <span>Sloppy Steak</span> &middot; Beantown IV, Dec 2025</div>
+        </div>
+    </div>
+
+    <!-- Best Table Lightbox: Beantown IV -->
+    <div id="tewhillLightbox" class="lightbox-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="document.getElementById('tewhillLightbox').classList.remove('open')" aria-label="Close">&times;</button>
+            <img src="images/tewhillBT4.jpg" alt="Best Table – Tewhill, Beantown IV">
+            <div class="lightbox-caption">Best Table &mdash; <span>Tewhill</span> &middot; Beantown IV, Dec 2025</div>
+        </div>
+    </div>
 
 </body>
 
