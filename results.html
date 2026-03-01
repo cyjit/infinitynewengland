@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season Results | Infinity New England</title>
+    <meta name="description" content="ITS Season results, standings, and event history for Infinity New England.">
+    <meta property="og:title" content="Season Results | Infinity New England">
+    <meta property="og:description" content="ITS Season results, standings, and event history for Infinity New England.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.infinitynewengland.com/ogimg.png">
+    <meta property="og:url" content="https://www.infinitynewengland.com/results.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg:          #0c101d;
+            --color-text-main:   #e5e7eb;
+            --color-text-muted:  #9ca3af;
+            --color-amber:       #e8a840;
+            --color-amber-hover: #f0c060;
+            --color-amber-glow:  rgba(232, 168, 64, 0.35);
+            --color-red:         #880000;
+            --color-border:      #374151;
+        }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--color-bg);
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--color-text-main);
+            margin: 0; padding: 0;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1, h2, h3, p { margin: 0; }
+        a {
+            color: var(--color-amber);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        a:hover {
+            color: var(--color-amber-hover);
+            text-shadow: 0 0 8px var(--color-amber-glow);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(232,168,64,0.2);
+            line-height: 1.1;
+        }
+        .hero .subtitle {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* --- Season Block --- */
+        .season-block {
+            margin-bottom: 4rem;
+        }
+        .season-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            border-bottom: 2px solid var(--color-red);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .season-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .season-dates {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- Standings Row --- */
+        .standings-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+        }
+        .standings-card {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(31,41,55,0.4);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+        }
+        .standings-card-title {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-amber);
+            margin-bottom: 0.75rem;
+        }
+        .standings-row-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(55,65,81,0.4);
+            font-size: 0.875rem;
+        }
+        .standings-row-item:last-child { border-bottom: none; }
+        .standing-rank {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            min-width: 1.2rem;
+            text-align: right;
+        }
+        .standing-rank.gold   { color: #f59e0b; }
+        .standing-rank.silver { color: #94a3b8; }
+        .standing-rank.bronze { color: #b45309; }
+        .standing-name {
+            flex: 1;
+            color: white;
+            font-weight: 500;
+        }
+        .standing-pts {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+        .standings-pending {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+            padding: 0.25rem 0;
+        }
+
+        /* --- Events Table --- */
+        .events-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-amber);
+            margin-bottom: 0.5rem;
+        }
+        .events-table-wrap {
+            overflow-x: auto;
+        }
+        .events-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+        .events-table th {
+            text-align: left;
+            padding: 0.5rem 0.6rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-text-muted);
+            border-bottom: 1px solid var(--color-border);
+            white-space: nowrap;
+        }
+        .events-table td {
+            padding: 0.55rem 0.6rem;
+            border-bottom: 1px solid rgba(55,65,81,0.35);
+            vertical-align: top;
+        }
+        .events-table tr:last-child td { border-bottom: none; }
+        .events-table tr:hover td { background: rgba(255,255,255,0.02); }
+        .td-date {
+            white-space: nowrap;
+            color: var(--color-text-muted);
+            font-size: 0.78rem;
+            min-width: 68px;
+        }
+        .td-event {
+            color: white;
+            font-weight: 500;
+            min-width: 180px;
+        }
+        .event-series {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-amber);
+            margin-bottom: 2px;
+        }
+        .td-place { min-width: 130px; }
+        .place-player { color: white; font-weight: 600; }
+        .place-faction {
+            font-size: 0.7rem;
+            color: var(--color-text-muted);
+            margin-top: 1px;
+        }
+        .medal { font-size: 0.75rem; margin-right: 3px; }
+        .satellite-icon {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 4px;
+            opacity: 0.75;
+            position: relative;
+            top: -1px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--color-border);
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+
+        <div class="hero">
+            <h1>Season Results</h1>
+            <div class="subtitle">ITS event results, player standings, and state rankings for New England &mdash; starting in ITS15</div>
+        </div>
+
+        <!-- ===================== SEASON 16 ===================== -->
+        <div class="season-block">
+            <div class="season-header">
+                <div class="season-title">ITS Season 16</div>
+                <div class="season-dates">Sep 2024 – Aug 2025</div>
+            </div>
+
+            <div class="standings-row">
+                <div class="standings-card">
+                    <div class="standings-card-title">Season-Long Player's Championship — Top 3</div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank gold">1</span>
+                        <span class="standing-name">Knuds</span>
+                        <span class="standing-pts">89 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank silver">2</span>
+                        <span class="standing-name">Sloppy Steak</span>
+                        <span class="standing-pts">75 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank bronze">3</span>
+                        <span class="standing-name">Fistacles</span>
+                        <span class="standing-pts">73 pts</span>
+                    </div>
+                </div>
+                <div class="standings-card">
+                    <div class="standings-card-title">State Challenge</div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank gold">1</span>
+                        <span class="standing-name">Massachusetts</span>
+                        <span class="standing-pts">203 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank silver">2</span>
+                        <span class="standing-name">Maine</span>
+                        <span class="standing-pts">163 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank bronze">3</span>
+                        <span class="standing-name">New Hampshire</span>
+                        <span class="standing-pts">107 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank">4</span>
+                        <span class="standing-name">Connecticut</span>
+                        <span class="standing-pts">35 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank">5</span>
+                        <span class="standing-name">Rhode Island</span>
+                        <span class="standing-pts">5 pts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="events-label">Events</div>
+            <div class="events-table-wrap">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                            <th>🥇 1st</th>
+                            <th>🥈 2nd</th>
+                            <th>🥉 3rd</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td-date">9/14/24</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q3 2024</div>QAZ Creatures from Outer Space</td>
+                            <td class="td-place"><div class="place-player">Jello</div><div class="place-faction">Ariadna / Caledonia</div></td>
+                            <td class="td-place"><div class="place-player">Fistacles</div><div class="place-faction">Aleph / Steel Phalanx</div></td>
+                            <td class="td-place"><div class="place-player">Sloppy Steak</div><div class="place-faction">NAA / Foreign Company</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">11/9/24</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q4 2024</div>Mysteries of the Ice Planet Zob</td>
+                            <td class="td-place"><div class="place-player">Fistacles</div><div class="place-faction">Combined Army / MAF</div></td>
+                            <td class="td-place"><div class="place-player">Dread</div></td>
+                            <td class="td-place"><div class="place-player">girgori</div><div class="place-faction">Ariadna / Kosmoflot</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">1/3/25</td>
+                            <td class="td-event">Beerfinity</td>
+                            <td class="td-place"><div class="place-player">CyberJunkInTheTrunk</div><div class="place-faction">Combined Army</div></td>
+                            <td class="td-place"><div class="place-player">Fuckboy Nourkias</div><div class="place-faction">Combined Army</div></td>
+                            <td class="td-place"><div class="place-player">Knuds</div><div class="place-faction">Aleph</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">1/4/25</td>
+                            <td class="td-event"><img src="images/satellite-logo.png" class="satellite-icon" alt="Satellite">The Beantown Beatdown</td>
+                            <td class="td-place"><div class="place-player">Brunix</div><div class="place-faction">O-12 / Torchlight Brigade</div></td>
+                            <td class="td-place"><div class="place-player">Fistacles</div><div class="place-faction">PanOceania / KCF</div></td>
+                            <td class="td-place"><div class="place-player">Knuds</div><div class="place-faction">Aleph / Steel Phalanx</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">4/12/25</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q2 2025</div>Disco Balls to the Wall</td>
+                            <td class="td-place"><div class="place-player">Sloppy Steak</div><div class="place-faction">PanOceania</div></td>
+                            <td class="td-place"><div class="place-player">CyberJunkInTheTrunk</div><div class="place-faction">Combined Army</div></td>
+                            <td class="td-place"><div class="place-player">the floop droopsby</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">5/10/25</td>
+                            <td class="td-event">Warhorsin Around</td>
+                            <td class="td-place"><div class="place-player">Knuds</div></td>
+                            <td class="td-place"><div class="place-player">Greyscale Hobbies</div></td>
+                            <td class="td-place"><div class="place-player">Dread</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">6/25/25</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q2 2025</div>Wake Me Up Before You Go-Pod</td>
+                            <td class="td-place"><div class="place-player">Fistacles</div></td>
+                            <td class="td-place"><div class="place-player">Knuds</div></td>
+                            <td class="td-place"><div class="place-player">Sloppy Steak</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">8/17/25</td>
+                            <td class="td-event">Webbiest of Ways</td>
+                            <td class="td-place"><div class="place-player">Lobo0705</div></td>
+                            <td class="td-place"><div class="place-player">DoctorFunkyMonk</div></td>
+                            <td class="td-place"><div class="place-player">Matty McFly</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===================== SEASON 15 ===================== -->
+        <div class="season-block">
+            <div class="season-header">
+                <div class="season-title">ITS Season 15</div>
+                <div class="season-dates">Sep 2023 – Aug 2024</div>
+            </div>
+
+            <div class="standings-row">
+                <div class="standings-card">
+                    <div class="standings-card-title">Season-Long Player's Championship — Top 3</div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank gold">1</span>
+                        <span class="standing-name">Knuds</span>
+                        <span class="standing-pts">156 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank silver">2</span>
+                        <span class="standing-name">PhilRosey</span>
+                        <span class="standing-pts">129 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank bronze">3</span>
+                        <span class="standing-name">TravelinYake</span>
+                        <span class="standing-pts">118 pts</span>
+                    </div>
+                </div>
+                <div class="standings-card">
+                    <div class="standings-card-title">State Challenge</div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank gold">1</span>
+                        <span class="standing-name">Massachusetts</span>
+                        <span class="standing-pts">372 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank silver">2</span>
+                        <span class="standing-name">Maine</span>
+                        <span class="standing-pts">261 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank bronze">3</span>
+                        <span class="standing-name">New Hampshire</span>
+                        <span class="standing-pts">141 pts</span>
+                    </div>
+                    <div class="standings-row-item">
+                        <span class="standing-rank">4</span>
+                        <span class="standing-name">Connecticut</span>
+                        <span class="standing-pts">26 pts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="events-label">Events</div>
+            <div class="events-table-wrap">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                            <th>🥇 1st</th>
+                            <th>🥈 2nd</th>
+                            <th>🥉 3rd</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td-date">9/16/23</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q3 2023</div>In Space Nobody Can Hear You Moo</td>
+                            <td class="td-place"><div class="place-player">TravelinYake</div><div class="place-faction">Haqqislam / Hassassin Bahram</div></td>
+                            <td class="td-place"><div class="place-player">Dr.D</div><div class="place-faction">O-12</div></td>
+                            <td class="td-place"><div class="place-player">Darthadamus</div><div class="place-faction">Aleph / Steel Phalanx</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">11/11/23</td>
+                            <td class="td-event">Gambit Ops: Erroneous Equerry</td>
+                            <td class="td-place"><div class="place-player">Knuds</div><div class="place-faction">Combined Army / Shasvastii</div></td>
+                            <td class="td-place"><div class="place-player">Greyscale Hobbies</div><div class="place-faction">Haqqislam</div></td>
+                            <td class="td-place"><div class="place-player">Dr.D</div><div class="place-faction">Nomads / Bakunin</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">12/8/23</td>
+                            <td class="td-event"><img src="images/satellite-logo.png" class="satellite-icon" alt="Satellite">The Brawl in (Near) Beantown 2</td>
+                            <td class="td-place"><div class="place-player">Lobo0705</div><div class="place-faction">Nomads</div></td>
+                            <td class="td-place"><div class="place-player">PhilRosey</div><div class="place-faction">Tohaa</div></td>
+                            <td class="td-place"><div class="place-player">DragoonXXIV</div><div class="place-faction">NAA / StarCo.</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">2/3/24</td>
+                            <td class="td-event">Storm the Beaches</td>
+                            <td class="td-place"><div class="place-player">Lobo0705</div><div class="place-faction">Nomads</div></td>
+                            <td class="td-place"><div class="place-player">Whaleofforum</div><div class="place-faction">Combined Army</div></td>
+                            <td class="td-place"><div class="place-player">PhilRosey</div><div class="place-faction">Haqqislam / Hassassin Bahram</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">2/17/24</td>
+                            <td class="td-event">Many Legs of the Spider</td>
+                            <td class="td-place"><div class="place-player">TravelinYake</div><div class="place-faction">Haqqislam / Hassassin Bahram</div></td>
+                            <td class="td-place"><div class="place-player">Fistacles</div><div class="place-faction">Ariadna / USAriadna</div></td>
+                            <td class="td-place"><div class="place-player">Knuds</div><div class="place-faction">Combined Army</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">3/30/24</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q1 2024</div>Morat Women on the Moon</td>
+                            <td class="td-place"><div class="place-player">TravelinYake</div><div class="place-faction">Haqqislam / Hassassin Bahram</div></td>
+                            <td class="td-place"><div class="place-player">the floop droopsby</div><div class="place-faction">O-12 / Torchlight Brigade</div></td>
+                            <td class="td-place"><div class="place-player">redbranch</div><div class="place-faction">Haqqislam / Hassassin Bahram</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">4/27/24</td>
+                            <td class="td-event">Resilience Ops at Table Top Nexus</td>
+                            <td class="td-place"><div class="place-player">Knuds</div><div class="place-faction">Haqqislam / Hassassin Bahram</div></td>
+                            <td class="td-place"><div class="place-player">Korshai</div><div class="place-faction">Aleph</div></td>
+                            <td class="td-place"><div class="place-player">PhilRosey</div><div class="place-faction">Combined Army</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">5/18/24</td>
+                            <td class="td-event">May Martial Moose Madness</td>
+                            <td class="td-place"><div class="place-player">Knuds</div><div class="place-faction">Combined Army</div></td>
+                            <td class="td-place"><div class="place-player">JohnXSwann</div><div class="place-faction">NAA / JSA</div></td>
+                            <td class="td-place"><div class="place-player">Jello</div><div class="place-faction">Ariadna / USAriadna</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">5/19/24</td>
+                            <td class="td-event">All You Need Is Move Shoot Dodge</td>
+                            <td class="td-place"><div class="place-player">Lobo0705</div><div class="place-faction">O-12 / Starmada</div></td>
+                            <td class="td-place"><div class="place-player">Knuds</div></td>
+                            <td class="td-place"><div class="place-player">PhilRosey</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">6/1/24</td>
+                            <td class="td-event">Magharibaville</td>
+                            <td class="td-place"><div class="place-player">Serrionavyr</div><div class="place-faction">NAA / JSA</div></td>
+                            <td class="td-place"><div class="place-player">PhilRosey</div><div class="place-faction">Combined Army</div></td>
+                            <td class="td-place"><div class="place-player">DragoonXXIV</div><div class="place-faction">Yu Jing / White Banner</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">6/29/24</td>
+                            <td class="td-event"><div class="event-series">Cube Free or Die · Q2 2024</div>Dakinis in Bikinis</td>
+                            <td class="td-place"><div class="place-player">Lobo0705</div><div class="place-faction">Ariadna / Kosmoflot</div></td>
+                            <td class="td-place"><div class="place-player">TravelinYake</div></td>
+                            <td class="td-place"><div class="place-player">E-Warden</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">7/27/24</td>
+                            <td class="td-event">Watch the Skies!</td>
+                            <td class="td-place"><div class="place-player">Lobo0705</div><div class="place-faction">Ariadna / Kosmoflot</div></td>
+                            <td class="td-place"><div class="place-player">Korshai</div><div class="place-faction">Aleph</div></td>
+                            <td class="td-place"><div class="place-player">PhilRosey</div><div class="place-faction">Combined Army</div></td>
+                        </tr>
+                        <tr>
+                            <td class="td-date">8/17/24</td>
+                            <td class="td-event">It's Time For Grandpa's Guitar Scenarios</td>
+                            <td class="td-place"><div class="place-player">CyberJunkInTheTrunk</div><div class="place-faction">Combined Army / Morat</div></td>
+                            <td class="td-place"><div class="place-player">the floop droopsby</div><div class="place-faction">NAA / Foreign Company</div></td>
+                            <td class="td-place"><div class="place-player">girgori</div><div class="place-faction">Ariadna / Kosmoflot</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Infinity New England &mdash; <a href="privacy.html">Privacy Notice</a></p>
+        </footer>
+
+    </div>
+</body>
+    <script data-goatcounter="https://infinitynewengland.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</html>
