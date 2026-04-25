@@ -156,6 +156,39 @@
             color: var(--color-amber-hover);
         }
 
+        /* --- Tickets Progress Bar --- */
+        .ticket-progress {
+            max-width: 480px;
+            margin: -1.5rem auto 3rem auto;
+            text-align: center;
+        }
+        .ticket-progress-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-amber);
+            margin-bottom: 0.5rem;
+        }
+        .ticket-progress-track {
+            position: relative;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--color-border);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .ticket-progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 40%;
+            background: linear-gradient(90deg, var(--color-amber) 0%, var(--color-amber-hover) 100%);
+            box-shadow: 0 0 12px var(--color-amber-glow);
+            border-radius: 999px;
+        }
+
         /* --- Cards (Venue, Swag, etc) --- */
         .info-card {
             background: rgba(31, 41, 55, 0.3);
@@ -292,6 +325,37 @@
         .entry-tier.tier-1 { border-top-color: var(--color-red); }
         .entry-tier.tier-2 { border-top-color: rgba(136,0,0,0.55); }
         .entry-tier.tier-3 { border-top-color: rgba(136,0,0,0.28); }
+
+        /* Closed tier — greyed out (registration window passed) */
+        .entry-tier.tier-closed {
+            background: rgba(255,255,255,0.015);
+            border-color: rgba(255,255,255,0.04);
+            border-top-color: rgba(120,120,120,0.35);
+            opacity: 0.45;
+            filter: grayscale(1);
+        }
+        .entry-tier.tier-closed .tier-number,
+        .entry-tier.tier-closed .tier-detail strong {
+            color: var(--color-text-muted);
+        }
+
+        /* Active tier — brighter highlight with subtle glow */
+        .entry-tier.tier-active {
+            background: linear-gradient(135deg, rgba(232,168,64,0.14) 0%, rgba(232,168,64,0.04) 100%);
+            border-color: rgba(232,168,64,0.55);
+            border-top-color: var(--color-amber);
+            box-shadow: 0 0 18px rgba(232,168,64,0.25), inset 0 0 12px rgba(232,168,64,0.05);
+        }
+        .entry-tier.tier-active .tier-number {
+            color: var(--color-amber-hover);
+            text-shadow: 0 0 10px var(--color-amber-glow);
+        }
+        .entry-tier.tier-active .tier-unit {
+            color: var(--color-amber);
+        }
+        .entry-tier.tier-active .tier-detail strong {
+            color: white;
+        }
         .tier-number {
             font-size: 2rem;
             font-weight: 700;
@@ -444,6 +508,13 @@
             </a>
         </div>
 
+        <div class="ticket-progress">
+            <div class="ticket-progress-label">40% Tickets Remaining</div>
+            <div class="ticket-progress-track">
+                <div class="ticket-progress-fill"></div>
+            </div>
+        </div>
+
         <h2 class="section-title">The Venue & Dining</h2>
         <div class="info-card">
             <div class="info-title">Four Points by Sheraton Wakefield Boston Hotel</div>
@@ -500,7 +571,7 @@
                 </tr>
                 <tr>
                     <td class="time-col">10:00 AM – 12:30 PM</td>
-                    <td class="event-col">Round 1</td>
+                    <td class="event-col">Round 1 &mdash; Battleground</td>
                 </tr>
                 <tr>
                     <td class="time-col">12:30 – 1:30 PM</td>
@@ -508,11 +579,11 @@
                 </tr>
                 <tr>
                     <td class="time-col">1:30 – 4:00 PM</td>
-                    <td class="event-col">Round 2</td>
+                    <td class="event-col">Round 2 &mdash; Outbreak <span style="color: var(--color-amber); font-weight: 600;">(Patron Pick!)</span></td>
                 </tr>
                 <tr>
                     <td class="time-col">4:00 – 6:30 PM</td>
-                    <td class="event-col">Round 3</td>
+                    <td class="event-col">Round 3 &mdash; Area of Interest</td>
                 </tr>
             </tbody>
         </table>
@@ -532,7 +603,7 @@
                 </tr>
                 <tr>
                     <td class="time-col">9:30 AM – 12:00 PM</td>
-                    <td class="event-col">Round 4</td>
+                    <td class="event-col">Round 4 &mdash; Hardlock</td>
                 </tr>
                 <tr>
                     <td class="time-col">12:00 – 1:00 PM</td>
@@ -540,7 +611,7 @@
                 </tr>
                 <tr>
                     <td class="time-col">1:00 – 3:30 PM</td>
-                    <td class="event-col">Round 5</td>
+                    <td class="event-col">Round 5 &mdash; Unmasking <span style="color: var(--color-amber); font-weight: 600;">(Retro Pick)</span></td>
                 </tr>
                 <tr>
                     <td class="time-col">4:00 PM</td>
@@ -549,9 +620,8 @@
             </tbody>
         </table>
 
-        <h2 class="section-title">Missions</h2>
-        <p style="color: var(--color-text-muted);">
-            Mission selection to be announced closer to the event date. Do you want to have a say in mission selection? Become a <a href="https://infinity-new-england.square.site/shop/patronage/DPSAMP4MMLOC6T4JNLFICT6F">Patron of Infinity New England.</a>
+        <p style="color: var(--color-text-muted); margin-top: 1.5rem; font-size: 0.95rem;">
+            Want a say in mission selection? Become a <a href="https://infinity-new-england.square.site/shop/patronage/DPSAMP4MMLOC6T4JNLFICT6F">Patron of Infinity New England.</a>
         </p>
 
         <!-- Sweepstakes Section -->
@@ -567,12 +637,12 @@
                 <div class="sweepstakes-headline">Win a Fully Painted Carmen &amp; Batard</div>
 
                 <div class="entry-tiers">
-                    <div class="entry-tier tier-1">
+                    <div class="entry-tier tier-1 tier-closed">
                         <div class="tier-number">10</div>
                         <span class="tier-unit">Entries</span>
                         <div class="tier-detail">Register by <strong>April 1</strong></div>
                     </div>
-                    <div class="entry-tier tier-2">
+                    <div class="entry-tier tier-2 tier-active">
                         <div class="tier-number">5</div>
                         <span class="tier-unit">Entries</span>
                         <div class="tier-detail">Register by <strong>May 1</strong></div>
