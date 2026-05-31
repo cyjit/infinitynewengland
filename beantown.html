@@ -379,6 +379,50 @@
             color: var(--color-text-muted);
             font-size: 0.875rem;
         }
+
+        /* --- Tickets Banner --- */
+        .tickets-banner {
+            display: block;
+            background: linear-gradient(135deg, #f0c060 0%, var(--color-amber) 50%, #c9881f 100%);
+            color: var(--color-bg);
+            text-align: center;
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 24px var(--color-amber-glow), 0 4px 16px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--color-amber-hover);
+            animation: ticketsPulse 2.4s ease-in-out infinite;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tickets-banner:hover {
+            color: var(--color-bg);
+            text-shadow: none;
+            transform: translateY(-2px);
+            box-shadow: 0 0 32px var(--color-amber-hover), 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+        .tickets-banner .label {
+            display: block;
+            font-size: 1.75rem;
+            line-height: 1.15;
+        }
+        .tickets-banner .cta {
+            display: inline-block;
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            opacity: 0.85;
+        }
+        @keyframes ticketsPulse {
+            0%, 100% { box-shadow: 0 0 24px var(--color-amber-glow), 0 4px 16px rgba(0, 0, 0, 0.4); }
+            50%      { box-shadow: 0 0 36px var(--color-amber-hover), 0 4px 16px rgba(0, 0, 0, 0.4); }
+        }
+        @media (max-width: 600px) {
+            .tickets-banner .label { font-size: 1.35rem; }
+            .tickets-banner .cta   { font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -386,6 +430,11 @@
     <div class="container">
         
         <a href="index.html" class="nav-back">&larr; Back to Home</a>
+
+        <a href="https://wickeddicey.com/product/everwinter-infinity-the-universe/" class="tickets-banner" target="_blank" rel="noopener">
+            <span class="label">&#127915; Tickets Now On Sale!</span>
+            <span class="cta">Get Yours at Wicked Dicey &rarr;</span>
+        </a>
 
         <header class="hero">
             <h1><img src="images/satellite-logo.png" alt="Satellite Event" style="height:0.8em; width:auto; vertical-align:middle; margin-right:0.3em; position:relative; top:-0.05em; opacity:0.85;">Beantown Beatdown</h1>
