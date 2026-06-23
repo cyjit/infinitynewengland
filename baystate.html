@@ -167,7 +167,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--color-amber);
+            color: var(--color-red);
             margin-bottom: 0.5rem;
         }
         .ticket-progress-track {
@@ -183,9 +183,9 @@
             top: 0;
             left: 0;
             height: 100%;
-            width: 40%;
-            background: linear-gradient(90deg, var(--color-amber) 0%, var(--color-amber-hover) 100%);
-            box-shadow: 0 0 12px var(--color-amber-glow);
+            width: 20%;
+            background: linear-gradient(90deg, #d11515 0%, #880000 100%);
+            box-shadow: 0 0 12px rgba(209, 21, 21, 0.45);
             border-radius: 999px;
         }
 
@@ -252,6 +252,27 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 40px rgba(232, 168, 64, 0.06);
+        }
+        /* Giveaway closed — entry window has passed */
+        .sweepstakes-section.section-closed {
+            border-color: rgba(255, 255, 255, 0.07);
+            box-shadow: none;
+            opacity: 0.5;
+            filter: grayscale(1);
+        }
+        .sweepstakes-section.section-closed .sweepstakes-eyebrow {
+            color: var(--color-text-muted);
+        }
+        .closed-banner {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--color-text-muted);
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.6rem 1rem;
         }
         .sweepstakes-image {
             position: relative;
@@ -509,7 +530,7 @@
         </div>
 
         <div class="ticket-progress">
-            <div class="ticket-progress-label">40% Tickets Remaining</div>
+            <div class="ticket-progress-label">20% Tickets Remaining</div>
             <div class="ticket-progress-track">
                 <div class="ticket-progress-fill"></div>
             </div>
@@ -625,7 +646,8 @@
         </p>
 
         <!-- Sweepstakes Section -->
-        <div class="sweepstakes-section">
+        <div class="sweepstakes-section section-closed">
+            <div class="closed-banner">Entries Closed &mdash; Winner Drawn Live Saturday July 11</div>
             <div class="sweepstakes-image">
                 <img src="cnb.jpg" alt="Professionally painted Carmen &amp; Batard miniatures by Jason of True Inq">
             </div>
@@ -647,7 +669,7 @@
                         <span class="tier-unit">Entries</span>
                         <div class="tier-detail">Register by <strong>May 1</strong></div>
                     </div>
-                    <div class="entry-tier tier-3 tier-active">
+                    <div class="entry-tier tier-3 tier-closed">
                         <div class="tier-number">1</div>
                         <span class="tier-unit">Entry</span>
                         <div class="tier-detail">Register by <strong>June 1</strong></div>
