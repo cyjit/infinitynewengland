@@ -178,6 +178,22 @@
             border-radius: 999px;
             overflow: hidden;
         }
+        .packet-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-amber-glow);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .packet-link:hover {
+            color: var(--color-amber-hover);
+            border-bottom-color: var(--color-amber-hover);
+        }
         .ticket-progress-fill {
             position: absolute;
             top: 0;
@@ -534,6 +550,7 @@
             <div class="ticket-progress-track">
                 <div class="ticket-progress-fill"></div>
             </div>
+            <a href="https://assets.infinitynewengland.com/Bay_State_Showdown_2026_Event_Packet.pdf" class="packet-link">See Event Packet</a>
         </div>
 
         <h2 class="section-title">The Venue & Dining</h2>
@@ -559,24 +576,11 @@
             </p>
         </div>
 
-        <h2 class="section-title">Merch & Swag</h2>
-        <div class="info-card" style="text-align: center;">
-            <div class="info-title" style="color: var(--color-amber); text-transform: uppercase; font-size: 1rem; letter-spacing: 0.1em; margin-bottom:0.5rem;">
-                Infinity New England Swag Drop
-            </div>
-            <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
-                <strong>2026's first Swag Drop happens here.</strong><br>
-                Secure swag for the Showdown and from past events. Available for pickup at the Bay State Showdown. Fresh designs for BSS 2026 coming soon!
-            </p>
-            <div>
-                <a href="https://infinitynewengland.com/store" class="btn btn-primary" style="font-size: 1rem; padding: 0.75rem 1.5rem;">
-                    Pre-Order at our Online Store
-                </a>
-            </div>
+        <h2 class="section-title">The Schedule</h2>
+        <div style="text-align:center;">
+            <a href="https://infinitygeist.com" class="packet-link">All Missions Available on Mission Geist</a>
         </div>
 
-        <h2 class="section-title">The Schedule</h2>
-        
         <h3 style="color:white; margin-bottom:0.5rem; margin-top:1.5rem;">Saturday, July 11</h3>
         <table class="schedule-table">
             <thead>
