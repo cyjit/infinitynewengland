@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit &amp; Vote | Bay State Showdown</title>
+
+    <meta name="description" content="Bay State Showdown at Ironweld — event links, voting, and round result submission.">
+    <meta name="robots" content="noindex">
+    <meta property="og:title" content="Bay State Showdown — Submit &amp; Vote">
+    <meta property="og:description" content="Event resources, player &amp; painting voting, and round result submission.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.infinitynewengland.com/ogimg.png">
+    <meta property="og:url" content="https://www.infinitynewengland.com/submit">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- =========================================================================
+         LINKS  ·  paste a URL between the quotes and that button turns ON.
+                   Leave it "" (empty) and the button stays greyed as "Opens soon".
+         ========================================================================= -->
+    <script>
+        const LINKS = {
+            // ---- Voting ----
+            wickedPlayerVoting:  "",   // <- paste Wicked Player voting link
+            paintingVoting:      "",   // <- paste Painting Contest voting link
+
+            // ---- Round result submission (open one at a time as rounds finish) ----
+            round1: "",   // <- paste Round 1 result form
+            round2: "",   // <- paste Round 2 result form
+            round3: "",   // <- paste Round 3 result form
+            round4: "",   // <- paste Round 4 result form
+            round5: ""    // <- paste Round 5 result form
+        };
+    </script>
+
+    <style>
+        :root {
+            --color-bg:          #0c101d;
+            --color-text-main:   #e5e7eb;
+            --color-text-muted:  #9ca3af;
+            --color-amber:       #e8a840;
+            --color-amber-hover: #f0c060;
+            --color-amber-glow:  rgba(232, 168, 64, 0.35);
+            --color-border:      #374151;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--color-bg);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--color-text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .wrap {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 1.75rem 1.15rem 3rem;
+        }
+
+        /* --- Header --- */
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .hero img { width: 66px; height: auto; margin-bottom: 0.75rem; opacity: 0.95; }
+        .hero h1 {
+            margin: 0;
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(232, 168, 64, 0.2);
+        }
+        .hero .at {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: var(--color-amber);
+            margin-top: 0.4rem;
+        }
+
+        /* --- Section --- */
+        .section { margin-top: 2.25rem; }
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-amber);
+            padding-bottom: 0.5rem;
+            margin: 0 0 0.9rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .section-note {
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+            margin: -0.4rem 0 0.9rem;
+        }
+
+        /* --- Link buttons --- */
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            width: 100%;
+            padding: 1rem 1.15rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid var(--color-amber);
+            border-radius: 10px;
+            background: rgba(232, 168, 64, 0.06);
+            color: var(--color-text-main);
+            text-decoration: none;
+            text-align: left;
+            transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.05s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn:active { transform: scale(0.99); }
+        .btn:hover {
+            background: rgba(232, 168, 64, 0.12);
+            box-shadow: 0 0 18px var(--color-amber-glow);
+        }
+        .btn .txt { flex: 1; min-width: 0; }
+        .btn .label {
+            display: block;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .btn .sub {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+            margin-top: 0.1rem;
+        }
+        .btn .chev {
+            flex: none;
+            font-size: 1.25rem;
+            color: var(--color-amber);
+        }
+
+        /* Pending / not-yet-open state */
+        .btn.pending {
+            border-color: rgba(255, 255, 255, 0.09);
+            background: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .btn.pending .label { color: var(--color-text-muted); }
+        .btn.pending .chev { display: none; }
+        .btn.pending .tag {
+            flex: none;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            padding: 0.2rem 0.55rem;
+        }
+        .btn .tag { display: none; }
+        .btn.pending .tag { display: inline-block; }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+        footer a { color: var(--color-amber); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <header class="hero">
+            <img src="/inelogo.png" alt="Infinity New England">
+            <h1>Bay State Showdown</h1>
+            <span class="at">At Ironweld</span>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Resources</h2>
+            <div id="resources"></div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Voting</h2>
+            <div id="voting"></div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Submit Results</h2>
+            <p class="section-note">Only one player needs to submit the result per game.</p>
+            <div id="results"></div>
+        </section>
+
+        <footer>
+            <a href="/baystate.html">&larr; Event details</a>
+        </footer>
+
+    </div>
+
+    <script>
+        // Resources are always live (fixed URLs).
+        const RESOURCES = [
+            { label: "Corvus Sphere Event", sub: "Standings & pairings", url: "https://sphere.corvusbelli.com/tournament/451df753-e005-46d4-89c5-7a581cf08251" },
+            { label: "Mission Geist",       sub: "All mission rules",     url: "https://infinitygeist.com/" }
+        ];
+
+        const VOTING = [
+            { label: "Wicked Player Voting",    url: LINKS.wickedPlayerVoting },
+            { label: "Painting Contest Voting", url: LINKS.paintingVoting }
+        ];
+
+        const RESULTS = [
+            { label: "Round 1", sub: "Battleground",     url: LINKS.round1 },
+            { label: "Round 2", sub: "Outbreak",         url: LINKS.round2 },
+            { label: "Round 3", sub: "Area of Interest", url: LINKS.round3 },
+            { label: "Round 4", sub: "Hardlock",         url: LINKS.round4 },
+            { label: "Round 5", sub: "Unmasking",        url: LINKS.round5 }
+        ];
+
+        function render(containerId, items) {
+            const html = items.map(function (item) {
+                const live = item.url && item.url.trim() !== "";
+                const sub  = item.sub ? '<span class="sub">' + item.sub + '</span>' : '';
+                const inner =
+                    '<span class="txt"><span class="label">' + item.label + '</span>' + sub + '</span>' +
+                    '<span class="tag">Opens soon</span>' +
+                    '<span class="chev">&rarr;</span>';
+                if (live) {
+                    return '<a class="btn" href="' + item.url + '" target="_blank" rel="noopener">' + inner + '</a>';
+                }
+                return '<div class="btn pending">' + inner + '</div>';
+            }).join("");
+            document.getElementById(containerId).innerHTML = html;
+        }
+
+        render("resources", RESOURCES);
+        render("voting", VOTING);
+        render("results", RESULTS);
+    </script>
+
+    <script data-goatcounter="https://infinitynewengland.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>
