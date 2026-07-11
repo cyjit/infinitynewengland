@@ -36,7 +36,7 @@
             paintingVoting:     { open: true, url: "https://docs.google.com/forms/d/e/1FAIpQLSdVQSOlXdDJcX3EEJd-G7UHt7ROvoRbyIMKwEc-7Q1ZKENsBQ/viewform" },
 
             // ---- Round result submission (flip open:true as each round finishes) ----
-            round1: { open: true,  url: "https://docs.google.com/forms/d/e/1FAIpQLSc1WGOjoJxsv4vJueXt14W1HW9TIVbY8dCscEJelHvQksvsbA/viewform" },
+            round1: { open: false, done: true, url: "https://docs.google.com/forms/d/e/1FAIpQLSc1WGOjoJxsv4vJueXt14W1HW9TIVbY8dCscEJelHvQksvsbA/viewform" },
             round2: { open: true,  url: "https://docs.google.com/forms/d/e/1FAIpQLScSxoFtPrcYi6ibPw3rfUvBAmAAQirnJ2RZXxdHLKTnCvkKJg/viewform" },
             round3: { open: false, url: "" },
             round4: { open: false, url: "" },
@@ -249,7 +249,7 @@
                 const sub  = item.sub ? '<span class="sub">' + item.sub + '</span>' : '';
                 const inner =
                     '<span class="txt"><span class="label">' + item.label + '</span>' + sub + '</span>' +
-                    '<span class="tag">Opens soon</span>' +
+                    '<span class="tag">' + (item.done ? 'Closed' : 'Opens soon') + '</span>' +
                     '<span class="chev">&rarr;</span>';
                 if (live) {
                     return '<a class="btn" href="' + item.url + '" target="_blank" rel="noopener">' + inner + '</a>';
