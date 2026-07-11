@@ -23,21 +23,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- =========================================================================
-         LINKS  ·  paste a URL between the quotes and that button turns ON.
-                   Leave it "" (empty) and the button stays greyed as "Opens soon".
+         TOURNAMENT LINKS  ·  two things per button:
+           url   = paste the link once — it stays saved here permanently.
+           open  = true  -> button is LIVE & tappable
+                   false -> button greyed as "Opens soon" (url is kept;
+                            just flip open to true when you're ready).
          ========================================================================= -->
     <script>
-        const LINKS = {
-            // ---- Voting ----
-            wickedPlayerVoting:  "https://docs.google.com/forms/d/e/1FAIpQLScHkEiGBb89dRNheMg98kDQpiJTFd5QFC9laaNLT0PSUHfaqg/viewform",   // <- paste Wicked Player voting link
-            paintingVoting:      "",   // <- paste Painting Contest voting link
+        const CONFIG = {
+            // ---- Voting (flip open:true when voting opens) ----
+            wickedPlayerVoting: { open: false, url: "https://docs.google.com/forms/d/e/1FAIpQLScHkEiGBb89dRNheMg98kDQpiJTFd5QFC9laaNLT0PSUHfaqg/viewform" },
+            paintingVoting:     { open: false, url: "https://docs.google.com/forms/d/e/1FAIpQLSdVQSOlXdDJcX3EEJd-G7UHt7ROvoRbyIMKwEc-7Q1ZKENsBQ/viewform" },
 
-            // ---- Round result submission (open one at a time as rounds finish) ----
-            round1: "https://docs.google.com/forms/d/e/1FAIpQLSc1WGOjoJxsv4vJueXt14W1HW9TIVbY8dCscEJelHvQksvsbA/viewform",   // <- paste Round 1 result form
-            round2: "",   // <- paste Round 2 result form
-            round3: "",   // <- paste Round 3 result form
-            round4: "",   // <- paste Round 4 result form
-            round5: ""    // <- paste Round 5 result form
+            // ---- Round result submission (flip open:true as each round finishes) ----
+            round1: { open: true,  url: "https://docs.google.com/forms/d/e/1FAIpQLSc1WGOjoJxsv4vJueXt14W1HW9TIVbY8dCscEJelHvQksvsbA/viewform" },
+            round2: { open: false, url: "" },
+            round3: { open: false, url: "" },
+            round4: { open: false, url: "" },
+            round5: { open: false, url: "" }
         };
     </script>
 
@@ -228,21 +231,21 @@
         ];
 
         const VOTING = [
-            { label: "Wicked Player Voting",    url: LINKS.wickedPlayerVoting },
-            { label: "Painting Contest Voting", url: LINKS.paintingVoting }
+            Object.assign({ label: "Wicked Player Voting" },    CONFIG.wickedPlayerVoting),
+            Object.assign({ label: "Painting Contest Voting" }, CONFIG.paintingVoting)
         ];
 
         const RESULTS = [
-            { label: "Round 1", sub: "Battleground",     url: LINKS.round1 },
-            { label: "Round 2", sub: "Outbreak",         url: LINKS.round2 },
-            { label: "Round 3", sub: "Area of Interest", url: LINKS.round3 },
-            { label: "Round 4", sub: "Hardlock",         url: LINKS.round4 },
-            { label: "Round 5", sub: "Unmasking",        url: LINKS.round5 }
+            Object.assign({ label: "Round 1", sub: "Battleground" },     CONFIG.round1),
+            Object.assign({ label: "Round 2", sub: "Outbreak" },         CONFIG.round2),
+            Object.assign({ label: "Round 3", sub: "Area of Interest" }, CONFIG.round3),
+            Object.assign({ label: "Round 4", sub: "Hardlock" },         CONFIG.round4),
+            Object.assign({ label: "Round 5", sub: "Unmasking" },        CONFIG.round5)
         ];
 
         function render(containerId, items) {
             const html = items.map(function (item) {
-                const live = item.url && item.url.trim() !== "";
+                const live = item.open && item.url && item.url.trim() !== "";
                 const sub  = item.sub ? '<span class="sub">' + item.sub + '</span>' : '';
                 const inner =
                     '<span class="txt"><span class="label">' + item.label + '</span>' + sub + '</span>' +
