@@ -230,18 +230,22 @@
             { label: "Mission Geist",       sub: "All mission rules",     open: true, url: "https://infinitygeist.com/" }
         ];
 
-        const VOTING = [
-            Object.assign({ label: "Wicked Player Voting" },    CONFIG.wickedPlayerVoting),
-            Object.assign({ label: "Painting Contest Voting" }, CONFIG.paintingVoting)
-        ];
-
-        const RESULTS = [
-            Object.assign({ label: "Round 1", sub: "Battleground" },     CONFIG.round1),
-            Object.assign({ label: "Round 2", sub: "Outbreak" },         CONFIG.round2),
-            Object.assign({ label: "Round 3", sub: "Area of Interest" }, CONFIG.round3),
-            Object.assign({ label: "Round 4", sub: "Hardlock" },         CONFIG.round4),
-            Object.assign({ label: "Round 5", sub: "Unmasking" },        CONFIG.round5)
-        ];
+        // Build the Voting / Results lists from a config object.
+        function buildLists(cfg) {
+            return {
+                voting: [
+                    Object.assign({ label: "Wicked Player Voting" },    cfg.wickedPlayerVoting),
+                    Object.assign({ label: "Painting Contest Voting" }, cfg.paintingVoting)
+                ],
+                results: [
+                    Object.assign({ label: "Round 1", sub: "Battleground" },     cfg.round1),
+                    Object.assign({ label: "Round 2", sub: "Outbreak" },         cfg.round2),
+                    Object.assign({ label: "Round 3", sub: "Area of Interest" }, cfg.round3),
+                    Object.assign({ label: "Round 4", sub: "Hardlock" },         cfg.round4),
+                    Object.assign({ label: "Round 5", sub: "Unmasking" },        cfg.round5)
+                ]
+            };
+        }
 
         function render(containerId, items) {
             const html = items.map(function (item) {
@@ -259,9 +263,39 @@
             document.getElementById(containerId).innerHTML = html;
         }
 
+        // Resources never change during the event — render once.
         render("resources", RESOURCES);
-        render("voting", VOTING);
-        render("results", RESULTS);
+
+        // Only touch the DOM when the state actually changes, so a poll
+        // never interrupts a player mid-tap.
+        let lastSig = "";
+        function apply(cfg) {
+            const sig = JSON.stringify(cfg);
+            if (sig === lastSig) return;
+            lastSig = sig;
+            const lists = buildLists(cfg);
+            render("voting", lists.voting);
+            render("results", lists.results);
+        }
+
+        // First paint from the inline fallback: instant, and survives a
+        // failed first fetch (rough connection) instead of showing nothing.
+        apply(CONFIG);
+
+        // Silently poll config.json for live updates. Cache-busted + no-store
+        // so the CDN / an already-open tab can't serve stale buttons.
+        function poll() {
+            fetch("config.json?t=" + Date.now(), { cache: "no-store" })
+                .then(function (res) { return res.ok ? res.json() : null; })
+                .then(function (cfg) { if (cfg) apply(cfg); })
+                .catch(function () { /* offline / flaky — keep current buttons */ });
+        }
+        poll();
+        setInterval(poll, 20000);
+        // Refresh the moment a player brings the tab back or reconnects.
+        document.addEventListener("visibilitychange", function () { if (!document.hidden) poll(); });
+        window.addEventListener("focus", poll);
+        window.addEventListener("online", poll);
     </script>
 
     <script data-goatcounter="https://infinitynewengland.goatcounter.com/count"
