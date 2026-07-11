@@ -1,0 +1,1103 @@
+{
+  "tournament": "Bay State Showdown",
+  "ruleset": "Infinity ITS Season 17",
+  "generated": "2026-07-11",
+  "throughRound": 3,
+  "totalRounds": 5,
+  "playerCount": 20,
+  "tiebreakOrder": [
+    "tournamentPoints",
+    "objectivePoints",
+    "victoryPoints",
+    "strengthOfSchedule"
+  ],
+  "scoring": {
+    "victory": 4,
+    "tie": 2,
+    "defeat": 0,
+    "offensiveBonus": "+1 if >=5 OP",
+    "defensiveBonus": "+1 if lost by <=2 OP"
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "player": "Knuds, Wing King",
+      "tournamentPoints": 15,
+      "objectivePoints": 22,
+      "victoryPoints": 609,
+      "strengthOfSchedule": 60,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Jester of Kalgan",
+        "T-squared",
+        "TravelinYake"
+      ],
+      "tablesPlayed": [
+        8,
+        2,
+        1
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 8,
+          "opponent": "Jester of Kalgan",
+          "result": "win",
+          "objectivePoints": 7,
+          "victoryPoints": 212,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 2,
+          "opponent": "T-squared",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 244,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 1,
+          "opponent": "TravelinYake",
+          "result": "win",
+          "objectivePoints": 5,
+          "victoryPoints": 153,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "player": "Brickwarrior",
+      "tournamentPoints": 13,
+      "objectivePoints": 18,
+      "victoryPoints": 506,
+      "strengthOfSchedule": 37,
+      "roundsPlayed": 3,
+      "opponents": [
+        "PhilRosey",
+        "Pinkghost",
+        "Sloppy Steak"
+      ],
+      "tablesPlayed": [
+        9,
+        3,
+        2
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 9,
+          "opponent": "PhilRosey",
+          "result": "win",
+          "objectivePoints": 4,
+          "victoryPoints": 191,
+          "tournamentPoints": 4,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 3,
+          "opponent": "Pinkghost",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 242,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 2,
+          "opponent": "Sloppy Steak",
+          "result": "win",
+          "objectivePoints": 4,
+          "victoryPoints": 73,
+          "tournamentPoints": 4,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "player": "TravelinYake",
+      "tournamentPoints": 11,
+      "objectivePoints": 24,
+      "victoryPoints": 441,
+      "strengthOfSchedule": 44,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Benson",
+        "Gemini",
+        "Knuds, Wing King"
+      ],
+      "tablesPlayed": [
+        10,
+        7,
+        1
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 10,
+          "opponent": "Benson",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 251,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 7,
+          "opponent": "Gemini",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 123,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 1,
+          "opponent": "Knuds, Wing King",
+          "result": "loss",
+          "objectivePoints": 4,
+          "victoryPoints": 67,
+          "tournamentPoints": 1,
+          "offensiveBonus": false,
+          "defensiveBonus": true
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "player": "Jester of Kalgan",
+      "tournamentPoints": 10,
+      "objectivePoints": 20,
+      "victoryPoints": 610,
+      "strengthOfSchedule": 43,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Knuds, Wing King",
+        "Tewhill",
+        "erichagz"
+      ],
+      "tablesPlayed": [
+        8,
+        6,
+        3
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 8,
+          "opponent": "Knuds, Wing King",
+          "result": "loss",
+          "objectivePoints": 5,
+          "victoryPoints": 212,
+          "tournamentPoints": 2,
+          "offensiveBonus": true,
+          "defensiveBonus": true
+        },
+        {
+          "round": 2,
+          "table": 6,
+          "opponent": "Tewhill",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 233,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 3,
+          "opponent": "erichagz",
+          "result": "tie",
+          "objectivePoints": 5,
+          "victoryPoints": 165,
+          "tournamentPoints": 3,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "player": "dragoonxxiv",
+      "tournamentPoints": 10,
+      "objectivePoints": 19,
+      "victoryPoints": 326,
+      "strengthOfSchedule": 29,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Pinkghost",
+        "Lightning Dust",
+        "PhilRosey"
+      ],
+      "tablesPlayed": [
+        6,
+        5,
+        8
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 6,
+          "opponent": "Pinkghost",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 24,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 5,
+          "opponent": "Lightning Dust",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 146,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 8,
+          "opponent": "PhilRosey",
+          "result": "win",
+          "objectivePoints": 9,
+          "victoryPoints": 156,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "player": "Greyscale Hobbies",
+      "tournamentPoints": 10,
+      "objectivePoints": 18,
+      "victoryPoints": 453,
+      "strengthOfSchedule": 35,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Gemini",
+        "PhilRosey",
+        "liquidmetal9015"
+      ],
+      "tablesPlayed": [
+        2,
+        1,
+        4
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 2,
+          "opponent": "Gemini",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 237,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 1,
+          "opponent": "PhilRosey",
+          "result": "loss",
+          "objectivePoints": 2,
+          "victoryPoints": 27,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 4,
+          "opponent": "liquidmetal9015",
+          "result": "win",
+          "objectivePoints": 6,
+          "victoryPoints": 189,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "player": "T-squared",
+      "tournamentPoints": 10,
+      "objectivePoints": 16,
+      "victoryPoints": 666,
+      "strengthOfSchedule": 37,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Tewhill",
+        "Knuds, Wing King",
+        "SiyaChon"
+      ],
+      "tablesPlayed": [
+        7,
+        2,
+        5
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 7,
+          "opponent": "Tewhill",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 300,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 2,
+          "opponent": "Knuds, Wing King",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 108,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 5,
+          "opponent": "SiyaChon",
+          "result": "win",
+          "objectivePoints": 5,
+          "victoryPoints": 258,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "player": "Billiam",
+      "tournamentPoints": 10,
+      "objectivePoints": 16,
+      "victoryPoints": 366,
+      "strengthOfSchedule": 39,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Sloppy Steak",
+        "erichagz",
+        "Lightning Dust"
+      ],
+      "tablesPlayed": [
+        5,
+        4,
+        6
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 5,
+          "opponent": "Sloppy Steak",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 103,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 4,
+          "opponent": "erichagz",
+          "result": "win",
+          "objectivePoints": 7,
+          "victoryPoints": 41,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 6,
+          "opponent": "Lightning Dust",
+          "result": "win",
+          "objectivePoints": 8,
+          "victoryPoints": 222,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "player": "Pinkghost",
+      "tournamentPoints": 10,
+      "objectivePoints": 15,
+      "victoryPoints": 395,
+      "strengthOfSchedule": 49,
+      "roundsPlayed": 3,
+      "opponents": [
+        "dragoonxxiv",
+        "Brickwarrior",
+        "Dread"
+      ],
+      "tablesPlayed": [
+        6,
+        3,
+        7
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 6,
+          "opponent": "dragoonxxiv",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 222,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 3,
+          "opponent": "Brickwarrior",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 69,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 7,
+          "opponent": "Dread",
+          "result": "win",
+          "objectivePoints": 5,
+          "victoryPoints": 104,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "player": "Sloppy Steak",
+      "tournamentPoints": 10,
+      "objectivePoints": 14,
+      "victoryPoints": 606,
+      "strengthOfSchedule": 45,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Billiam",
+        "Benson",
+        "Brickwarrior"
+      ],
+      "tablesPlayed": [
+        5,
+        8,
+        2
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 5,
+          "opponent": "Billiam",
+          "result": "win",
+          "objectivePoints": 6,
+          "victoryPoints": 187,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 8,
+          "opponent": "Benson",
+          "result": "win",
+          "objectivePoints": 7,
+          "victoryPoints": 299,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 2,
+          "opponent": "Brickwarrior",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 120,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "player": "erichagz",
+      "tournamentPoints": 8,
+      "objectivePoints": 19,
+      "victoryPoints": 548,
+      "strengthOfSchedule": 41,
+      "roundsPlayed": 3,
+      "opponents": [
+        "nevercrit",
+        "Billiam",
+        "Jester of Kalgan"
+      ],
+      "tablesPlayed": [
+        1,
+        4,
+        3
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 1,
+          "opponent": "nevercrit",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 218,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 4,
+          "opponent": "Billiam",
+          "result": "loss",
+          "objectivePoints": 4,
+          "victoryPoints": 204,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 3,
+          "opponent": "Jester of Kalgan",
+          "result": "tie",
+          "objectivePoints": 5,
+          "victoryPoints": 126,
+          "tournamentPoints": 3,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "player": "liquidmetal9015",
+      "tournamentPoints": 5,
+      "objectivePoints": 16,
+      "victoryPoints": 396,
+      "strengthOfSchedule": 37,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Lightning Dust",
+        "SiyaChon",
+        "Greyscale Hobbies"
+      ],
+      "tablesPlayed": [
+        3,
+        9,
+        4
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 3,
+          "opponent": "Lightning Dust",
+          "result": "loss",
+          "objectivePoints": 3,
+          "victoryPoints": 130,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 9,
+          "opponent": "SiyaChon",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 154,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 4,
+          "opponent": "Greyscale Hobbies",
+          "result": "loss",
+          "objectivePoints": 3,
+          "victoryPoints": 112,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "player": "SiyaChon",
+      "tournamentPoints": 5,
+      "objectivePoints": 13,
+      "victoryPoints": 465,
+      "strengthOfSchedule": 44,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Dread",
+        "liquidmetal9015",
+        "T-squared"
+      ],
+      "tablesPlayed": [
+        4,
+        9,
+        5
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 4,
+          "opponent": "Dread",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 242,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 9,
+          "opponent": "liquidmetal9015",
+          "result": "loss",
+          "objectivePoints": 2,
+          "victoryPoints": 162,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 5,
+          "opponent": "T-squared",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 61,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "player": "Dread",
+      "tournamentPoints": 5,
+      "objectivePoints": 12,
+      "victoryPoints": 435,
+      "strengthOfSchedule": 33,
+      "roundsPlayed": 3,
+      "opponents": [
+        "SiyaChon",
+        "nevercrit",
+        "Pinkghost"
+      ],
+      "tablesPlayed": [
+        4,
+        10,
+        7
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 4,
+          "opponent": "SiyaChon",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 62,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 10,
+          "opponent": "nevercrit",
+          "result": "win",
+          "objectivePoints": 10,
+          "victoryPoints": 300,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 7,
+          "opponent": "Pinkghost",
+          "result": "loss",
+          "objectivePoints": 2,
+          "victoryPoints": 73,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "player": "Gemini",
+      "tournamentPoints": 5,
+      "objectivePoints": 11,
+      "victoryPoints": 451,
+      "strengthOfSchedule": 44,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Greyscale Hobbies",
+        "TravelinYake",
+        "Tewhill"
+      ],
+      "tablesPlayed": [
+        2,
+        7,
+        10
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 2,
+          "opponent": "Greyscale Hobbies",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 31,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 7,
+          "opponent": "TravelinYake",
+          "result": "loss",
+          "objectivePoints": 3,
+          "victoryPoints": 156,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 10,
+          "opponent": "Tewhill",
+          "result": "win",
+          "objectivePoints": 8,
+          "victoryPoints": 264,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "player": "Benson",
+      "tournamentPoints": 5,
+      "objectivePoints": 11,
+      "victoryPoints": 355,
+      "strengthOfSchedule": 43,
+      "roundsPlayed": 3,
+      "opponents": [
+        "TravelinYake",
+        "Sloppy Steak",
+        "nevercrit"
+      ],
+      "tablesPlayed": [
+        10,
+        8,
+        9
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 10,
+          "opponent": "TravelinYake",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 71,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 8,
+          "opponent": "Sloppy Steak",
+          "result": "loss",
+          "objectivePoints": 4,
+          "victoryPoints": 88,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 9,
+          "opponent": "nevercrit",
+          "result": "win",
+          "objectivePoints": 7,
+          "victoryPoints": 196,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "player": "PhilRosey",
+      "tournamentPoints": 5,
+      "objectivePoints": 8,
+      "victoryPoints": 294,
+      "strengthOfSchedule": 55,
+      "roundsPlayed": 3,
+      "opponents": [
+        "Brickwarrior",
+        "Greyscale Hobbies",
+        "dragoonxxiv"
+      ],
+      "tablesPlayed": [
+        9,
+        1,
+        8
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 9,
+          "opponent": "Brickwarrior",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 63,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 1,
+          "opponent": "Greyscale Hobbies",
+          "result": "win",
+          "objectivePoints": 7,
+          "victoryPoints": 173,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 8,
+          "opponent": "dragoonxxiv",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 58,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "player": "Lightning Dust",
+      "tournamentPoints": 5,
+      "objectivePoints": 6,
+      "victoryPoints": 210,
+      "strengthOfSchedule": 51,
+      "roundsPlayed": 3,
+      "opponents": [
+        "liquidmetal9015",
+        "dragoonxxiv",
+        "Billiam"
+      ],
+      "tablesPlayed": [
+        3,
+        5,
+        6
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 3,
+          "opponent": "liquidmetal9015",
+          "result": "win",
+          "objectivePoints": 6,
+          "victoryPoints": 108,
+          "tournamentPoints": 5,
+          "offensiveBonus": true,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 5,
+          "opponent": "dragoonxxiv",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 64,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 6,
+          "opponent": "Billiam",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 38,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "player": "nevercrit",
+      "tournamentPoints": 0,
+      "objectivePoints": 5,
+      "victoryPoints": 224,
+      "strengthOfSchedule": 42,
+      "roundsPlayed": 3,
+      "opponents": [
+        "erichagz",
+        "Dread",
+        "Benson"
+      ],
+      "tablesPlayed": [
+        1,
+        10,
+        9
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 1,
+          "opponent": "erichagz",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 42,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 10,
+          "opponent": "Dread",
+          "result": "loss",
+          "objectivePoints": 4,
+          "victoryPoints": 66,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 9,
+          "opponent": "Benson",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 116,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "player": "Tewhill",
+      "tournamentPoints": 0,
+      "objectivePoints": 2,
+      "victoryPoints": 391,
+      "strengthOfSchedule": 47,
+      "roundsPlayed": 3,
+      "opponents": [
+        "T-squared",
+        "Jester of Kalgan",
+        "Gemini"
+      ],
+      "tablesPlayed": [
+        7,
+        6,
+        10
+      ],
+      "matchHistory": [
+        {
+          "round": 1,
+          "table": 7,
+          "opponent": "T-squared",
+          "result": "loss",
+          "objectivePoints": 0,
+          "victoryPoints": 129,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 2,
+          "table": 6,
+          "opponent": "Jester of Kalgan",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 158,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        },
+        {
+          "round": 3,
+          "table": 10,
+          "opponent": "Gemini",
+          "result": "loss",
+          "objectivePoints": 1,
+          "victoryPoints": 104,
+          "tournamentPoints": 0,
+          "offensiveBonus": false,
+          "defensiveBonus": false
+        }
+      ]
+    }
+  ]
+}
