@@ -5,6 +5,6 @@
     "round1": { "open": false, "done": true, "url": "https://docs.google.com/forms/d/e/1FAIpQLSc1WGOjoJxsv4vJueXt14W1HW9TIVbY8dCscEJelHvQksvsbA/viewform" },
     "round2": { "open": false, "done": true, "url": "https://docs.google.com/forms/d/e/1FAIpQLScSxoFtPrcYi6ibPw3rfUvBAmAAQirnJ2RZXxdHLKTnCvkKJg/viewform" },
     "round3": { "open": false, "done": true, "url": "https://docs.google.com/forms/d/e/1FAIpQLSeadBIm-JcE0161cImS1w-vWniSsHQKcTexsi_tw4xuoH583A/viewform" },
-    "round4": { "open": true, "url": "https://docs.google.com/forms/d/e/1FAIpQLSdQ6ENl8EaD0ZrokL7QhJ7qH_pDOTlVnP4iFFp5opzkqpkhng/viewform" },
-    "round5": { "open": false, "url": "" }
+    "round4": { "open": false, "done": true, "url": "https://docs.google.com/forms/d/e/1FAIpQLSdQ6ENl8EaD0ZrokL7QhJ7qH_pDOTlVnP4iFFp5opzkqpkhng/viewform" },
+    "round5": { "open": true, "url": "https://docs.google.com/forms/d/e/1FAIpQLScnIKhkFjb8lb-f1ZP9V8hZZM7BYdh-XfrVraiyUw_8xYWOLg/viewform" }
 }
