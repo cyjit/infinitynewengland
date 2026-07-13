@@ -285,6 +285,86 @@
         .col-tp { text-align: center; font-weight: 700; color: white; font-variant-numeric: tabular-nums; }
         .col-muted { color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
 
+        /* --- Army Lists (top players) --- */
+        .lists-btn {
+            margin-left: 0.5rem;
+            font-family: inherit;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-amber);
+            background: transparent;
+            border: 1px solid var(--color-amber-glow);
+            border-radius: 4px;
+            padding: 0.12rem 0.45rem;
+            cursor: pointer;
+            vertical-align: 1px;
+            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .lists-btn:hover { background: rgba(232,168,64,0.12); border-color: var(--color-amber); color: var(--color-amber-hover); }
+        .lists-btn[aria-expanded="true"] { background: var(--color-amber); color: var(--color-bg); border-color: var(--color-amber); }
+
+        .list-row td {
+            padding: 0;
+            background: rgba(232,168,64,0.04);
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+            border-left: 3px solid var(--color-amber);
+            white-space: normal;
+        }
+        .list-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            padding: 0.9rem 1rem;
+        }
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .list-label {
+            flex: 0 0 auto;
+            width: 3.1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-muted);
+        }
+        .list-code {
+            flex: 1 1 auto;
+            min-width: 0;
+            font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+            font-size: 0.74rem;
+            color: var(--color-text-main);
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            padding: 0.45rem 0.55rem;
+        }
+        .list-code:focus { outline: none; border-color: var(--color-amber); box-shadow: 0 0 0 1px var(--color-amber-glow); }
+        .icon-btn {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.05rem;
+            height: 2.05rem;
+            border-radius: 5px;
+            border: 1px solid var(--color-border);
+            background: rgba(255,255,255,0.03);
+            color: var(--color-amber);
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .icon-btn:hover { background: rgba(232,168,64,0.12); border-color: var(--color-amber); color: var(--color-amber-hover); text-shadow: none; }
+        .icon-btn svg { width: 1rem; height: 1rem; display: block; }
+        .copy-btn .ic-check { display: none; }
+        .copy-btn.copied { color: var(--win); border-color: var(--win); background: rgba(125,211,168,0.12); }
+        .copy-btn.copied .ic-copy { display: none; }
+        .copy-btn.copied .ic-check { display: block; }
+
         /* --- Awards --- */
         .awards-grid {
             display: grid;
@@ -577,11 +657,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="top-row rank-1"><td class="col-num">1</td><td class="col-player">dragoonxxiv</td><td class="col-faction">OSS</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">35</td><td class="col-num-data col-muted">13</td><td class="col-num-data col-muted">836</td><td class="col-num-data col-muted">506</td></tr>
-                    <tr class="top-row rank-2"><td class="col-num">2</td><td class="col-player">Knuds, Wing King</td><td class="col-faction">SEF</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">31</td><td class="col-num-data col-muted">20</td><td class="col-num-data col-muted">1001</td><td class="col-num-data col-muted">778</td></tr>
-                    <tr class="top-row rank-3"><td class="col-num">3</td><td class="col-player">Billiam</td><td class="col-faction">MRRF</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">28</td><td class="col-num-data col-muted">17</td><td class="col-num-data col-muted">572</td><td class="col-num-data col-muted">612</td></tr>
-                    <tr><td class="col-num">4</td><td class="col-player">TravelinYake</td><td class="col-faction">HB</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">18</td><td class="col-num-data col-muted">36</td><td class="col-num-data col-muted">16</td><td class="col-num-data col-muted">644</td><td class="col-num-data col-muted">546</td></tr>
-                    <tr><td class="col-num">5</td><td class="col-player">erichagz</td><td class="col-faction">Shin</td><td class="col-num-data">3&ndash;1&ndash;1</td><td class="col-tp">18</td><td class="col-num-data col-muted">34</td><td class="col-num-data col-muted">16</td><td class="col-num-data col-muted">1014</td><td class="col-num-data col-muted">511</td></tr>
+                    <tr class="top-row rank-1" id="p1"><td class="col-num">1</td><td class="col-player">dragoonxxiv</td><td class="col-faction">OSS</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">35</td><td class="col-num-data col-muted">13</td><td class="col-num-data col-muted">836</td><td class="col-num-data col-muted">506</td></tr>
+                    <tr class="top-row rank-2" id="p2"><td class="col-num">2</td><td class="col-player">Knuds, Wing King</td><td class="col-faction">SEF</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">31</td><td class="col-num-data col-muted">20</td><td class="col-num-data col-muted">1001</td><td class="col-num-data col-muted">778</td></tr>
+                    <tr class="top-row rank-3" id="p3"><td class="col-num">3</td><td class="col-player">Billiam</td><td class="col-faction">MRRF</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">28</td><td class="col-num-data col-muted">17</td><td class="col-num-data col-muted">572</td><td class="col-num-data col-muted">612</td></tr>
+                    <tr id="p4"><td class="col-num">4</td><td class="col-player">TravelinYake</td><td class="col-faction">HB</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">18</td><td class="col-num-data col-muted">36</td><td class="col-num-data col-muted">16</td><td class="col-num-data col-muted">644</td><td class="col-num-data col-muted">546</td></tr>
+                    <tr id="p5"><td class="col-num">5</td><td class="col-player">erichagz</td><td class="col-faction">Shin</td><td class="col-num-data">3&ndash;1&ndash;1</td><td class="col-tp">18</td><td class="col-num-data col-muted">34</td><td class="col-num-data col-muted">16</td><td class="col-num-data col-muted">1014</td><td class="col-num-data col-muted">511</td></tr>
                     <tr><td class="col-num">6</td><td class="col-player">Jester of Kalgan</td><td class="col-faction">BJC</td><td class="col-num-data">2&ndash;2&ndash;1</td><td class="col-tp">15</td><td class="col-num-data col-muted">32</td><td class="col-num-data col-muted">20</td><td class="col-num-data col-muted">867</td><td class="col-num-data col-muted">749</td></tr>
                     <tr><td class="col-num">7</td><td class="col-player">Dread</td><td class="col-faction">KCF</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">15</td><td class="col-num-data col-muted">28</td><td class="col-num-data col-muted">23</td><td class="col-num-data col-muted">703</td><td class="col-num-data col-muted">586</td></tr>
                     <tr><td class="col-num">8</td><td class="col-player">T-squared</td><td class="col-faction">SWF</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">15</td><td class="col-num-data col-muted">26</td><td class="col-num-data col-muted">18</td><td class="col-num-data col-muted">1029</td><td class="col-num-data col-muted">620</td></tr>
@@ -761,6 +841,135 @@
         </footer>
 
     </div>
+
+    <script>
+    (function () {
+        var LIST_BASE = 'https://infinitytheuniverse.com/army/list/';
+
+        // Army list codes for the top finishers (direct link = LIST_BASE + code).
+        var PLAYER_LISTS = {
+            p1: [ // dragoonxxiv
+                'gr8Kb3BlcmF0aW9ucw1PUzQgQVMgVGVzdCAzgSwBAQEADACEaAEDAACHcAEDAACHZAEBAACHZgEBAACHagEGAACHagECAACDtgECAACCVQEDAACCVQIBAACCVQQCAACElgECAACCSwEIAA%3D%3D',
+                'gr8Kb3BlcmF0aW9ucw1PUzQgQVMgVGVzdCA0gSwCAQEACQCEaAEDAACCSwEDAACEaQECAACEaQEFAACHZgECAACHagEFAACHagEGAACErQECAACCUwEBAAIBAAcAg7YBAgAAgk4BAgAAglEBAQAAglEBAQAAglUBAgAAglUFAgAAglMBAQA%3D'
+            ],
+            p2: [ // Knuds, Wing King
+                'glsKc2hhc3Zhc3RpaQxONSAtIEd3YWlsb3OBLAIBAQAKAIIIAQQAAIUTAQEAAIUOAQQAAIXqAQIAAIIQAQgAAIH3AQIAAIIAAQQAAIIAAQQAAIIUAQEAAIdRAQEAAgEABACB9wECAACB%2FwEBAACB%2FwEBAACHUgEBAA%3D%3D',
+                'glsKc2hhc3Zhc3RpaQ1ONSAtIFNoZXNraWlugSwCAQEACwCCFQEEAACFFgEFAACFCgEGAACCEAEDAACCCAEDAACFDgEBAACB9wECAACB%2BwEBAACCDgEBAACCFAEBAACB%2FwEBAAIBAAUAgfcBAgAAgf0BAwAAgf8BAQAAh1IBAQAAh1EBAQA%3D'
+            ],
+            p3: [ // Billiam
+                'gS8lZm9yY2UtZGUtcmVwb25zZS1yYXBpZGUtbWVyb3ZpbmdpZW5uZRFGcmVuY2ggYWxsIGNvbWVyc4EsAgEBAAkAgQkBAgAAgPYBCAAAgPYBBwAAg6sBAgAAhhMBAQAAgOkBBwAAgPwBBQAAgPwBBQAAgQIAAQACAQAEADIBAQAAhzYBAwAAhzYBAwAAht0BBwA%3D',
+                'gS8lZm9yY2UtZGUtcmVwb25zZS1yYXBpZGUtbWVyb3ZpbmdpZW5uZQlPdXRicmVhayCBLAIBAQAJAIEGAQQAAIDpAQgAAID5AQcAAIEEAQMAAID5AQkAAIUEAZKZAACBAgABAACA9gEBAACA9gEBAAIBAAUAgQEBAQAAh1IBAQAAhzYBAwAAhIEBkKgAAIbdAQcA'
+            ],
+            p4: [ // TravelinYake
+                'gZIQaGFzc2Fzc2luLWJhaHJhbQtJcm9ud2VsZDEuMoEsAgEBAAoAhgsBAwAAhgsBAwAAgU8BAQAAgVEBBAAAgVEBAQAAgS0BDgAAgwsBAQAAgwsBAQAAhjUBBAAAh1IBAQACAQAFADIBAQAAgUMBBgAAgUMBBgAAgVQBAwAAgVQBAQA%3D',
+                'gZIQaGFzc2Fzc2luLWJhaHJhbQtJcm9ud2VsZDIuMYEsAgEBAAoAhjYBBgAAgUkBCgAAgTABCQAAgTABBwAAgwsBAQAAgU8BAQAAhgsBAwAAgT4BAQAAgUwBAQAAh1IBAQACAQAEAIFDAQYAAIFDAQYAAIFUAQMAAIFUAQEA'
+            ],
+            p5: [ // erichagz
+                'hE4Mc2hpbmRlbmJ1dGFpCklyb253ZWxkIDGBLAIBAQAJAIcfAQEAAIceAQIAAIcdAQMAAIDgAYLlAACHIAEDAACAogEBAACHKQEBAACHIwECAACAhwEHAAIBAAcAhxoBAQAAhxsBBgAAhxsBAwAAhyABAwAAhyMBAgAAgJ4BAgAAgKEBAQA%3D',
+                'hE4Mc2hpbmRlbmJ1dGFpE0lyb253ZWxkIDIgT3V0YnJlYWuBLAIBAQAJAIcfAQEAAIceAQIAAIcdAQMAAIcgAQIAAIDgAYLlAACHIwECAACAogEBAACHKQEBAACAhwEHAAIBAAcAhxoBAQAAhxsBBgAAhxsBAwAAhyABAgAAhyMBAgAAgJ4BAgAAgKEBAQA%3D'
+            ]
+        };
+
+        var COPY_ICON = '<svg class="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>';
+        var CHECK_ICON = '<svg class="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>';
+        var LINK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>';
+
+        function legacyCopy(input) {
+            input.focus();
+            input.select();
+            try { document.execCommand('copy'); } catch (e) {}
+        }
+        function copyCode(btn, input) {
+            var flash = function () {
+                btn.classList.add('copied');
+                setTimeout(function () { btn.classList.remove('copied'); }, 1400);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(input.value).then(flash, function () { legacyCopy(input); flash(); });
+            } else {
+                legacyCopy(input);
+                flash();
+            }
+        }
+
+        Object.keys(PLAYER_LISTS).forEach(function (rowId) {
+            var row = document.getElementById(rowId);
+            if (!row) return;
+            var cell = row.querySelector('.col-player');
+            if (!cell) return;
+            var codes = PLAYER_LISTS[rowId];
+            var panelId = rowId + '-lists';
+
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'lists-btn';
+            btn.textContent = 'Lists';
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-controls', panelId);
+            cell.appendChild(document.createTextNode(' '));
+            cell.appendChild(btn);
+
+            var listRow = document.createElement('tr');
+            listRow.className = 'list-row';
+            listRow.id = panelId;
+            listRow.hidden = true;
+            var td = document.createElement('td');
+            td.colSpan = row.children.length;
+            var panel = document.createElement('div');
+            panel.className = 'list-panel';
+
+            codes.forEach(function (code, i) {
+                var item = document.createElement('div');
+                item.className = 'list-item';
+
+                var label = document.createElement('span');
+                label.className = 'list-label';
+                label.textContent = 'List ' + (i + 1);
+
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'list-code';
+                input.readOnly = true;
+                input.value = code;
+                input.setAttribute('aria-label', 'Army code, list ' + (i + 1));
+                input.addEventListener('focus', function () { input.select(); });
+
+                var copyBtn = document.createElement('button');
+                copyBtn.type = 'button';
+                copyBtn.className = 'icon-btn copy-btn';
+                copyBtn.title = 'Copy code';
+                copyBtn.setAttribute('aria-label', 'Copy list ' + (i + 1) + ' code');
+                copyBtn.innerHTML = COPY_ICON + CHECK_ICON;
+                copyBtn.addEventListener('click', function () { copyCode(copyBtn, input); });
+
+                var link = document.createElement('a');
+                link.className = 'icon-btn link-btn';
+                link.href = LIST_BASE + code;
+                link.target = '_blank';
+                link.rel = 'noopener';
+                link.title = 'Open in Infinity Army';
+                link.setAttribute('aria-label', 'Open list ' + (i + 1) + ' in Infinity Army');
+                link.innerHTML = LINK_ICON;
+
+                item.appendChild(label);
+                item.appendChild(input);
+                item.appendChild(copyBtn);
+                item.appendChild(link);
+                panel.appendChild(item);
+            });
+
+            td.appendChild(panel);
+            listRow.appendChild(td);
+            row.parentNode.insertBefore(listRow, row.nextSibling);
+
+            btn.addEventListener('click', function () {
+                var open = !listRow.hidden;
+                listRow.hidden = open;
+                btn.setAttribute('aria-expanded', String(!open));
+            });
+        });
+    })();
+    </script>
 
     <script data-goatcounter="https://infinitynewengland.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
