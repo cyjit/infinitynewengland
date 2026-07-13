@@ -6,11 +6,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beantown Beatdown | Infinity New England</title>
+    <title>Beantown Beatdown V | Infinity New England</title>
 
-    <meta name="description" content="Beantown Beatdown: New England's Premier Infinity Tournament. Dec 12-13, 2026 in Danvers, MA.">
-    <meta property="og:title" content="Beantown Beatdown">
-    <meta property="og:description" content="New Location. More Space. Same Great Event. Dec 12-13, 2026.">
+    <meta name="description" content="Beantown Beatdown V — the Northeast's premier Infinity tournament. December 12-13, 2026 at the DoubleTree by Hilton in Danvers, MA.">
+    <meta property="og:title" content="Beantown Beatdown V">
+    <meta property="og:description" content="The Northeast's Premier Infinity Tournament. December 12-13, 2026 — Danvers, MA.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.infinitynewengland.com/ogimg.png">
     <meta property="og:url" content="https://www.infinitynewengland.com/beantown.html">
@@ -22,190 +22,287 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Core Theme --- */
+        /* --- Deep Blue Wrestling Theme --- */
         :root {
-            --color-bg:          #0c101d;
-            --color-text-main:   #e5e7eb;
-            --color-text-muted:  #9ca3af;
-            --color-amber:       #e8a840;
-            --color-amber-hover: #f0c060;
-            --color-amber-glow:  rgba(232, 168, 64, 0.35);
-            --color-red:         #880000;
-            --color-border:      #374151;
+            --bg:            #030410;
+            --bg-2:          #070a26;
+            --panel:         rgba(26, 33, 84, 0.38);
+            --panel-border:  #262c66;
+            --text:          #e9ebff;
+            --muted:         #9298c9;
+            --gold:          #f3c02f;
+            --gold-light:    #ffd96b;
+            --gold-deep:     #c9890f;
+            --gold-glow:     rgba(245, 201, 72, 0.35);
+            --royal:         #4f46e5;
+            --red:           #c0392b;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Exo 2', sans-serif;
-            background-color: var(--color-bg);
+            background-color: var(--bg);
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--color-text-main);
+                radial-gradient(1000px 560px at 50% -14%, rgba(55, 48, 150, 0.20), transparent 60%),
+                radial-gradient(820px 480px at 100% 108%, rgba(40, 38, 130, 0.12), transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: auto, auto, 32px 32px, 32px 32px;
+            background-attachment: fixed, fixed, scroll, scroll;
+            color: var(--text);
             margin: 0;
             padding: 0;
             line-height: 1.5;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.5rem 3rem;
         }
 
-        /* --- Typography --- */
         h1, h2, h3, p { margin: 0; }
-        
+
         a {
-            color: var(--color-amber);
+            color: var(--gold);
             text-decoration: none;
             transition: all 0.2s ease;
         }
         a:hover {
-            color: var(--color-amber-hover);
-            text-shadow: 0 0 8px var(--color-amber-glow);
+            color: var(--gold-light);
+            text-shadow: 0 0 8px var(--gold-glow);
         }
 
         /* --- Navigation --- */
         .nav-back {
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        /* --- Hero Section --- */
-        .hero {
-            text-align: center;
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 3rem;
-            margin-bottom: 3rem;
-        }
-        .hero h1 {
-            font-size: 3.5rem; /* Large Impact Title */
-            font-weight: 700;
-            color: white;
-            text-shadow: 0 0 15px rgba(232, 168, 64, 0.2);
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-        .hero .dates {
-            font-size: 2rem;
-            color: var(--color-amber);
-            font-weight: 300;
-            letter-spacing: 0.1em;
-        }
-        
-        /* --- Intro Block --- */
-        .intro-block {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 3rem auto;
-        }
-        .intro-block p {
-            font-size: 1.15rem;
-            color: var(--color-text-main);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        .intro-block .highlight {
-            color: var(--color-amber);
-            font-weight: 600;
-        }
-
-        /* --- CAROUSEL STYLES --- */
-        .carousel-container {
+        /* --- HERO BANNER --- */
+        .hero-banner {
             position: relative;
-            max-width: 100%;
-            margin-bottom: 3rem;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-            background: #000; /* Dark background to prevent flicker */
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
             display: flex;
             align-items: center;
+            gap: clamp(0.75rem, 3vw, 2.25rem);
+            padding: clamp(1.5rem, 3.5vw, 2.75rem) clamp(1.25rem, 3.5vw, 2.75rem);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #3a3fa0;
+            background:
+                radial-gradient(122% 122% at 80% 54%,
+                    #2a2490 0%, #181462 24%, #0d0e33 50%, #07081c 76%, #030410 100%);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255,255,255,0.04);
+        }
+
+        .hero-figure {
+            flex: 0 0 30%;
+            display: flex;
             justify-content: center;
-            background: #0c101d;
+            align-items: flex-end;
         }
-
-        .carousel-slide img {
+        .hero-figure img {
             width: 100%;
+            max-width: 300px;
             height: auto;
-            max-height: 600px; /* Cap height for large screens */
             display: block;
-            object-fit: contain; /* Ensures full image is visible */
+            filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.5));
         }
 
-        /* Carousel Navigation Buttons */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(12, 16, 29, 0.7);
-            color: var(--color-amber);
-            border: 1px solid var(--color-amber);
+        .hero-lockup {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+        }
+
+        .bb-lockup {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.4rem, 1.8vw, 1.4rem);
+        }
+        .bb-words {
+            display: flex;
+            flex-direction: column;
+            line-height: 0.9;
+        }
+
+        /* Gold, white-stroked, blocky wrestling type */
+        .bb-word, .bb-v {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffdb70 0%, #f2bd35 42%, #e0a41e 66%, #c48808 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            paint-order: stroke fill;
+            filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.45));
+        }
+        .bb-word {
+            font-size: clamp(1.8rem, 5.6vw, 3.9rem);
+            letter-spacing: -0.01em;
+            -webkit-text-stroke: clamp(1.5px, 0.45vw, 3px) #ffffff;
+        }
+        .bb-v {
+            font-size: clamp(4rem, 13vw, 8.5rem);
+            line-height: 0.78;
+            -webkit-text-stroke: clamp(2px, 0.6vw, 4.5px) #ffffff;
+        }
+
+        .hero-meta {
+            margin-top: 0.7rem;
+        }
+        .hero-dates {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 800;
+            color: #ffffff;
+            font-size: clamp(1.4rem, 4.4vw, 2.4rem);
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .hero-city {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: clamp(1.05rem, 3vw, 1.65rem);
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- Tagline + CTAs --- */
+        .hero-tagline {
+            text-align: center;
+            font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            color: var(--gold-light);
+            letter-spacing: 0.03em;
+            margin: 1.9rem auto 0;
+        }
+        .satellite-eyebrow {
+            display: block;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            margin-top: 1.6rem;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem auto 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border-radius: 9px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             cursor: pointer;
-            padding: 10px 15px;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: all 0.3s;
-            border-radius: 4px;
+            transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
-        .carousel-btn:hover {
-            background-color: var(--color-amber);
-            color: var(--color-bg);
+        .btn-primary {
+            background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-deep) 100%);
+            color: #1a1330;
+            border: 1px solid var(--gold-light);
+            box-shadow: 0 6px 20px rgba(245, 201, 72, 0.28);
         }
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
+        .btn-primary:hover {
+            color: #1a1330;
+            transform: translateY(-2px);
+            box-shadow: 0 0 28px var(--gold-glow), 0 8px 22px rgba(0, 0, 0, 0.4);
+            text-shadow: none;
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+        .btn-secondary:hover {
+            color: var(--gold-light);
+            background: rgba(245, 201, 72, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 0 22px var(--gold-glow);
+            text-shadow: none;
+        }
+
+        /* --- Intro --- */
+        .intro-block {
+            text-align: center;
+            max-width: 680px;
+            margin: 3rem auto;
+        }
+        .intro-block p {
+            font-size: 1.12rem;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            line-height: 1.65;
+        }
+        .intro-block p:last-child { margin-bottom: 0; }
+
+        /* --- Section headings --- */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--panel-border), transparent);
+            margin: 3rem 0;
+            border: none;
+        }
 
         /* --- Info Cards --- */
         .info-card {
-            background: rgba(31, 41, 55, 0.3);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
+            backdrop-filter: blur(2px);
         }
-        
         .info-label {
-            color: var(--color-amber);
+            color: var(--gold);
             text-transform: uppercase;
             font-size: 0.85rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.14em;
+            margin-bottom: 0.75rem;
             display: block;
         }
-
         .info-main {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.35rem;
         }
-
+        .info-main a { color: #fff; }
+        .info-main a:hover { color: var(--gold-light); }
         .info-sub {
-            color: var(--color-text-muted);
+            color: var(--muted);
             font-size: 1rem;
+        }
+        .map-link {
+            display: inline-block;
+            margin-top: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
         }
 
         /* --- Schedule List --- */
@@ -220,16 +317,65 @@
             display: flex;
             justify-content: space-between;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+            border-bottom: 1px solid rgba(43, 49, 112, 0.6);
         }
         .schedule-item:last-child { border-bottom: none; }
-        .schedule-day { font-weight: 600; color: white; }
-        .schedule-event { color: var(--color-amber); text-align: right; }
+        .schedule-day { font-weight: 600; color: #fff; }
+        .schedule-event { color: var(--gold); text-align: right; }
+
+        /* --- CAROUSEL --- */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 2rem;
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            background: #05061a;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #080a24;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            display: block;
+            object-fit: contain;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(8, 10, 36, 0.7);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s;
+            border-radius: 6px;
+        }
+        .carousel-btn:hover {
+            background-color: var(--gold);
+            color: var(--bg);
+        }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
 
         /* --- History Table --- */
-        .history-table-container {
-            overflow-x: auto;
-        }
+        .history-table-container { overflow-x: auto; }
         .history-table {
             width: 100%;
             border-collapse: collapse;
@@ -238,224 +384,187 @@
             font-size: 0.95rem;
         }
         .history-table th {
-            color: var(--color-amber);
+            color: var(--gold);
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.75rem;
             letter-spacing: 0.1em;
             padding: 0.75rem 0.5rem;
-            border-bottom: 2px solid var(--color-border);
+            border-bottom: 2px solid var(--panel-border);
         }
         .history-table td {
             padding: 1rem 0.5rem;
-            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+            border-bottom: 1px solid rgba(43, 49, 112, 0.6);
             vertical-align: top;
         }
-        .history-table tr:last-child td {
-            border-bottom: none;
-        }
-        .history-event {
-            font-weight: 600;
-            color: #fff;
-            display: block;
-        }
-        .history-date {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-        }
-        .winner-name {
-            color: white;
-            font-weight: 500;
-        }
+        .history-table tr:last-child td { border-bottom: none; }
+        .history-event { font-weight: 600; color: #fff; display: block; }
+        .history-date { font-size: 0.8rem; color: var(--muted); }
+        .winner-name { color: #fff; font-weight: 500; }
         .secondary-award {
             display: block;
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: var(--muted);
             margin-top: 4px;
         }
-        .secondary-award strong {
-            color: var(--color-amber);
-            font-weight: 400;
-        }
+        .secondary-award strong { color: var(--gold); font-weight: 400; }
 
-        /* --- Painted Model Lightbox --- */
+        /* --- Lightbox --- */
         .painted-trigger {
-            background: none;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            color: white;
-            font-weight: 500;
-            font-size: inherit;
-            font-family: inherit;
-            text-decoration: underline;
-            text-decoration-color: rgba(255,255,255,0.25);
+            background: none; border: none; padding: 0; cursor: pointer;
+            color: #fff; font-weight: 500; font-size: inherit; font-family: inherit;
+            text-decoration: underline; text-decoration-color: rgba(255,255,255,0.25);
             text-underline-offset: 3px;
             transition: color 0.2s, text-decoration-color 0.2s;
         }
-        .painted-trigger:hover {
-            color: var(--color-amber);
-            text-decoration-color: var(--color-amber-glow);
-        }
+        .painted-trigger:hover { color: var(--gold); text-decoration-color: var(--gold-glow); }
         .lightbox-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.88);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
-            cursor: pointer;
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.88); z-index: 1000;
+            align-items: center; justify-content: center;
+            padding: 2rem 1rem; cursor: pointer;
         }
-        .lightbox-overlay.open {
-            display: flex;
-        }
-        .lightbox-inner {
-            position: relative;
-            max-width: 800px;
-            width: 100%;
-            cursor: default;
-        }
+        .lightbox-overlay.open { display: flex; }
+        .lightbox-inner { position: relative; max-width: 800px; width: 100%; cursor: default; }
         .lightbox-inner img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            border: 1px solid var(--color-border);
+            width: 100%; height: auto; display: block;
+            border-radius: 8px; border: 1px solid var(--panel-border);
             box-shadow: 0 0 60px rgba(0,0,0,0.6);
         }
         .lightbox-caption {
-            margin-top: 0.75rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
+            margin-top: 0.75rem; text-align: center;
+            font-size: 0.85rem; color: var(--muted);
         }
-        .lightbox-caption span {
-            color: white;
-            font-weight: 600;
-        }
+        .lightbox-caption span { color: #fff; font-weight: 600; }
         .lightbox-close {
-            position: absolute;
-            top: -1rem;
-            right: -1rem;
-            background: var(--color-border);
-            border: none;
-            color: white;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            font-size: 1.1rem;
-            cursor: pointer;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; top: -1rem; right: -1rem;
+            background: var(--panel-border); border: none; color: #fff;
+            width: 2rem; height: 2rem; border-radius: 50%;
+            font-size: 1.1rem; cursor: pointer; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
         }
-        .lightbox-close:hover { background: #4b5563; }
+        .lightbox-close:hover { background: #3b4290; }
 
-        /* --- Button --- */
-        .btn {
+        /* --- Follow Button --- */
+        .follow-btn {
             display: inline-block;
-            background-color: var(--color-amber);
-            color: var(--color-bg);
-            padding: 1rem 2rem;
-            border-radius: 6px;
+            background: var(--panel);
+            color: var(--gold);
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
             font-weight: 700;
-            font-size: 1.1rem;
+            border: 1px solid var(--gold);
             margin-top: 1rem;
-            border: none;
-            cursor: pointer;
         }
-        .btn:hover {
-            background-color: var(--color-amber-hover);
-            box-shadow: 0 0 20px var(--color-amber-glow);
-            color: var(--color-bg); /* Keep text dark */
+        .follow-btn:hover {
+            color: var(--gold-light);
+            background: rgba(245, 201, 72, 0.12);
+            box-shadow: 0 0 18px var(--gold-glow);
         }
 
         footer {
             text-align: center;
-            margin-top: 4rem;
-            color: var(--color-text-muted);
+            margin-top: 3.5rem;
+            color: var(--muted);
             font-size: 0.875rem;
         }
 
-        /* --- Tickets Banner --- */
-        .tickets-banner {
-            display: block;
-            background: linear-gradient(135deg, #f0c060 0%, var(--color-amber) 50%, #c9881f 100%);
-            color: var(--color-bg);
-            text-align: center;
-            padding: 1.25rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            box-shadow: 0 0 24px var(--color-amber-glow), 0 4px 16px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--color-amber-hover);
-            animation: ticketsPulse 2.4s ease-in-out infinite;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .tickets-banner:hover {
-            color: var(--color-bg);
-            text-shadow: none;
-            transform: translateY(-2px);
-            box-shadow: 0 0 32px var(--color-amber-hover), 0 6px 20px rgba(0, 0, 0, 0.5);
-        }
-        .tickets-banner .label {
-            display: block;
-            font-size: 1.75rem;
-            line-height: 1.15;
-        }
-        .tickets-banner .cta {
-            display: inline-block;
-            margin-top: 0.4rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.12em;
-            opacity: 0.85;
-        }
-        @keyframes ticketsPulse {
-            0%, 100% { box-shadow: 0 0 24px var(--color-amber-glow), 0 4px 16px rgba(0, 0, 0, 0.4); }
-            50%      { box-shadow: 0 0 36px var(--color-amber-hover), 0 4px 16px rgba(0, 0, 0, 0.4); }
-        }
-        @media (max-width: 600px) {
-            .tickets-banner .label { font-size: 1.35rem; }
-            .tickets-banner .cta   { font-size: 0.8rem; }
+        /* --- Responsive --- */
+        @media (max-width: 640px) {
+            .hero-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-figure { flex: 0 0 auto; }
+            .hero-figure img { max-width: 210px; }
+            .hero-lockup { align-items: center; }
+            .bb-word, .bb-v { filter: drop-shadow(0 2px 2px rgba(0,0,0,0.45)); }
+            .hero-meta { text-align: center; }
+            .btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
+
         <a href="index.html" class="nav-back">&larr; Back to Home</a>
 
-        <a href="https://wickeddicey.com/product/everwinter-infinity-the-universe/" class="tickets-banner" target="_blank" rel="noopener">
-            <span class="label">&#127915; Tickets Now On Sale!</span>
-            <span class="cta">Get Yours at Wicked Dicey &rarr;</span>
-        </a>
+        <!-- ===== HERO BANNER ===== -->
+        <section class="hero-banner">
+            <div class="hero-figure">
+                <img src="images/joan-border.png" alt="Joan Cena — Beantown Beatdown mascot">
+            </div>
+            <div class="hero-lockup">
+                <div class="bb-lockup">
+                    <div class="bb-words">
+                        <span class="bb-word">Beantown</span>
+                        <span class="bb-word">Beatdown</span>
+                    </div>
+                    <span class="bb-v">V</span>
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-dates">December 12&ndash;13</div>
+                    <div class="hero-city">Danvers, Massachusetts</div>
+                </div>
+            </div>
+        </section>
 
-        <header class="hero">
-            <h1><img src="images/satellite-logo.png" alt="Satellite Event" style="height:0.8em; width:auto; vertical-align:middle; margin-right:0.3em; position:relative; top:-0.05em; opacity:0.85;">Beantown Beatdown</h1>
-            <div class="dates">Dec 12 - 13, 2026</div>
-            <p style="margin-top: 1rem; color: var(--color-text-muted); font-style: italic;">
-                Mark your calendars for our 5th year!
-            </p>
-        </header>
+        <p class="hero-tagline">The Northeast's Premier Infinity Tournament</p>
 
+        <div class="cta-row">
+            <a href="https://wickeddicey.com/product/everwinter-infinity-the-universe/" class="btn btn-primary" target="_blank" rel="noopener">Buy Tickets</a>
+            <a href="https://www.hilton.com/en/attend-my-event/bosnsdt-943-40e1f4e5-4964-489a-b2ad-cbbf3c7e9c1b/" class="btn btn-secondary" target="_blank" rel="noopener">Hotel Block</a>
+        </div>
+
+        <span class="satellite-eyebrow">Official Infinity ITS Satellite Event</span>
+
+        <!-- ===== INTRO ===== -->
         <div class="intro-block">
             <p>
-                Since 2022, the Beantown Beatdown has stood as the Northeast's premier Infinity Satellite tournament. Join us at the <a href="https://wickeddicey.com/events/everwinter/">Everwinter Gaming Convention.</a>
+                Now in its fifth year, the Beantown Beatdown is the Northeast's premier Infinity Satellite tournament &mdash; two days of top-tier play at the <a href="https://wickeddicey.com/events/everwinter/">Everwinter Gaming Convention.</a>
             </p>
             <p>
-                We are committed to giving you the best 2 days of Infinity possible, prioritizing excellent sportsmanship, fabulous prizes, and some of the best game tables at any event. Whether you are a casual kitchen-table player attending your first event or a top-ranked player in the world, there is a seat for you here. <a href="https://corvusbelli.com/en/press-room/blog/event-recap-beantown">See event coverage on the Corvus Belli blog.</a>
+                We're committed to giving you the best two days of Infinity possible: excellent sportsmanship, fabulous prizes, and some of the best game tables at any event. Whether it's your first tournament or you're a top-ranked player in the world, there's a seat for you here. <a href="https://corvusbelli.com/en/press-room/blog/event-recap-beantown">See event coverage on the Corvus Belli blog.</a>
             </p>
         </div>
 
+        <!-- ===== LOCATION ===== -->
+        <div class="info-card">
+            <span class="info-label">Location</span>
+            <div class="info-main">
+                <a href="https://maps.app.goo.gl/d8GSNFiq7C8sYGxJ8" target="_blank" rel="noopener">DoubleTree by Hilton</a>
+            </div>
+            <div class="info-sub">Danvers, Massachusetts</div>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
+                <p style="color: var(--text);">Newly relocated for a bigger and better event.</p>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.25rem;">
+                    More spacious gaming hall &bull; Free parking
+                </p>
+                <a href="https://maps.app.goo.gl/d8GSNFiq7C8sYGxJ8" class="map-link" target="_blank" rel="noopener">View on Google Maps &rarr;</a>
+            </div>
+        </div>
+
+        <!-- ===== FORMAT ===== -->
+        <div class="info-card">
+            <span class="info-label">The Format</span>
+            <ul class="schedule-list">
+                <li class="schedule-item">
+                    <span class="schedule-day">Friday Night</span>
+                    <span class="schedule-event">Beerfinity</span>
+                </li>
+                <li class="schedule-item">
+                    <span class="schedule-day">Saturday &amp; Sunday</span>
+                    <span class="schedule-event">5 Round ITS</span>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- ===== GALLERY ===== -->
         <div class="carousel-container">
             <div class="carousel-track" id="track">
-                
                 <div class="carousel-slide"><img src="images/1.jpg" alt="Beantown Gallery 1"></div>
                 <div class="carousel-slide"><img src="images/2.jpg" loading="lazy" alt="Beantown Gallery 2"></div>
                 <div class="carousel-slide"><img src="images/3.jpg" loading="lazy" alt="Beantown Gallery 3"></div>
@@ -472,38 +581,12 @@
                 <div class="carousel-slide"><img src="images/14.jpg" loading="lazy" alt="Beantown Gallery 14"></div>
                 <div class="carousel-slide"><img src="images/15.jpg" loading="lazy" alt="Beantown Gallery 15"></div>
                 <div class="carousel-slide"><img src="images/16.png" loading="lazy" alt="Beantown Gallery 16"></div>
-
             </div>
             <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
             <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
         </div>
 
-        <div class="info-card">
-            <span class="info-label">New Location</span>
-            <div class="info-main">DoubleTree by Hilton</div>
-            <div class="info-sub">Danvers, MA</div>
-            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p style="color: #e5e7eb;">We're moving up.</p>
-                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
-                    More spacious gaming hall &bull; Free Parking
-                </p>
-            </div>
-        </div>
-
-        <div class="info-card">
-            <span class="info-label">The Format</span>
-            <ul class="schedule-list">
-                <li class="schedule-item">
-                    <span class="schedule-day">Friday Night</span>
-                    <span class="schedule-event">Beerfinity</span>
-                </li>
-                <li class="schedule-item">
-                    <span class="schedule-day">Saturday & Sunday</span>
-                    <span class="schedule-event">5 Round ITS</span>
-                </li>
-            </ul>
-        </div>
-
+        <!-- ===== HALL OF CHAMPIONS ===== -->
         <div class="info-card">
             <span class="info-label">Hall of Champions</span>
             <div class="history-table-container">
@@ -524,7 +607,7 @@
                             </td>
                             <td><span class="winner-name">Khavrion</span></td>
                             <td><span class="winner-name">Dr. D</span></td>
-                            <td><span class="winner-name">—</span></td>
+                            <td><span class="winner-name">&mdash;</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -533,7 +616,7 @@
                             </td>
                             <td><span class="winner-name">Lobo0705</span></td>
                             <td><span class="winner-name">Sloppy Steak</span></td>
-                            <td><span class="winner-name">—</span></td>
+                            <td><span class="winner-name">&mdash;</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -542,7 +625,7 @@
                             </td>
                             <td><span class="winner-name">Brunix</span></td>
                             <td><span class="winner-name">Dr. D</span></td>
-                            <td><span class="winner-name">—</span></td>
+                            <td><span class="winner-name">&mdash;</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -565,11 +648,12 @@
             </div>
         </div>
 
+        <!-- ===== FOLLOW ===== -->
         <div style="text-align: center;">
-            <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
+            <p style="color: var(--muted); margin-bottom: 1.5rem;">
                 Full event pack and registration details coming soon.
             </p>
-            <a href="https://www.facebook.com/profile.php?id=61572788194223" class="btn">
+            <a href="https://www.facebook.com/profile.php?id=61572788194223" class="follow-btn" target="_blank" rel="noopener">
                 Follow Updates on Facebook
             </a>
         </div>
@@ -592,7 +676,6 @@
             track.style.transform = 'translateX(' + (-width * currentIndex) + 'px)';
         }
 
-        // Button Listeners
         nextBtn.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % slides.length;
             updateSlidePosition();
@@ -603,16 +686,7 @@
             updateSlidePosition();
         });
 
-        // Auto-play (Optional: changes slide every 5 seconds)
-        // setInterval(() => {
-        //     currentIndex = (currentIndex + 1) % slides.length;
-        //     updateSlidePosition();
-        // }, 5000);
-
-        // Handle Window Resize (recalculate width)
         window.addEventListener('resize', updateSlidePosition);
-        
-        // Ensure first calculation is correct after load
         window.onload = updateSlidePosition;
     </script>
 
@@ -638,5 +712,5 @@
 
 <script data-goatcounter="https://infinitynewengland.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-    
+
 </html>
