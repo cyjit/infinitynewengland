@@ -419,6 +419,95 @@
             color: var(--color-text-muted);
             margin-top: 0.15rem;
         }
+        .award-photo {
+            display: block;
+            width: 100%;
+            margin-top: 0.9rem;
+            padding: 0;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: none;
+            cursor: zoom-in;
+            position: relative;
+            line-height: 0;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .award-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+        .award-photo:hover { border-color: var(--color-amber); box-shadow: 0 0 16px var(--color-amber-glow); }
+        .award-photo:hover img { transform: scale(1.03); }
+        .award-photo-hint {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            font-size: 0.64rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            background: linear-gradient(to top, rgba(0,0,0,0.72), transparent);
+            padding: 1.3rem 0.6rem 0.45rem;
+            text-align: center;
+            line-height: 1.2;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        .award-photo:hover .award-photo-hint,
+        .award-photo:focus-visible .award-photo-hint { opacity: 1; }
+
+        /* --- Best Painted Lightbox --- */
+        .paint-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            cursor: zoom-out;
+        }
+        .paint-lightbox[hidden] { display: none; }
+        .paint-lightbox-figure {
+            margin: 0;
+            max-width: 1100px;
+            width: 100%;
+            cursor: default;
+        }
+        .paint-lightbox-figure img {
+            width: 100%;
+            height: auto;
+            max-height: 82vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 0 60px rgba(0,0,0,0.6);
+        }
+        .paint-lightbox-figure figcaption {
+            margin-top: 0.75rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+        .paint-lightbox-figure figcaption span { color: #fff; font-weight: 600; }
+        .paint-lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+        }
+        .paint-lightbox-close:hover { color: var(--color-amber); }
 
         /* --- Round Results --- */
         .round {
@@ -716,10 +805,18 @@
             <div class="award-card">
                 <div class="award-eyebrow">Best Painted &mdash; Judge's Choice</div>
                 <div class="award-winner">Sloppy Steak</div>
+                <button class="award-photo" type="button" data-full="sloppysteak-painted.jpg" data-name="Sloppy Steak" data-award="Best Painted &middot; Judge's Choice &middot; Yu Jing (ISS)">
+                    <img src="sloppysteak-painted-thumb.jpg" alt="Sloppy Steak's Best Painted army &mdash; Yu Jing Imperial Service in yellow and black" loading="lazy">
+                    <span class="award-photo-hint">Click to enlarge</span>
+                </button>
             </div>
             <div class="award-card">
                 <div class="award-eyebrow">Best Painted &mdash; People's Choice</div>
                 <div class="award-winner">Pinkghost</div>
+                <button class="award-photo" type="button" data-full="pinkghost-painted.jpg" data-name="Pinkghost" data-award="Best Painted &middot; People's Choice &middot; KCF">
+                    <img src="pinkghost-painted-thumb.jpg" alt="Pinkghost's Best Painted army &mdash; a pink and magenta force with a pink drone" loading="lazy">
+                    <span class="award-photo-hint">Click to enlarge</span>
+                </button>
             </div>
             <div class="award-card">
                 <div class="award-eyebrow">Wicked Player</div>
@@ -996,6 +1093,48 @@
                 btn.setAttribute('aria-expanded', String(!open));
             });
         });
+    })();
+    </script>
+
+    <!-- Best Painted lightbox -->
+    <div id="paintLightbox" class="paint-lightbox" hidden>
+        <button class="paint-lightbox-close" type="button" aria-label="Close">&times;</button>
+        <figure class="paint-lightbox-figure">
+            <img id="paintLightboxImg" src="" alt="">
+            <figcaption id="paintLightboxCap"></figcaption>
+        </figure>
+    </div>
+
+    <script>
+    (function () {
+        var lb = document.getElementById('paintLightbox');
+        if (!lb) return;
+        var img = document.getElementById('paintLightboxImg');
+        var cap = document.getElementById('paintLightboxCap');
+        var closeBtn = lb.querySelector('.paint-lightbox-close');
+
+        function openLb(full, name, award) {
+            img.src = full;
+            img.alt = name + ' — Best Painted army (full size)';
+            cap.innerHTML = '<span>' + name + '</span> — ' + award;
+            lb.hidden = false;
+            document.body.style.overflow = 'hidden';
+            closeBtn.focus();
+        }
+        function closeLb() {
+            lb.hidden = true;
+            img.removeAttribute('src');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.award-photo').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                openLb(btn.getAttribute('data-full'), btn.getAttribute('data-name'), btn.getAttribute('data-award'));
+            });
+        });
+        closeBtn.addEventListener('click', closeLb);
+        lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
     })();
     </script>
 
