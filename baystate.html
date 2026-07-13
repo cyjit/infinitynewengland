@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bay State Showdown | Infinity New England</title>
+    <title>Bay State Showdown — Final Results | Infinity New England</title>
 
-    <meta name="description" content="Bay State Showdown: A 5-Round Infinity Tournament at Ironweld. July 11-12, 2026 in Wakefield, MA.">
-    <meta property="og:title" content="Bay State Showdown">
-    <meta property="og:description" content="Part of the Ironweld Gaming Convention. 5 Rounds. 2 Days. July 11-12, 2026.">
+    <meta name="description" content="Bay State Showdown final results — dragoonxxiv takes the title. 20 players, 5 rounds of Infinity at the Ironweld Gaming Convention, July 11-12, 2026 in Wakefield, MA.">
+    <meta property="og:title" content="Bay State Showdown — Final Results">
+    <meta property="og:description" content="dragoonxxiv is your Bay State Showdown champion. Full standings, awards, and every match from the 5-round event.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.infinitynewengland.com/ogimg.png">
     <meta property="og:url" content="https://www.infinitynewengland.com/baystate.html">
@@ -22,7 +22,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* --- Core Theme --- */
@@ -35,8 +35,13 @@
             --color-amber-glow:  rgba(232, 168, 64, 0.35);
             --color-red:         #880000;
             --color-border:      #374151;
-            --section-header:    #ffffff;
+            --gold:              #f0c060;
+            --silver:            #c8ccd4;
+            --bronze:            #cd8b52;
+            --win:               #7dd3a8;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Exo 2', sans-serif;
@@ -54,7 +59,7 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.5rem 3rem;
         }
 
         /* --- Typography & Links --- */
@@ -84,13 +89,21 @@
             border-bottom: 1px solid var(--color-border);
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
         }
 
         /* --- Hero Section --- */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
+        }
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--color-amber);
+            margin-bottom: 0.75rem;
         }
         .hero h1 {
             font-size: 3rem;
@@ -101,36 +114,353 @@
             text-transform: uppercase;
         }
         .hero .dates {
-            font-size: 1.5rem;
-            color: var(--color-amber);
-            margin-top: 0.5rem;
-        }
-        .hero .con-tag {
-            margin-top: 0.5rem;
+            font-size: 1.1rem;
             color: var(--color-text-muted);
+            margin-top: 0.6rem;
+        }
+
+        /* --- Stat strip --- */
+        .stat-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem 2.25rem;
+            margin: 1.75rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            max-width: 620px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* --- Champion Card --- */
+        .champion-card {
+            position: relative;
+            margin-top: 3rem;
+            padding: 2.25rem 2rem;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid rgba(232, 168, 64, 0.45);
+            background:
+                radial-gradient(120% 120% at 50% 0%, rgba(232,168,64,0.14) 0%, rgba(232,168,64,0.03) 42%, rgba(12,16,29,1) 78%);
+            box-shadow: 0 0 50px rgba(232, 168, 64, 0.10), inset 0 1px 0 rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        .champion-trophy {
+            width: 46px;
+            height: auto;
+            color: var(--color-amber);
+            filter: drop-shadow(0 0 14px var(--color-amber-glow));
+            margin-bottom: 0.5rem;
+        }
+        .champion-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--color-amber);
+        }
+        .champion-name {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.05;
+            margin-top: 0.35rem;
+            text-shadow: 0 0 22px rgba(232,168,64,0.25);
+        }
+        .champion-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            margin-top: 0.9rem;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+        .champion-meta strong { color: var(--color-text-main); font-weight: 600; }
+        .champion-meta .faction-tag {
+            color: var(--color-amber);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        /* --- Runners-up --- */
+        .runners {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .runner-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            background: rgba(31, 41, 55, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+        .runner-medal {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+            flex: 0 0 auto;
+        }
+        .runner-card.place-2 { border-top: 3px solid var(--silver); }
+        .runner-card.place-3 { border-top: 3px solid var(--bronze); }
+        .place-2 .runner-medal { color: var(--silver); }
+        .place-3 .runner-medal { color: var(--bronze); }
+        .runner-name { font-size: 1.15rem; font-weight: 700; color: white; }
+        .runner-sub {
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+            margin-top: 0.1rem;
+        }
+        .runner-sub .faction-tag { color: var(--color-amber); font-weight: 600; }
+
+        .tiebreak-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
             font-style: italic;
         }
 
-        /* --- Intro Block --- */
-        .intro-block {
+        /* --- Standings Table --- */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .standings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            min-width: 640px;
+        }
+        .standings-table th {
+            text-align: left;
+            background-color: rgba(232, 168, 64, 0.08);
+            color: var(--color-amber);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            padding: 0.7rem 0.75rem;
+            white-space: nowrap;
+        }
+        .standings-table td {
+            padding: 0.7rem 0.75rem;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+            white-space: nowrap;
+        }
+        .standings-table tbody tr:last-child td { border-bottom: none; }
+        .standings-table tbody tr.top-row { background: rgba(232, 168, 64, 0.05); }
+        .col-num {
+            font-weight: 700;
+            color: var(--color-text-muted);
+            font-variant-numeric: tabular-nums;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem auto;
-            font-size: 1.1rem;
-            color: var(--color-text-main);
+            width: 2.5rem;
+        }
+        tr.top-row .col-num { color: white; }
+        .rank-1 .col-num { color: var(--gold); }
+        .rank-2 .col-num { color: var(--silver); }
+        .rank-3 .col-num { color: var(--bronze); }
+        .col-player { color: white; font-weight: 600; }
+        .col-faction { color: var(--color-amber); font-weight: 600; font-size: 0.82rem; }
+        .col-num-data { text-align: center; font-variant-numeric: tabular-nums; }
+        .col-tp { text-align: center; font-weight: 700; color: white; font-variant-numeric: tabular-nums; }
+        .col-muted { color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+
+        /* --- Awards --- */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .award-card {
+            background: rgba(31, 41, 55, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 1.25rem 1.4rem;
+        }
+        .award-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-amber);
+            margin-bottom: 0.4rem;
+        }
+        .award-winner {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+        .award-note {
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+            margin-top: 0.15rem;
         }
 
-        /* --- Action Buttons --- */
+        /* --- Round Results --- */
+        .round {
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            margin-top: 1rem;
+            overflow: hidden;
+            background: rgba(31, 41, 55, 0.22);
+        }
+        .round > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            user-select: none;
+        }
+        .round > summary::-webkit-details-marker { display: none; }
+        .round-heading { display: flex; flex-direction: column; }
+        .round-name { font-weight: 700; color: white; font-size: 1.05rem; }
+        .round-mission {
+            font-size: 0.78rem;
+            color: var(--color-amber);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.15rem;
+        }
+        .round-toggle {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            flex: 0 0 auto;
+        }
+        .round[open] .round-toggle::after { content: 'Hide \2013'; }
+        .round:not([open]) .round-toggle::after { content: 'View \2192'; }
+
+        .match-list {
+            list-style: none;
+            margin: 0;
+            padding: 0 1.25rem 0.5rem;
+        }
+        .match {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.7rem 0;
+            border-top: 1px solid rgba(55, 65, 81, 0.4);
+        }
+        .match-table {
+            flex: 0 0 2.4rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .match-body { flex: 1 1 auto; min-width: 0; font-size: 0.92rem; }
+        .match-body .winner { color: white; font-weight: 700; }
+        .match-body .loser { color: var(--color-text-muted); }
+        .match-body .verb { color: var(--color-text-muted); font-size: 0.8rem; padding: 0 0.15rem; }
+        .match-body .fac { color: var(--color-amber); font-weight: 600; font-size: 0.78rem; }
+        .match.is-tie .p1, .match.is-tie .p2 { color: var(--color-text-main); font-weight: 600; }
+        .title-tag {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-amber);
+            border: 1px solid var(--color-amber-glow);
+            border-radius: 4px;
+            padding: 0.05rem 0.4rem;
+            margin-left: 0.4rem;
+            vertical-align: 1px;
+        }
+        .match-score {
+            flex: 0 0 auto;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            font-variant-numeric: tabular-nums;
+        }
+        .match-score .op { font-weight: 700; color: var(--win); font-size: 0.95rem; }
+        .match.is-tie .match-score .op { color: var(--color-amber); }
+        .match-score .vp { font-size: 0.72rem; color: var(--color-text-muted); }
+
+        /* --- Sendoff --- */
+        .sendoff {
+            margin-top: 3.5rem;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-radius: 14px;
+            border: 1px solid rgba(232, 168, 64, 0.25);
+            background: linear-gradient(135deg, rgba(232,168,64,0.05) 0%, rgba(12,16,29,1) 70%);
+        }
+        .sendoff-headline {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(232,168,64,0.18);
+            line-height: 1.1;
+        }
+        .sendoff-body {
+            max-width: 560px;
+            margin: 1rem auto 0;
+            color: var(--color-text-main);
+            font-size: 1.05rem;
+        }
+        .sendoff-next {
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .sendoff-next-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--color-text-muted);
+        }
+        .sendoff-next-event {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 0.4rem;
+        }
+        .sendoff-next-event a { color: white; }
+        .sendoff-next-event a:hover { color: var(--color-amber-hover); }
+        .sendoff-next-date { color: var(--color-text-muted); font-size: 0.95rem; margin-top: 0.15rem; }
+
         .cta-container {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
+            margin-top: 1.5rem;
         }
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.9rem;
             border-radius: 6px;
             font-weight: 700;
             text-align: center;
@@ -156,538 +486,270 @@
             color: var(--color-amber-hover);
         }
 
-        /* --- Tickets Progress Bar --- */
-        .ticket-progress {
-            max-width: 480px;
-            margin: -1.5rem auto 3rem auto;
-            text-align: center;
-        }
-        .ticket-progress-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--color-red);
-            margin-bottom: 0.5rem;
-        }
-        .ticket-progress-track {
-            position: relative;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--color-border);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-        .packet-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--color-amber);
-            text-decoration: none;
-            border-bottom: 1px solid var(--color-amber-glow);
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .packet-link:hover {
-            color: var(--color-amber-hover);
-            border-bottom-color: var(--color-amber-hover);
-        }
-        .ticket-progress-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 20%;
-            background: linear-gradient(90deg, #d11515 0%, #880000 100%);
-            box-shadow: 0 0 12px rgba(209, 21, 21, 0.45);
-            border-radius: 999px;
-        }
-
-        /* --- Cards (Venue, etc) --- */
-        .info-card {
-            background: rgba(31, 41, 55, 0.3);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .info-title { font-size: 1.25rem; font-weight: 600; color: white; }
-        .info-detail { color: var(--color-text-muted); line-height: 1.6; }
-        .highlight { color: var(--color-amber); font-weight: 600; }
-        
-        .market-street-note {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.95rem;
-        }
-
-        /* --- Schedule Table --- */
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            background: rgba(31, 41, 55, 0.3);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .schedule-table th, .schedule-table td {
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
-        }
-        .schedule-table th {
-            background-color: rgba(232, 168, 64, 0.08);
-            color: var(--color-amber);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-        }
-        .schedule-table tr:last-child td { border-bottom: none; }
-        .time-col { width: 140px; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
-        .event-col { color: white; font-weight: 500; }
-
         footer {
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 3.5rem;
             color: var(--color-text-muted);
             font-size: 0.875rem;
             border-top: 1px solid var(--color-border);
             padding-top: 2rem;
         }
 
-        /* --- Sweepstakes Section --- */
-        .sweepstakes-section {
-            margin-top: 3rem;
-            border: 1px solid rgba(232, 168, 64, 0.25);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(232, 168, 64, 0.06);
-        }
-        /* Giveaway closed — entry window has passed */
-        .sweepstakes-section.section-closed {
-            border-color: rgba(255, 255, 255, 0.07);
-            box-shadow: none;
-            opacity: 0.5;
-            filter: grayscale(1);
-        }
-        .sweepstakes-section.section-closed .sweepstakes-eyebrow {
-            color: var(--color-text-muted);
-        }
-        .closed-banner {
-            background: rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--color-text-muted);
-            text-align: center;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 0.6rem 1rem;
-        }
-        .sweepstakes-image {
-            position: relative;
-            line-height: 0;
-        }
-        .sweepstakes-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: saturate(1.1);
-        }
-        .sweepstakes-image::after {
-            content: '';
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 55%;
-            background: linear-gradient(to bottom, transparent, rgba(12,16,29,0.97) 90%);
-        }
-        .sweepstakes-content {
-            padding: 1.25rem 2rem 1.5rem 2rem;
-            background: linear-gradient(135deg, rgba(232,168,64,0.04) 0%, rgba(12,16,29,1) 70%);
-        }
-        .sweepstakes-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-            margin-bottom: 0.35rem;
-        }
-        .sweepstakes-eyebrow {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-amber);
-        }
-        .sweepstakes-artist {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-        }
-        .sweepstakes-artist span {
-            color: var(--color-text-main);
-            font-weight: 600;
-        }
-        .sweepstakes-headline {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            line-height: 1.15;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(232,168,64,0.15);
-            margin-bottom: 1.1rem;
-        }
-        .entry-tiers {
-            display: flex;
-            gap: 0.6rem;
-            margin-bottom: 1rem;
-        }
-        .entry-tier {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 6px;
-            padding: 0.7rem 0.85rem 0.6rem;
-            border-top: 3px solid transparent;
-        }
-        .entry-tier.tier-1 { border-top-color: var(--color-red); }
-        .entry-tier.tier-2 { border-top-color: rgba(136,0,0,0.55); }
-        .entry-tier.tier-3 { border-top-color: rgba(136,0,0,0.28); }
-
-        /* Closed tier — greyed out (registration window passed) */
-        .entry-tier.tier-closed {
-            background: rgba(255,255,255,0.015);
-            border-color: rgba(255,255,255,0.04);
-            border-top-color: rgba(120,120,120,0.35);
-            opacity: 0.45;
-            filter: grayscale(1);
-        }
-        .entry-tier.tier-closed .tier-number,
-        .entry-tier.tier-closed .tier-detail strong {
-            color: var(--color-text-muted);
-        }
-
-        /* Active tier — brighter highlight with subtle glow */
-        .entry-tier.tier-active {
-            background: linear-gradient(135deg, rgba(232,168,64,0.14) 0%, rgba(232,168,64,0.04) 100%);
-            border-color: rgba(232,168,64,0.55);
-            border-top-color: var(--color-amber);
-            box-shadow: 0 0 18px rgba(232,168,64,0.25), inset 0 0 12px rgba(232,168,64,0.05);
-        }
-        .entry-tier.tier-active .tier-number {
-            color: var(--color-amber-hover);
-            text-shadow: 0 0 10px var(--color-amber-glow);
-        }
-        .entry-tier.tier-active .tier-unit {
-            color: var(--color-amber);
-        }
-        .entry-tier.tier-active .tier-detail strong {
-            color: white;
-        }
-        .tier-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            line-height: 1;
-        }
-        .tier-unit {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-top: 0.3rem;
-            margin-bottom: 0.6rem;
-        }
-        .tier-detail {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-            text-align: right;
-        }
-        .tier-detail strong {
-            color: var(--color-text-main);
-            font-weight: 600;
-            display: block;
-        }
-        .sweepstakes-footer-row {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .sweepstakes-draw-note {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-        }
-        .sweepstakes-draw-note strong {
-            color: var(--color-text-main);
-        }
-        .sweepstakes-footnote {
-            font-size: 0.68rem;
-            color: rgba(156,163,175,0.4);
-            text-align: right;
-        }
-        .sweepstakes-footnote a {
-            color: rgba(156,163,175,0.4);
-            text-decoration: underline;
-            text-decoration-color: rgba(156,163,175,0.2);
-            transition: color 0.2s;
-        }
-        .sweepstakes-footnote a:hover {
-            color: rgba(156,163,175,0.7);
-            text-shadow: none;
-        }
-        @media (max-width: 540px) {
-            .entry-tiers { flex-direction: column; }
-            .sweepstakes-footer-row { flex-direction: column; align-items: flex-start; }
-            .sweepstakes-footnote { text-align: left; }
-        }
-
-        /* --- Rules Modal --- */
-        .rules-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 2rem 1rem;
-        }
-        .rules-overlay.open { display: block; }
-        .rules-modal {
-            max-width: 720px;
-            margin: 0 auto;
-            background: #111827;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 2rem;
-            position: relative;
-        }
-        .rules-modal-title {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: white;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-        .rules-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.25rem;
-            background: none;
-            border: none;
-            color: var(--color-text-muted);
-            font-size: 1.4rem;
-            cursor: pointer;
-            line-height: 1;
-            padding: 0;
-        }
-        .rules-close:hover { color: white; }
-        .rules-body {
-            font-size: 0.72rem;
-            line-height: 1.65;
-            color: #6b7280;
-            column-count: 2;
-            column-gap: 1.5rem;
-        }
-        .rules-body p {
-            margin-bottom: 0.6rem;
-        }
-        .rules-body strong {
-            color: #9ca3af;
-            font-weight: 600;
-        }
-        @media (max-width: 580px) {
-            .rules-body { column-count: 1; }
+        /* --- Responsive --- */
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2.2rem; }
+            .champion-name { font-size: 2.1rem; }
+            .runners { flex-direction: column; }
+            .awards-grid { grid-template-columns: 1fr; }
+            .match-body .fac { display: inline; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
+
         <a href="index.html" class="nav-back">&larr; Back to Home</a>
 
         <header class="hero">
+            <div class="hero-eyebrow">That's a Wrap &middot; Final Results</div>
             <h1>Bay State Showdown</h1>
-            <div class="dates">July 11 - 12, 2026</div>
-            <div class="con-tag">
-                Hosted at the <a href="https://wickeddicey.com/events/ironweld/">Ironweld Gaming Convention</a>
+            <div class="dates">
+                July 11 &ndash; 12, 2026 &middot; <a href="https://wickeddicey.com/events/ironweld/">Ironweld Gaming Convention</a> &middot; Wakefield, MA
+            </div>
+
+            <div class="stat-strip">
+                <div class="stat"><div class="stat-num">20</div><div class="stat-label">Players</div></div>
+                <div class="stat"><div class="stat-num">5</div><div class="stat-label">Rounds</div></div>
+                <div class="stat"><div class="stat-num">50</div><div class="stat-label">Games</div></div>
+                <div class="stat"><div class="stat-num">2</div><div class="stat-label">Days</div></div>
             </div>
         </header>
 
-        <div class="intro-block">
-            <p>
-                Building upon the success of the Beantown Beatdown, the Bay State Showdown offers another two days of great Infinity. Expect the same high standards: sporting, fun, and competitive play on excellent tables.
-            </p>
-        </div>
-
-        <div class="cta-container">
-            <a href="https://wickeddicey.com/product/ironweld-infinity-the-universe/" class="btn btn-primary">
-                Buy Tickets
-            </a>
-            <a href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1757703226746&key=GRP&app=resvlink&inventoryMissing=true" class="btn btn-secondary">
-                Book Hotel Block
-            </a>
-        </div>
-
-        <div class="ticket-progress">
-            <div class="ticket-progress-label">20% Tickets Remaining</div>
-            <div class="ticket-progress-track">
-                <div class="ticket-progress-fill"></div>
-            </div>
-            <a href="https://assets.infinitynewengland.com/Bay_State_Showdown_2026_Event_Packet.pdf" class="packet-link">See Event Packet</a>
-        </div>
-
-        <h2 class="section-title">The Venue & Dining</h2>
-        <div class="info-card">
-            <div class="info-title">Four Points by Sheraton Wakefield Boston Hotel</div>
-            <div class="info-detail">One Audubon Rd, Wakefield, MA 01880</div>
-            
-            <div class="market-street-note">
-                <p style="margin-bottom: 0.5rem;">
-                    We are located within walking distance of <strong class="highlight">Market Street Lynnfield</strong>. 
-                </p>
-                <p style="color: var(--color-text-muted);">
-                    This provides incredible dining options (Yard House, Davio's, Otto Pizza) down the street from the venue. Market Street also offers ample <strong>overflow parking</strong> for all attendees.
-                </p>
+        <!-- ===== CHAMPION ===== -->
+        <div class="champion-card">
+            <svg class="champion-trophy" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true">
+                <path d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7C553.5 216.4 576 179.7 576 144V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zm412.7-48.8c0 11.6-10.9 31.2-35.3 48.8-12.5 9-26.6 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"/>
+            </svg>
+            <div class="champion-label">Champion</div>
+            <div class="champion-name">dragoonxxiv</div>
+            <div class="champion-meta">
+                <span class="faction-tag">OSS</span>
+                <span><strong>4&ndash;1</strong> record</span>
+                <span><strong>20</strong> tournament points</span>
+                <span><strong>35</strong> OP &middot; <strong>836</strong> VP</span>
             </div>
         </div>
 
-        <div style="margin-top: 1.5rem;">
-            <div class="info-title" style="margin-bottom: 0.75rem;">Ironweld Venue Map</div>
-            <img src="ironweldmap.png" alt="Ironweld Gaming Convention lower level venue map — Infinity is in the Wakefield room" style="width: 100%; border-radius: 8px; border: 1px solid var(--color-border);">
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
-                Infinity is in the <strong style="color:#fff;">Wakefield</strong> room on the lower level.
-            </p>
-        </div>
-
-        <h2 class="section-title">The Schedule</h2>
-        <div style="text-align:center;">
-            <a href="https://infinitygeist.com" class="packet-link">All Missions Available on Mission Geist</a>
-        </div>
-
-        <h3 style="color:white; margin-bottom:0.5rem; margin-top:1.5rem;">Saturday, July 11</h3>
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th class="time-col">Time</th>
-                    <th class="event-col">Event</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="time-col">9:00 – 10:00 AM</td>
-                    <td class="event-col">Check-In & Setup</td>
-                </tr>
-                <tr>
-                    <td class="time-col">10:00 AM – 12:30 PM</td>
-                    <td class="event-col">Round 1 &mdash; Battleground</td>
-                </tr>
-                <tr>
-                    <td class="time-col">12:30 – 1:30 PM</td>
-                    <td class="event-col">Lunch Break</td>
-                </tr>
-                <tr>
-                    <td class="time-col">1:30 – 4:00 PM</td>
-                    <td class="event-col">Round 2 &mdash; Outbreak <span style="color: var(--color-amber); font-weight: 600;">(Patron Pick!)</span></td>
-                </tr>
-                <tr>
-                    <td class="time-col">4:00 – 6:30 PM</td>
-                    <td class="event-col">Round 3 &mdash; Area of Interest</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 style="color:white; margin-bottom:0.5rem; margin-top:2rem;">Sunday, July 12</h3>
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th class="time-col">Time</th>
-                    <th class="event-col">Event</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="time-col">9:00 AM</td>
-                    <td class="event-col">Check-In</td>
-                </tr>
-                <tr>
-                    <td class="time-col">9:30 AM – 12:00 PM</td>
-                    <td class="event-col">Round 4 &mdash; Hardlock</td>
-                </tr>
-                <tr>
-                    <td class="time-col">12:00 – 1:00 PM</td>
-                    <td class="event-col">Lunch Break</td>
-                </tr>
-                <tr>
-                    <td class="time-col">1:00 – 3:30 PM</td>
-                    <td class="event-col">Round 5 &mdash; Unmasking <span style="color: var(--color-amber); font-weight: 600;">(Retro Pick)</span></td>
-                </tr>
-                <tr>
-                    <td class="time-col">4:00 PM</td>
-                    <td class="event-col">Awards & Wrap-up</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p style="color: var(--color-text-muted); margin-top: 1.5rem; font-size: 0.95rem;">
-            Want a say in mission selection? Become a <a href="https://infinity-new-england.square.site/shop/patronage/DPSAMP4MMLOC6T4JNLFICT6F">Patron of Infinity New England.</a>
-        </p>
-
-        <!-- Sweepstakes Section -->
-        <div class="sweepstakes-section section-closed">
-            <div class="closed-banner">Entries Closed &mdash; Winner Drawn Live Saturday July 11</div>
-            <div class="sweepstakes-image">
-                <img src="cnb.jpg" alt="Professionally painted Carmen &amp; Batard miniatures by Jason of True Inq">
-            </div>
-            <div class="sweepstakes-content">
-                <div class="sweepstakes-header">
-                    <div class="sweepstakes-eyebrow">Prize Giveaway</div>
-                    <div class="sweepstakes-artist">Painted by <span>Jason of True Inq</span> &mdash; drawn live Saturday July 11</div>
+        <div class="runners">
+            <div class="runner-card place-2">
+                <div class="runner-medal">2</div>
+                <div>
+                    <div class="runner-name">Knuds, Wing King</div>
+                    <div class="runner-sub"><span class="faction-tag">SEF</span> &middot; 4&ndash;1 &middot; 20 TP &middot; 31 OP</div>
                 </div>
-                <div class="sweepstakes-headline">Win a Fully Painted Carmen &amp; Batard</div>
-
-                <div class="entry-tiers">
-                    <div class="entry-tier tier-1 tier-closed">
-                        <div class="tier-number">10</div>
-                        <span class="tier-unit">Entries</span>
-                        <div class="tier-detail">Register by <strong>April 1</strong></div>
-                    </div>
-                    <div class="entry-tier tier-2 tier-closed">
-                        <div class="tier-number">5</div>
-                        <span class="tier-unit">Entries</span>
-                        <div class="tier-detail">Register by <strong>May 1</strong></div>
-                    </div>
-                    <div class="entry-tier tier-3 tier-closed">
-                        <div class="tier-number">1</div>
-                        <span class="tier-unit">Entry</span>
-                        <div class="tier-detail">Register by <strong>June 1</strong></div>
-                    </div>
+            </div>
+            <div class="runner-card place-3">
+                <div class="runner-medal">3</div>
+                <div>
+                    <div class="runner-name">Billiam</div>
+                    <div class="runner-sub"><span class="faction-tag">MRRF</span> &middot; 4&ndash;1 &middot; 20 TP &middot; 28 OP</div>
                 </div>
+            </div>
+        </div>
+        <p class="tiebreak-note">The top three all finished on 20 tournament points &mdash; the podium was decided on objective points.</p>
 
-                <div class="sweepstakes-footer-row">
-                    <div class="sweepstakes-draw-note">
-                        Register early &mdash; more entries, better odds. Prize must be claimed in person. <strong>No purchase necessary to enter.</strong>
-                    </div>
-                    <div class="sweepstakes-footnote">
-                        No purchase necessary. Open to 18+. Void where prohibited.<br>
-                        <a href="#" onclick="document.getElementById('rulesOverlay').classList.add('open'); return false;">Official Rules</a>
-                    </div>
+        <!-- ===== FINAL STANDINGS ===== -->
+        <h2 class="section-title">Final Standings</h2>
+        <div class="table-scroll">
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th>Player</th>
+                        <th>Faction</th>
+                        <th style="text-align:center;">W&ndash;L&ndash;T</th>
+                        <th style="text-align:center;">TP</th>
+                        <th style="text-align:center;">OP</th>
+                        <th style="text-align:center;">VP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="top-row rank-1"><td class="col-num">1</td><td class="col-player">dragoonxxiv</td><td class="col-faction">OSS</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">35&ndash;13</td><td class="col-num-data col-muted">836&ndash;506</td></tr>
+                    <tr class="top-row rank-2"><td class="col-num">2</td><td class="col-player">Knuds, Wing King</td><td class="col-faction">SEF</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">31&ndash;20</td><td class="col-num-data col-muted">1001&ndash;778</td></tr>
+                    <tr class="top-row rank-3"><td class="col-num">3</td><td class="col-player">Billiam</td><td class="col-faction">MRRF</td><td class="col-num-data">4&ndash;1&ndash;0</td><td class="col-tp">20</td><td class="col-num-data col-muted">28&ndash;17</td><td class="col-num-data col-muted">572&ndash;612</td></tr>
+                    <tr><td class="col-num">4</td><td class="col-player">TravelinYake</td><td class="col-faction">HB</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">18</td><td class="col-num-data col-muted">36&ndash;16</td><td class="col-num-data col-muted">644&ndash;546</td></tr>
+                    <tr><td class="col-num">5</td><td class="col-player">erichagz</td><td class="col-faction">Shin</td><td class="col-num-data">3&ndash;1&ndash;1</td><td class="col-tp">18</td><td class="col-num-data col-muted">34&ndash;16</td><td class="col-num-data col-muted">1014&ndash;511</td></tr>
+                    <tr><td class="col-num">6</td><td class="col-player">Jester of Kalgan</td><td class="col-faction">BJC</td><td class="col-num-data">2&ndash;2&ndash;1</td><td class="col-tp">15</td><td class="col-num-data col-muted">32&ndash;20</td><td class="col-num-data col-muted">867&ndash;749</td></tr>
+                    <tr><td class="col-num">7</td><td class="col-player">Dread</td><td class="col-faction">KCF</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">15</td><td class="col-num-data col-muted">28&ndash;23</td><td class="col-num-data col-muted">703&ndash;586</td></tr>
+                    <tr><td class="col-num">8</td><td class="col-player">T-squared</td><td class="col-faction">SWF</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">15</td><td class="col-num-data col-muted">26&ndash;18</td><td class="col-num-data col-muted">1029&ndash;620</td></tr>
+                    <tr><td class="col-num">9</td><td class="col-player">PhilRosey</td><td class="col-faction">vAri</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">15</td><td class="col-num-data col-muted">23&ndash;17</td><td class="col-num-data col-muted">765&ndash;546</td></tr>
+                    <tr><td class="col-num">10</td><td class="col-player">Pinkghost</td><td class="col-faction">KCF</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">15</td><td class="col-num-data col-muted">22&ndash;23</td><td class="col-num-data col-muted">558&ndash;699</td></tr>
+                    <tr><td class="col-num">11</td><td class="col-player">Brickwarrior</td><td class="col-faction">OSS</td><td class="col-num-data">3&ndash;2&ndash;0</td><td class="col-tp">14</td><td class="col-num-data col-muted">24&ndash;14</td><td class="col-num-data col-muted">802&ndash;562</td></tr>
+                    <tr><td class="col-num">12</td><td class="col-player">liquidmetal9015</td><td class="col-faction">KCF</td><td class="col-num-data">2&ndash;3&ndash;0</td><td class="col-tp">11</td><td class="col-num-data col-muted">28&ndash;20</td><td class="col-num-data col-muted">653&ndash;780</td></tr>
+                    <tr><td class="col-num">13</td><td class="col-player">SiyaChon</td><td class="col-faction">MO</td><td class="col-num-data">2&ndash;3&ndash;0</td><td class="col-tp">10</td><td class="col-num-data col-muted">19&ndash;27</td><td class="col-num-data col-muted">807&ndash;782</td></tr>
+                    <tr><td class="col-num">14</td><td class="col-player">Benson</td><td class="col-faction">SEF</td><td class="col-num-data">2&ndash;3&ndash;0</td><td class="col-tp">10</td><td class="col-num-data col-muted">19&ndash;31</td><td class="col-num-data col-muted">600&ndash;1021</td></tr>
+                    <tr><td class="col-num">15</td><td class="col-player">Greyscale Hobbies</td><td class="col-faction">CJC</td><td class="col-num-data">2&ndash;3&ndash;0</td><td class="col-tp">10</td><td class="col-num-data col-muted">19&ndash;26</td><td class="col-num-data col-muted">594&ndash;781</td></tr>
+                    <tr><td class="col-num">16</td><td class="col-player">Sloppy Steak</td><td class="col-faction">ISS</td><td class="col-num-data">2&ndash;3&ndash;0</td><td class="col-tp">10</td><td class="col-num-data col-muted">17&ndash;22</td><td class="col-num-data col-muted">818&ndash;606</td></tr>
+                    <tr><td class="col-num">17</td><td class="col-player">Lightning Dust</td><td class="col-faction">HB</td><td class="col-num-data">2&ndash;3&ndash;0</td><td class="col-tp">10</td><td class="col-num-data col-muted">13&ndash;33</td><td class="col-num-data col-muted">425&ndash;953</td></tr>
+                    <tr><td class="col-num">18</td><td class="col-player">nevercrit</td><td class="col-faction">Oban</td><td class="col-num-data">1&ndash;4&ndash;0</td><td class="col-tp">5</td><td class="col-num-data col-muted">15&ndash;37</td><td class="col-num-data col-muted">679&ndash;1033</td></tr>
+                    <tr><td class="col-num">19</td><td class="col-player">Gemini</td><td class="col-faction">Shin</td><td class="col-num-data">1&ndash;4&ndash;0</td><td class="col-tp">5</td><td class="col-num-data col-muted">14&ndash;36</td><td class="col-num-data col-muted">645&ndash;777</td></tr>
+                    <tr><td class="col-num">20</td><td class="col-player">Tewhill</td><td class="col-faction">vNomad</td><td class="col-num-data">0&ndash;5&ndash;0</td><td class="col-tp">0</td><td class="col-num-data col-muted">8&ndash;42</td><td class="col-num-data col-muted">699&ndash;1263</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="tiebreak-note">TP = Tournament Points &middot; OP = Objective Points (for&ndash;against) &middot; VP = Victory Points (for&ndash;against). Tiebreakers: TP, then OP, then VP.</p>
+
+        <!-- ===== AWARDS ===== -->
+        <h2 class="section-title">Awards</h2>
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-eyebrow">Best Painted &mdash; Judge's Choice</div>
+                <div class="award-winner">Sloppy Steak</div>
+            </div>
+            <div class="award-card">
+                <div class="award-eyebrow">Best Painted &mdash; People's Choice</div>
+                <div class="award-winner">Pinkghost</div>
+            </div>
+            <div class="award-card">
+                <div class="award-eyebrow">Wicked Player</div>
+                <div class="award-winner">PhilRosey</div>
+                <div class="award-note">Best sportsmanship, voted by the field.</div>
+            </div>
+            <div class="award-card">
+                <div class="award-eyebrow">Middlest Player</div>
+                <div class="award-winner">Pinkghost</div>
+                <div class="award-note">Dead center of the pack &mdash; wickedly average.</div>
+            </div>
+        </div>
+
+        <!-- ===== ROUND-BY-ROUND ===== -->
+        <h2 class="section-title">Round by Round</h2>
+
+        <details class="round" open>
+            <summary>
+                <div class="round-heading">
+                    <span class="round-name">Round 1</span>
+                    <span class="round-mission">Battleground</span>
+                </div>
+                <span class="round-toggle"></span>
+            </summary>
+            <ul class="match-list">
+                <li class="match"><span class="match-table">T1</span><span class="match-body"><span class="winner">erichagz <span class="fac">Shin</span></span> <span class="verb">def.</span> <span class="loser">nevercrit <span class="fac">Oban</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">218&ndash;42 VP</span></span></li>
+                <li class="match"><span class="match-table">T2</span><span class="match-body"><span class="winner">Greyscale Hobbies <span class="fac">CJC</span></span> <span class="verb">def.</span> <span class="loser">Gemini <span class="fac">Shin</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">237&ndash;31 VP</span></span></li>
+                <li class="match"><span class="match-table">T3</span><span class="match-body"><span class="winner">Lightning Dust <span class="fac">HB</span></span> <span class="verb">def.</span> <span class="loser">liquidmetal9015 <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">6&ndash;3</span><span class="vp">108&ndash;130 VP</span></span></li>
+                <li class="match"><span class="match-table">T4</span><span class="match-body"><span class="winner">SiyaChon <span class="fac">MO</span></span> <span class="verb">def.</span> <span class="loser">Dread <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">242&ndash;62 VP</span></span></li>
+                <li class="match"><span class="match-table">T5</span><span class="match-body"><span class="winner">Sloppy Steak <span class="fac">ISS</span></span> <span class="verb">def.</span> <span class="loser">Billiam <span class="fac">MRRF</span></span></span><span class="match-score"><span class="op">6&ndash;1</span><span class="vp">187&ndash;103 VP</span></span></li>
+                <li class="match"><span class="match-table">T6</span><span class="match-body"><span class="winner">Pinkghost <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">dragoonxxiv <span class="fac">OSS</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">222&ndash;24 VP</span></span></li>
+                <li class="match"><span class="match-table">T7</span><span class="match-body"><span class="winner">T-squared <span class="fac">SWF</span></span> <span class="verb">def.</span> <span class="loser">Tewhill <span class="fac">vNomad</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">300&ndash;129 VP</span></span></li>
+                <li class="match"><span class="match-table">T8</span><span class="match-body"><span class="winner">Knuds, Wing King <span class="fac">SEF</span></span> <span class="verb">def.</span> <span class="loser">Jester of Kalgan <span class="fac">BJC</span></span></span><span class="match-score"><span class="op">7&ndash;5</span><span class="vp">212&ndash;212 VP</span></span></li>
+                <li class="match"><span class="match-table">T9</span><span class="match-body"><span class="winner">Brickwarrior <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">PhilRosey <span class="fac">vAri</span></span></span><span class="match-score"><span class="op">4&ndash;1</span><span class="vp">191&ndash;63 VP</span></span></li>
+                <li class="match"><span class="match-table">T10</span><span class="match-body"><span class="winner">TravelinYake <span class="fac">HB</span></span> <span class="verb">def.</span> <span class="loser">Benson <span class="fac">SEF</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">251&ndash;71 VP</span></span></li>
+            </ul>
+        </details>
+
+        <details class="round">
+            <summary>
+                <div class="round-heading">
+                    <span class="round-name">Round 2</span>
+                    <span class="round-mission">Outbreak</span>
+                </div>
+                <span class="round-toggle"></span>
+            </summary>
+            <ul class="match-list">
+                <li class="match"><span class="match-table">T1</span><span class="match-body"><span class="winner">PhilRosey <span class="fac">vAri</span></span> <span class="verb">def.</span> <span class="loser">Greyscale Hobbies <span class="fac">CJC</span></span></span><span class="match-score"><span class="op">7&ndash;2</span><span class="vp">173&ndash;27 VP</span></span></li>
+                <li class="match"><span class="match-table">T2</span><span class="match-body"><span class="winner">Knuds, Wing King <span class="fac">SEF</span></span> <span class="verb">def.</span> <span class="loser">T-squared <span class="fac">SWF</span></span></span><span class="match-score"><span class="op">10&ndash;1</span><span class="vp">244&ndash;108 VP</span></span></li>
+                <li class="match"><span class="match-table">T3</span><span class="match-body"><span class="winner">Brickwarrior <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">Pinkghost <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">242&ndash;69 VP</span></span></li>
+                <li class="match"><span class="match-table">T4</span><span class="match-body"><span class="winner">Billiam <span class="fac">MRRF</span></span> <span class="verb">def.</span> <span class="loser">erichagz <span class="fac">Shin</span></span></span><span class="match-score"><span class="op">7&ndash;4</span><span class="vp">41&ndash;204 VP</span></span></li>
+                <li class="match"><span class="match-table">T5</span><span class="match-body"><span class="winner">dragoonxxiv <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">Lightning Dust <span class="fac">HB</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">146&ndash;64 VP</span></span></li>
+                <li class="match"><span class="match-table">T6</span><span class="match-body"><span class="winner">Jester of Kalgan <span class="fac">BJC</span></span> <span class="verb">def.</span> <span class="loser">Tewhill <span class="fac">vNomad</span></span></span><span class="match-score"><span class="op">10&ndash;1</span><span class="vp">233&ndash;158 VP</span></span></li>
+                <li class="match"><span class="match-table">T7</span><span class="match-body"><span class="winner">TravelinYake <span class="fac">HB</span></span> <span class="verb">def.</span> <span class="loser">Gemini <span class="fac">Shin</span></span></span><span class="match-score"><span class="op">10&ndash;3</span><span class="vp">123&ndash;156 VP</span></span></li>
+                <li class="match"><span class="match-table">T8</span><span class="match-body"><span class="winner">Sloppy Steak <span class="fac">ISS</span></span> <span class="verb">def.</span> <span class="loser">Benson <span class="fac">SEF</span></span></span><span class="match-score"><span class="op">7&ndash;4</span><span class="vp">299&ndash;88 VP</span></span></li>
+                <li class="match"><span class="match-table">T9</span><span class="match-body"><span class="winner">liquidmetal9015 <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">SiyaChon <span class="fac">MO</span></span></span><span class="match-score"><span class="op">10&ndash;2</span><span class="vp">154&ndash;162 VP</span></span></li>
+                <li class="match"><span class="match-table">T10</span><span class="match-body"><span class="winner">Dread <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">nevercrit <span class="fac">Oban</span></span></span><span class="match-score"><span class="op">10&ndash;4</span><span class="vp">300&ndash;66 VP</span></span></li>
+            </ul>
+        </details>
+
+        <details class="round">
+            <summary>
+                <div class="round-heading">
+                    <span class="round-name">Round 3</span>
+                    <span class="round-mission">Area of Interest</span>
+                </div>
+                <span class="round-toggle"></span>
+            </summary>
+            <ul class="match-list">
+                <li class="match"><span class="match-table">T1</span><span class="match-body"><span class="winner">Knuds, Wing King <span class="fac">SEF</span></span> <span class="verb">def.</span> <span class="loser">TravelinYake <span class="fac">HB</span></span></span><span class="match-score"><span class="op">5&ndash;4</span><span class="vp">153&ndash;67 VP</span></span></li>
+                <li class="match"><span class="match-table">T2</span><span class="match-body"><span class="winner">Brickwarrior <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">Sloppy Steak <span class="fac">ISS</span></span></span><span class="match-score"><span class="op">4&ndash;1</span><span class="vp">73&ndash;120 VP</span></span></li>
+                <li class="match is-tie"><span class="match-table">T3</span><span class="match-body"><span class="p1">erichagz <span class="fac">Shin</span></span> <span class="verb">drew</span> <span class="p2">Jester of Kalgan <span class="fac">BJC</span></span></span><span class="match-score"><span class="op">5&ndash;5</span><span class="vp">126&ndash;165 VP</span></span></li>
+                <li class="match"><span class="match-table">T4</span><span class="match-body"><span class="winner">Greyscale Hobbies <span class="fac">CJC</span></span> <span class="verb">def.</span> <span class="loser">liquidmetal9015 <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">6&ndash;3</span><span class="vp">189&ndash;112 VP</span></span></li>
+                <li class="match"><span class="match-table">T5</span><span class="match-body"><span class="winner">T-squared <span class="fac">SWF</span></span> <span class="verb">def.</span> <span class="loser">SiyaChon <span class="fac">MO</span></span></span><span class="match-score"><span class="op">5&ndash;1</span><span class="vp">258&ndash;61 VP</span></span></li>
+                <li class="match"><span class="match-table">T6</span><span class="match-body"><span class="winner">Billiam <span class="fac">MRRF</span></span> <span class="verb">def.</span> <span class="loser">Lightning Dust <span class="fac">HB</span></span></span><span class="match-score"><span class="op">8&ndash;0</span><span class="vp">222&ndash;38 VP</span></span></li>
+                <li class="match"><span class="match-table">T7</span><span class="match-body"><span class="winner">Pinkghost <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">Dread <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">5&ndash;2</span><span class="vp">104&ndash;73 VP</span></span></li>
+                <li class="match"><span class="match-table">T8</span><span class="match-body"><span class="winner">dragoonxxiv <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">PhilRosey <span class="fac">vAri</span></span></span><span class="match-score"><span class="op">9&ndash;0</span><span class="vp">156&ndash;58 VP</span></span></li>
+                <li class="match"><span class="match-table">T9</span><span class="match-body"><span class="winner">Benson <span class="fac">SEF</span></span> <span class="verb">def.</span> <span class="loser">nevercrit <span class="fac">Oban</span></span></span><span class="match-score"><span class="op">7&ndash;1</span><span class="vp">196&ndash;116 VP</span></span></li>
+                <li class="match"><span class="match-table">T10</span><span class="match-body"><span class="winner">Gemini <span class="fac">Shin</span></span> <span class="verb">def.</span> <span class="loser">Tewhill <span class="fac">vNomad</span></span></span><span class="match-score"><span class="op">8&ndash;1</span><span class="vp">264&ndash;104 VP</span></span></li>
+            </ul>
+        </details>
+
+        <details class="round">
+            <summary>
+                <div class="round-heading">
+                    <span class="round-name">Round 4</span>
+                    <span class="round-mission">Hardlock</span>
+                </div>
+                <span class="round-toggle"></span>
+            </summary>
+            <ul class="match-list">
+                <li class="match"><span class="match-table">T1</span><span class="match-body"><span class="winner">Billiam <span class="fac">MRRF</span></span> <span class="verb">def.</span> <span class="loser">T-squared <span class="fac">SWF</span></span></span><span class="match-score"><span class="op">6&ndash;2</span><span class="vp">63&ndash;139 VP</span></span></li>
+                <li class="match"><span class="match-table">T2</span><span class="match-body"><span class="winner">TravelinYake <span class="fac">HB</span></span> <span class="verb">def.</span> <span class="loser">Jester of Kalgan <span class="fac">BJC</span></span></span><span class="match-score"><span class="op">7&ndash;2</span><span class="vp">159&ndash;23 VP</span></span></li>
+                <li class="match"><span class="match-table">T3</span><span class="match-body"><span class="winner">dragoonxxiv <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">Greyscale Hobbies <span class="fac">CJC</span></span></span><span class="match-score"><span class="op">8&ndash;0</span><span class="vp">241&ndash;18 VP</span></span></li>
+                <li class="match"><span class="match-table">T4</span><span class="match-body"><span class="winner">Knuds, Wing King <span class="fac">SEF</span></span> <span class="verb">def.</span> <span class="loser">Brickwarrior <span class="fac">OSS</span></span></span><span class="match-score"><span class="op">6&ndash;2</span><span class="vp">248&ndash;122 VP</span></span></li>
+                <li class="match"><span class="match-table">T5</span><span class="match-body"><span class="winner">Dread <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">Benson <span class="fac">SEF</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">206&ndash;0 VP</span></span></li>
+                <li class="match"><span class="match-table">T6</span><span class="match-body"><span class="winner">SiyaChon <span class="fac">MO</span></span> <span class="verb">def.</span> <span class="loser">Gemini <span class="fac">Shin</span></span></span><span class="match-score"><span class="op">6&ndash;2</span><span class="vp">248&ndash;74 VP</span></span></li>
+                <li class="match"><span class="match-table">T7</span><span class="match-body"><span class="winner">erichagz <span class="fac">Shin</span></span> <span class="verb">def.</span> <span class="loser">liquidmetal9015 <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">5&ndash;3</span><span class="vp">201&ndash;192 VP</span></span></li>
+                <li class="match"><span class="match-table">T8</span><span class="match-body"><span class="winner">nevercrit <span class="fac">Oban</span></span> <span class="verb">def.</span> <span class="loser">Tewhill <span class="fac">vNomad</span></span></span><span class="match-score"><span class="op">6&ndash;3</span><span class="vp">221&ndash;159 VP</span></span></li>
+                <li class="match"><span class="match-table">T9</span><span class="match-body"><span class="winner">Pinkghost <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">Sloppy Steak <span class="fac">ISS</span></span></span><span class="match-score"><span class="op">6&ndash;1</span><span class="vp">92&ndash;95 VP</span></span></li>
+                <li class="match"><span class="match-table">T10</span><span class="match-body"><span class="winner">PhilRosey <span class="fac">vAri</span></span> <span class="verb">def.</span> <span class="loser">Lightning Dust <span class="fac">HB</span></span></span><span class="match-score"><span class="op">8&ndash;0</span><span class="vp">221&ndash;55 VP</span></span></li>
+            </ul>
+        </details>
+
+        <details class="round">
+            <summary>
+                <div class="round-heading">
+                    <span class="round-name">Round 5</span>
+                    <span class="round-mission">Unmasking</span>
+                </div>
+                <span class="round-toggle"></span>
+            </summary>
+            <ul class="match-list">
+                <li class="match"><span class="match-table">T1</span><span class="match-body"><span class="winner">Dread <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">Brickwarrior <span class="fac">OSS</span></span></span><span class="match-score"><span class="op">6&ndash;4</span><span class="vp">62&ndash;174 VP</span></span></li>
+                <li class="match"><span class="match-table">T2</span><span class="match-body"><span class="winner">erichagz <span class="fac">Shin</span></span> <span class="verb">def.</span> <span class="loser">Pinkghost <span class="fac">KCF</span></span></span><span class="match-score"><span class="op">10&ndash;1</span><span class="vp">265&ndash;71 VP</span></span></li>
+                <li class="match"><span class="match-table">T3</span><span class="match-body"><span class="winner">Benson <span class="fac">SEF</span></span> <span class="verb">def.</span> <span class="loser">Tewhill <span class="fac">vNomad</span></span></span><span class="match-score"><span class="op">8&ndash;3</span><span class="vp">245&ndash;149 VP</span></span></li>
+                <li class="match"><span class="match-table">T4</span><span class="match-body"><span class="winner">Lightning Dust <span class="fac">HB</span></span> <span class="verb">def.</span> <span class="loser">nevercrit <span class="fac">Oban</span></span></span><span class="match-score"><span class="op">7&ndash;4</span><span class="vp">160&ndash;234 VP</span></span></li>
+                <li class="match"><span class="match-table">T5</span><span class="match-body"><span class="winner">liquidmetal9015 <span class="fac">KCF</span></span> <span class="verb">def.</span> <span class="loser">Gemini <span class="fac">Shin</span></span></span><span class="match-score"><span class="op">9&ndash;1</span><span class="vp">65&ndash;120 VP</span></span></li>
+                <li class="match"><span class="match-table">T6</span><span class="match-body"><span class="winner">PhilRosey <span class="fac">vAri</span></span> <span class="verb">def.</span> <span class="loser">Sloppy Steak <span class="fac">ISS</span></span></span><span class="match-score"><span class="op">7&ndash;2</span><span class="vp">250&ndash;117 VP</span></span></li>
+                <li class="match"><span class="match-table">T7</span><span class="match-body"><span class="winner">Jester of Kalgan <span class="fac">BJC</span></span> <span class="verb">def.</span> <span class="loser">SiyaChon <span class="fac">MO</span></span></span><span class="match-score"><span class="op">10&ndash;0</span><span class="vp">234&ndash;94 VP</span></span></li>
+                <li class="match"><span class="match-table">T8</span><span class="match-body"><span class="winner">Billiam <span class="fac">MRRF</span></span> <span class="verb">def.</span> <span class="loser">TravelinYake <span class="fac">HB</span></span></span><span class="match-score"><span class="op">6&ndash;5</span><span class="vp">143&ndash;44 VP</span></span></li>
+                <li class="match"><span class="match-table">T9</span><span class="match-body"><span class="winner">dragoonxxiv <span class="fac">OSS</span></span> <span class="verb">def.</span> <span class="loser">Knuds, Wing King <span class="fac">SEF</span></span><span class="title-tag">Title Decider</span></span><span class="match-score"><span class="op">8&ndash;3</span><span class="vp">269&ndash;144 VP</span></span></li>
+                <li class="match"><span class="match-table">T10</span><span class="match-body"><span class="winner">T-squared <span class="fac">SWF</span></span> <span class="verb">def.</span> <span class="loser">Greyscale Hobbies <span class="fac">CJC</span></span></span><span class="match-score"><span class="op">8&ndash;1</span><span class="vp">224&ndash;123 VP</span></span></li>
+            </ul>
+        </details>
+
+        <!-- ===== SENDOFF ===== -->
+        <div class="sendoff">
+            <div class="sendoff-headline">See You Next Year!</div>
+            <p class="sendoff-body">
+                Twenty players, five rounds, and two days of hard-fought, sporting Infinity. Thank you to everyone who came out, to the crew at the Ironweld Gaming Convention, and to all of our patrons. The Bay State Showdown will return in 2027 &mdash; until then, roll well.
+            </p>
+
+            <div class="sendoff-next">
+                <div class="sendoff-next-label">Next Up on the New England Circuit</div>
+                <div class="sendoff-next-event"><a href="beantown.html">Beantown Beatdown V</a></div>
+                <div class="sendoff-next-date">December 12&ndash;13, 2026 &middot; Danvers, MA</div>
+                <div class="cta-container">
+                    <a href="beantown.html" class="btn btn-primary">Beantown Beatdown V</a>
+                    <a href="https://www.facebook.com/profile.php?id=61572788194223" class="btn btn-secondary" target="_blank" rel="noopener">Follow on Facebook</a>
                 </div>
             </div>
         </div>
@@ -698,30 +760,8 @@
 
     </div>
 
-    <!-- Sweepstakes Rules Modal -->
-    <div id="rulesOverlay" class="rules-overlay" onclick="if(event.target===this)this.classList.remove('open')">
-        <div class="rules-modal">
-            <button class="rules-close" onclick="document.getElementById('rulesOverlay').classList.remove('open')" aria-label="Close">&times;</button>
-            <div class="rules-modal-title">Bay State Showdown Sweepstakes &mdash; Official Rules &amp; Entry Procedures</div>
-            <div class="rules-body">
-                <p><strong>NO PURCHASE OR PAYMENT OF ANY KIND IS NECESSARY TO ENTER OR WIN. VOID WHERE PROHIBITED BY LAW.</strong></p>
-                <p><strong>1. SPONSOR.</strong> This sweepstakes is sponsored by Infinity New England, an independent Infinity: The Game community organization operating in the New England region ("Sponsor"). The Sponsor is not affiliated with Corvus Belli S.L.L. or any of its subsidiaries. This promotion is in no way sponsored, endorsed, administered by, or associated with Corvus Belli S.L.L.</p>
-                <p><strong>2. ELIGIBILITY.</strong> The Bay State Showdown Sweepstakes is open to all individuals who are at least eighteen (18) years of age at the time of entry. Employees, organizers, judges, and volunteers directly involved in the administration of Bay State Showdown are not eligible to enter. Participation constitutes entrant's full and unconditional agreement to and acceptance of these Official Rules.</p>
-                <p><strong>3. REGISTRATION ENTRY PERIODS &amp; ALLOCATION.</strong> Entrants may receive sweepstakes entries incidental to their paid registration for the Bay State Showdown event. Registration fees cover the cost of venue access, tournament logistics, and terrain provision; sweepstakes entries are provided purely as a promotional bonus. <em>Tier 1:</em> Entrants who complete paid registration on or before April 1, 2026, at 11:59 PM Eastern Time will receive ten (10) sweepstakes entries. <em>Tier 2:</em> Entrants who complete paid registration after April 1, 2026, and on or before May 1, 2026, at 11:59 PM Eastern Time will receive five (5) sweepstakes entries. <em>Tier 3:</em> Entrants who complete paid registration after May 1, 2026, and on or before June 1, 2026, at 11:59 PM Eastern Time will receive one (1) sweepstakes entry. Registration after June 1, 2026, does not constitute entry into the sweepstakes. Entry allocations are determined solely by the date and time at which registration payment is confirmed. Each individual may receive only one allocation of entries corresponding to the applicable tier at the time of their registration; entry counts are not cumulative across tiers.</p>
-                <p><strong>4. ALTERNATIVE METHOD OF ENTRY (AMOE).</strong> No purchase or payment of any kind is necessary to enter this sweepstakes. To enter without registering for the Bay State Showdown event, on a plain 3&Prime; &times; 5&Prime; index card, legibly handprint or type your first name, last name, complete physical address, city, state, zip code, telephone number (including area code), date of birth, and email address (if any). Mail your completed 3&Prime; &times; 5&Prime; card in a standard business-size envelope with first-class postage affixed to: Infinity New England Sweepstakes C/O Webway Games, 200 East Main Street, Building 2 Unit E, Marlborough, MA 01752. Each valid mail-in entry will receive one (1) sweepstakes entry. Limit one (1) mail-in entry per person and per stamped envelope. Mail-in entries must be postmarked by June 1, 2026, and received by June 8, 2026, to be eligible. Mechanically reproduced mail-in entries are strictly prohibited. The Sponsor reserves the right to verify the eligibility of all entrants and to disqualify any entry that does not comply with these Official Rules.</p>
-                <p><strong>5. PRIZE.</strong> One (1) professionally painted Carmen &amp; Batard miniature set (Infinity: The Game, Nomads faction) painted by Jason of True Inq. The Sponsor makes no representations or warranties regarding the quality of the prize beyond what is visible in promotional materials. The prize must be claimed in person at the Bay State Showdown event (July 11&ndash;12, 2026) in Wakefield, Massachusetts. The event venue is open to the public for prize collection; a paid registration badge is not required to enter the venue lobby or hall to claim the prize. The Sponsor will not ship the prize under any circumstances. Any travel, lodging, or other expenses associated with attending the event to claim the prize are the sole responsibility of the winner. If the selected winner fails to claim the prize by the conclusion of the event on July 12, 2026, the prize will be forfeited and an alternate winner may be selected. The prize is non-transferable, has no cash value, and may not be substituted except at the sole discretion of the Sponsor.</p>
-                <p><strong>6. WINNER SELECTION &amp; NOTIFICATION.</strong> One (1) winner will be selected by a randomized physical drawing from all eligible entries. The drawing will be conducted live on-site by the Sponsor on July 11, 2026, during the Bay State Showdown event in Wakefield, Massachusetts. All valid entry allocations, including Tier 1, 2, and 3 registration entries and all valid AMOE mail-in entries, will be combined into a single physical drawing pool prior to selection. If the selected winner is present at the time of drawing, the prize will be awarded immediately upon verification of eligibility. If the selected winner is not present at the time of drawing, the Sponsor will attempt to notify the winner via the contact information provided at the time of entry. The prize will be held at the event registration desk through the conclusion of the event on July 12, 2026, at which point any unclaimed prize is automatically forfeited and an alternate winner may be drawn from the remaining eligible entries.</p>
-                <p><strong>7. GENERAL CONDITIONS.</strong> The Sponsor reserves the right to cancel, suspend, or modify the sweepstakes if fraud, technical failures, or any other factor impairs the integrity of the sweepstakes. By entering, each entrant agrees to release and hold harmless the Sponsor from any liability arising in connection with participation or acceptance of the prize. These Official Rules shall be governed by the laws of the Commonwealth of Massachusetts. Any dispute shall be resolved exclusively in the state or federal courts located in Massachusetts.</p>
-                <p><strong>8. PRACTICAL SUMMARY.</strong> Register early for Bay State Showdown (July 11&ndash;12, Wakefield, MA) and you are automatically entered to win a professionally painted Carmen &amp; Batard miniature set, painted by Jason at True Inq. The earlier you register, the more entries you receive. The prize will be drawn live on Saturday July 11 and must be claimed in person before the event concludes on Sunday July 12. We will not ship the prize. To enter for free via mail, see Section 4.</p>
-            </div>
-        </div>
-    </div>
-
-</body>
-
     <script data-goatcounter="https://infinitynewengland.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
+</body>
 </html>
-
-
