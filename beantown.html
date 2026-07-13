@@ -482,6 +482,260 @@
             .hero-meta { text-align: center; }
             .btn { width: 100%; text-align: center; }
         }
+
+        /* --- Sweepstakes Section --- */
+        .sweepstakes-section {
+            margin-top: 3rem;
+            border: 1px solid rgba(243, 192, 47, 0.25);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(243, 192, 47, 0.06);
+        }
+        /* Giveaway closed — entry window has passed */
+        .sweepstakes-section.section-closed {
+            border-color: rgba(255, 255, 255, 0.07);
+            box-shadow: none;
+            opacity: 0.5;
+            filter: grayscale(1);
+        }
+        .sweepstakes-section.section-closed .sweepstakes-eyebrow {
+            color: var(--muted);
+        }
+        .closed-banner {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.6rem 1rem;
+        }
+        .sweepstakes-image {
+            position: relative;
+            line-height: 0;
+        }
+        .sweepstakes-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: saturate(1.1);
+        }
+        .sweepstakes-image::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 55%;
+            background: linear-gradient(to bottom, transparent, rgba(7, 10, 38, 0.97) 90%);
+        }
+        .sweepstakes-content {
+            padding: 1.25rem 2rem 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(243, 192, 47, 0.04) 0%, rgba(7, 10, 38, 1) 70%);
+        }
+        .sweepstakes-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            margin-bottom: 0.35rem;
+        }
+        .sweepstakes-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .sweepstakes-artist {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        .sweepstakes-artist span {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .sweepstakes-headline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.15;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(243, 192, 47, 0.15);
+            margin-bottom: 1.1rem;
+        }
+        .entry-tiers {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        .entry-tier {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 6px;
+            padding: 0.7rem 0.85rem 0.6rem;
+            border-top: 3px solid transparent;
+        }
+        .entry-tier.tier-1 { border-top-color: var(--red); }
+        .entry-tier.tier-2 { border-top-color: rgba(192, 57, 43, 0.55); }
+        .entry-tier.tier-3 { border-top-color: rgba(192, 57, 43, 0.28); }
+
+        /* Closed tier — greyed out (registration window passed) */
+        .entry-tier.tier-closed {
+            background: rgba(255, 255, 255, 0.015);
+            border-color: rgba(255, 255, 255, 0.04);
+            border-top-color: rgba(120, 120, 120, 0.35);
+            opacity: 0.45;
+            filter: grayscale(1);
+        }
+        .entry-tier.tier-closed .tier-number,
+        .entry-tier.tier-closed .tier-detail strong {
+            color: var(--muted);
+        }
+
+        /* Active tier — brighter highlight with subtle glow */
+        .entry-tier.tier-active {
+            background: linear-gradient(135deg, rgba(243, 192, 47, 0.14) 0%, rgba(243, 192, 47, 0.04) 100%);
+            border-color: rgba(243, 192, 47, 0.55);
+            border-top-color: var(--gold);
+            box-shadow: 0 0 18px rgba(243, 192, 47, 0.25), inset 0 0 12px rgba(243, 192, 47, 0.05);
+        }
+        .entry-tier.tier-active .tier-number {
+            color: var(--gold-light);
+            text-shadow: 0 0 10px var(--gold-glow);
+        }
+        .entry-tier.tier-active .tier-unit {
+            color: var(--gold);
+        }
+        .entry-tier.tier-active .tier-detail strong {
+            color: white;
+        }
+        .tier-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        }
+        .tier-unit {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.3rem;
+            margin-bottom: 0.6rem;
+        }
+        .tier-detail {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-align: right;
+        }
+        .tier-detail strong {
+            color: var(--text);
+            font-weight: 600;
+            display: block;
+        }
+        .sweepstakes-footer-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .sweepstakes-draw-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        .sweepstakes-draw-note strong {
+            color: var(--text);
+        }
+        .sweepstakes-footnote {
+            font-size: 0.68rem;
+            color: rgba(146, 152, 201, 0.5);
+            text-align: right;
+        }
+        .sweepstakes-footnote a {
+            color: rgba(146, 152, 201, 0.5);
+            text-decoration: underline;
+            text-decoration-color: rgba(146, 152, 201, 0.3);
+            transition: color 0.2s;
+        }
+        .sweepstakes-footnote a:hover {
+            color: rgba(146, 152, 201, 0.85);
+            text-shadow: none;
+        }
+        @media (max-width: 540px) {
+            .entry-tiers { flex-direction: column; }
+            .sweepstakes-footer-row { flex-direction: column; align-items: flex-start; }
+            .sweepstakes-footnote { text-align: left; }
+        }
+
+        /* --- Rules Modal --- */
+        .rules-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+        .rules-overlay.open { display: block; }
+        .rules-modal {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--bg-2);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+        }
+        .rules-modal-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: white;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--panel-border);
+        }
+        .rules-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1.4rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+        }
+        .rules-close:hover { color: white; }
+        .rules-body {
+            font-size: 0.72rem;
+            line-height: 1.65;
+            color: #7f86b5;
+            column-count: 2;
+            column-gap: 1.5rem;
+        }
+        .rules-body p {
+            margin-bottom: 0.6rem;
+        }
+        .rules-body strong {
+            color: #aab0d8;
+            font-weight: 600;
+        }
+        @media (max-width: 580px) {
+            .rules-body { column-count: 1; }
+        }
     </style>
 </head>
 <body>
@@ -527,6 +781,48 @@
             <p>
                 We're committed to giving you the best two days of Infinity possible: excellent sportsmanship, fabulous prizes, and some of the best game tables at any event. Whether it's your first tournament or you're a top-ranked player in the world, there's a seat for you here. <a href="https://corvusbelli.com/en/press-room/blog/event-recap-beantown">See event coverage on the Corvus Belli blog.</a>
             </p>
+        </div>
+
+        <!-- ===== EARLY REGISTRATION SWEEPSTAKES ===== -->
+        <div class="sweepstakes-section">
+            <div class="sweepstakes-image">
+                <img src="images/zeta.jpg" alt="Professionally painted ITS Limited Zeta miniature by Tesseract Minis">
+            </div>
+            <div class="sweepstakes-content">
+                <div class="sweepstakes-header">
+                    <div class="sweepstakes-eyebrow">Early Registration Sweepstakes</div>
+                    <div class="sweepstakes-artist">Painted by <span>Tesseract Minis</span> &mdash; drawn live Saturday December 12</div>
+                </div>
+                <div class="sweepstakes-headline">Win a Fully Painted ITS Limited Zeta</div>
+
+                <div class="entry-tiers">
+                    <div class="entry-tier tier-1 tier-active">
+                        <div class="tier-number">10</div>
+                        <span class="tier-unit">Entries</span>
+                        <div class="tier-detail">Register by <strong>Sep 1</strong></div>
+                    </div>
+                    <div class="entry-tier tier-2">
+                        <div class="tier-number">5</div>
+                        <span class="tier-unit">Entries</span>
+                        <div class="tier-detail">Register by <strong>Oct 1</strong></div>
+                    </div>
+                    <div class="entry-tier tier-3">
+                        <div class="tier-number">1</div>
+                        <span class="tier-unit">Entry</span>
+                        <div class="tier-detail">Register by <strong>Nov 1</strong></div>
+                    </div>
+                </div>
+
+                <div class="sweepstakes-footer-row">
+                    <div class="sweepstakes-draw-note">
+                        Register early &mdash; more entries, better odds. Prize must be claimed in person. <strong>No purchase necessary to enter.</strong>
+                    </div>
+                    <div class="sweepstakes-footnote">
+                        No purchase necessary. Open to 18+. Void where prohibited.<br>
+                        <a href="#" onclick="document.getElementById('rulesOverlay').classList.add('open'); return false;">Official Rules</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ===== LOCATION ===== -->
@@ -705,6 +1001,25 @@
             <button class="lightbox-close" onclick="document.getElementById('tewhillLightbox').classList.remove('open')" aria-label="Close">&times;</button>
             <img src="images/tewhillBT4.jpg" alt="Best Table – Tewhill, Beantown IV">
             <div class="lightbox-caption">Best Table &mdash; <span>Tewhill</span> &middot; Beantown IV, Dec 2025</div>
+        </div>
+    </div>
+
+    <!-- Sweepstakes Rules Modal -->
+    <div id="rulesOverlay" class="rules-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+        <div class="rules-modal">
+            <button class="rules-close" onclick="document.getElementById('rulesOverlay').classList.remove('open')" aria-label="Close">&times;</button>
+            <div class="rules-modal-title">Beantown Beatdown V Sweepstakes &mdash; Official Rules &amp; Entry Procedures</div>
+            <div class="rules-body">
+                <p><strong>NO PURCHASE OR PAYMENT OF ANY KIND IS NECESSARY TO ENTER OR WIN. VOID WHERE PROHIBITED BY LAW.</strong></p>
+                <p><strong>1. SPONSOR.</strong> This sweepstakes is sponsored by Infinity New England, an independent Infinity: The Game community organization operating in the New England region ("Sponsor"). The Sponsor is not affiliated with Corvus Belli S.L.L. or any of its subsidiaries. This promotion is in no way sponsored, endorsed, administered by, or associated with Corvus Belli S.L.L.</p>
+                <p><strong>2. ELIGIBILITY.</strong> The Beantown Beatdown V Sweepstakes is open to all individuals who are at least eighteen (18) years of age at the time of entry. Employees, organizers, judges, and volunteers directly involved in the administration of Beantown Beatdown V are not eligible to enter. Participation constitutes entrant's full and unconditional agreement to and acceptance of these Official Rules.</p>
+                <p><strong>3. REGISTRATION ENTRY PERIODS &amp; ALLOCATION.</strong> Entrants may receive sweepstakes entries incidental to their paid registration for the Beantown Beatdown V event. Registration fees cover the cost of venue access, tournament logistics, and terrain provision; sweepstakes entries are provided purely as a promotional bonus. <em>Tier 1:</em> Entrants who complete paid registration on or before September 1, 2026, at 11:59 PM Eastern Time will receive ten (10) sweepstakes entries. <em>Tier 2:</em> Entrants who complete paid registration after September 1, 2026, and on or before October 1, 2026, at 11:59 PM Eastern Time will receive five (5) sweepstakes entries. <em>Tier 3:</em> Entrants who complete paid registration after October 1, 2026, and on or before November 1, 2026, at 11:59 PM Eastern Time will receive one (1) sweepstakes entry. Registration after November 1, 2026, does not constitute entry into the sweepstakes. Entry allocations are determined solely by the date and time at which registration payment is confirmed. Each individual may receive only one allocation of entries corresponding to the applicable tier at the time of their registration; entry counts are not cumulative across tiers.</p>
+                <p><strong>4. ALTERNATIVE METHOD OF ENTRY (AMOE).</strong> No purchase or payment of any kind is necessary to enter this sweepstakes. To enter without registering for the Beantown Beatdown V event, on a plain 3&Prime; &times; 5&Prime; index card, legibly handprint or type your first name, last name, complete physical address, city, state, zip code, telephone number (including area code), date of birth, and email address (if any). Mail your completed 3&Prime; &times; 5&Prime; card in a standard business-size envelope with first-class postage affixed to: Infinity New England Sweepstakes C/O Webway Games, 200 East Main Street, Building 2 Unit E, Marlborough, MA 01752. Each valid mail-in entry will receive one (1) sweepstakes entry. Limit one (1) mail-in entry per person and per stamped envelope. Mail-in entries must be postmarked by November 1, 2026, and received by November 8, 2026, to be eligible. Mechanically reproduced mail-in entries are strictly prohibited. The Sponsor reserves the right to verify the eligibility of all entrants and to disqualify any entry that does not comply with these Official Rules.</p>
+                <p><strong>5. PRIZE.</strong> One (1) professionally painted ITS Limited Zeta miniature (Infinity: The Game) painted by Tesseract Minis. The Sponsor makes no representations or warranties regarding the quality of the prize beyond what is visible in promotional materials. The prize must be claimed in person at the Beantown Beatdown V event (December 12&ndash;13, 2026) in Danvers, Massachusetts. The event venue is open to the public for prize collection; a paid registration badge is not required to enter the venue lobby or hall to claim the prize. The Sponsor will not ship the prize under any circumstances. Any travel, lodging, or other expenses associated with attending the event to claim the prize are the sole responsibility of the winner. If the selected winner fails to claim the prize by the conclusion of the event on December 13, 2026, the prize will be forfeited and an alternate winner may be selected. The prize is non-transferable, has no cash value, and may not be substituted except at the sole discretion of the Sponsor.</p>
+                <p><strong>6. WINNER SELECTION &amp; NOTIFICATION.</strong> One (1) winner will be selected by a randomized physical drawing from all eligible entries. The drawing will be conducted live on-site by the Sponsor on December 12, 2026, during the Beantown Beatdown V event in Danvers, Massachusetts. All valid entry allocations, including Tier 1, 2, and 3 registration entries and all valid AMOE mail-in entries, will be combined into a single physical drawing pool prior to selection. If the selected winner is present at the time of drawing, the prize will be awarded immediately upon verification of eligibility. If the selected winner is not present at the time of drawing, the Sponsor will attempt to notify the winner via the contact information provided at the time of entry. The prize will be held at the event registration desk through the conclusion of the event on December 13, 2026, at which point any unclaimed prize is automatically forfeited and an alternate winner may be drawn from the remaining eligible entries.</p>
+                <p><strong>7. GENERAL CONDITIONS.</strong> The Sponsor reserves the right to cancel, suspend, or modify the sweepstakes if fraud, technical failures, or any other factor impairs the integrity of the sweepstakes. By entering, each entrant agrees to release and hold harmless the Sponsor from any liability arising in connection with participation or acceptance of the prize. These Official Rules shall be governed by the laws of the Commonwealth of Massachusetts. Any dispute shall be resolved exclusively in the state or federal courts located in Massachusetts.</p>
+                <p><strong>8. PRACTICAL SUMMARY.</strong> Register early for Beantown Beatdown V (December 12&ndash;13, Danvers, MA) and you are automatically entered to win a professionally painted ITS Limited Zeta miniature, painted by Tesseract Minis. The earlier you register, the more entries you receive. The prize will be drawn live on Saturday December 12 and must be claimed in person before the event concludes on Sunday December 13. We will not ship the prize. To enter for free via mail, see Section 4.</p>
+            </div>
         </div>
     </div>
 
