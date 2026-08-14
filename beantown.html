@@ -243,6 +243,44 @@
             text-shadow: none;
         }
 
+        /* --- Tickets remaining meter --- */
+        /* Update --remaining + label text in the HTML as tickets sell;
+           add class "tickets-low" to .ticket-meter to turn it red */
+        .ticket-meter {
+            --remaining: 100%;
+            max-width: 340px;
+            margin: 1.5rem auto 0;
+            text-align: center;
+        }
+        .ticket-meter-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .ticket-meter-track {
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(245, 201, 72, 0.25);
+            overflow: hidden;
+        }
+        .ticket-meter-fill {
+            height: 100%;
+            width: var(--remaining);
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--gold-deep) 0%, var(--gold) 55%, var(--gold-light) 100%);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+        .ticket-meter.tickets-low .ticket-meter-label { color: #ff5c5c; }
+        .ticket-meter.tickets-low .ticket-meter-track { border-color: rgba(255, 92, 92, 0.35); }
+        .ticket-meter.tickets-low .ticket-meter-fill {
+            background: linear-gradient(90deg, #8f1f1f 0%, #e03e3e 55%, #ff7a6b 100%);
+            box-shadow: 0 0 12px rgba(255, 92, 92, 0.4);
+        }
+
         /* --- Intro --- */
         .intro-block {
             text-align: center;
@@ -769,6 +807,14 @@
         <div class="cta-row">
             <a href="https://wickeddicey.com/product/everwinter-infinity-the-universe/" class="btn btn-primary" target="_blank" rel="noopener">Buy Tickets</a>
             <a href="https://www.hilton.com/en/attend-my-event/bosnsdt-943-40e1f4e5-4964-489a-b2ad-cbbf3c7e9c1b/" class="btn btn-secondary" target="_blank" rel="noopener">Hotel Block</a>
+        </div>
+
+        <!-- Update --remaining and the label as tickets sell; add "tickets-low" class to go red -->
+        <div class="ticket-meter" style="--remaining: 85%" role="img" aria-label="85 percent of tickets remaining">
+            <div class="ticket-meter-label">85% of Tickets Remaining</div>
+            <div class="ticket-meter-track">
+                <div class="ticket-meter-fill"></div>
+            </div>
         </div>
 
         <span class="satellite-eyebrow">Season 18 Satellite Status Pending</span>
